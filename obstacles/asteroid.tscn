@@ -7,11 +7,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_snwlb"]
 radius = 49.2544
 
-[node name="Asteroid" type="RigidBody2D"]
+[node name="Asteroid" type="Area2D"]
 collision_layer = 32
-mass = 0.01
-gravity_scale = 0.0
 script = ExtResource("1_1r18x")
+SPEED = 250.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_snwlb")
@@ -20,5 +19,5 @@ shape = SubResource("CircleShape2D_snwlb")
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_7wdpy")
 
-[node name="LocalRotationComponent" parent="." node_paths=PackedStringArray("RIGID_BODY") instance=ExtResource("3_nt1o7")]
-RIGID_BODY = NodePath("..")
+[node name="LocalRotationComponent" parent="." node_paths=PackedStringArray("NODE2D") instance=ExtResource("3_nt1o7")]
+NODE2D = NodePath("..")

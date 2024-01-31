@@ -7,7 +7,6 @@ var PROJECTILE_BASIC_SCENE: PackedScene = preload("res://player/projectile_basic
 var CAN_SHOOT: bool = true
 
 func _ready():
-	print(1)
 	$AnimatedSprite2D.play("idle")
 
 func _process(_delta):

@@ -1,13 +1,13 @@
 extends Node
 class_name HealthComponent
 
-@export var health: int
+@export var HEALTH: int
+signal death_signal
 
 func take_damage(damage: int) -> void:
-	health -= damage
-
-func is_dead() -> bool:
-	return health <= 0
+	HEALTH -= damage
+	if(HEALTH <= 0):
+		death_signal.emit()
 
 func can_take_damage() -> bool:
-	return health > 0
+	return HEALTH > 0

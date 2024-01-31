@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://de16fo3l8lx0m"]
+[gd_scene load_steps=24 format=3 uid="uid://de16fo3l8lx0m"]
 
 [ext_resource type="Script" path="res://bosses/boss.gd" id="1_7hmf0"]
 [ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="2_2qnhd"]
 [ext_resource type="Texture2D" uid="uid://fv1gdgqap4pt" path="res://assets/Potato.png" id="2_g1mlo"]
 [ext_resource type="PackedScene" uid="uid://bxwm5t8mu8mdx" path="res://components/health_component.tscn" id="3_g1w4n"]
 [ext_resource type="PackedScene" uid="uid://dugn6ue3cwdsv" path="res://components/hurt_box_component.tscn" id="4_78gxk"]
+[ext_resource type="PackedScene" uid="uid://yc6drrh5nx08" path="res://components/oscillation_movement_component.tscn" id="6_5qehw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_up1uf"]
 resource_local_to_scene = true
@@ -98,6 +99,21 @@ height = 354.0
 radius = 138.0
 height = 356.0
 
+[sub_resource type="Animation" id="Animation_cr6fi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_14s48"]
 resource_name = "hit_flash"
 length = 0.1
@@ -112,21 +128,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_cr6fi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iqxld"]
@@ -152,7 +153,7 @@ shape = SubResource("CapsuleShape2D_83jig")
 metadata/_edit_lock_ = true
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_g1w4n")]
-health = 100
+HEALTH = 100
 
 [node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("HEALTH_COMPONENT", "ANIMATION_PLAYER") instance=ExtResource("4_78gxk")]
 collision_layer = 4
@@ -168,4 +169,10 @@ libraries = {
 "": SubResource("AnimationLibrary_iqxld")
 }
 
+[node name="OscillationMovementComponent" parent="." node_paths=PackedStringArray("CHARACTER_BODY_2D") instance=ExtResource("6_5qehw")]
+FREQUENCY = 2.0
+AMPLITUDE = 666.0
+CHARACTER_BODY_2D = NodePath("..")
+
+[connection signal="death_signal" from="HealthComponent" to="." method="_on_health_component_death_signal"]
 [connection signal="area_entered" from="HurtBoxComponent" to="." method="_on_hurt_box_component_area_entered"]

@@ -1,18 +1,26 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706704596
+::res://::1706715850
+export_presets.cfg::TextFile::-1::1706711743::0::1::::<><>::
 icon.svg::CompressedTexture2D::2012259090947846481::1706689608::1706689618::1::::<><>::
-::res://assets/::1706704903
+::res://assets/::1706704905
 Background.jpg::CompressedTexture2D::2553636280936574351::1706693381::1706693383::1::::<><>::
 Potato.png::CompressedTexture2D::395885675167241981::1706704903::1706704905::1::::<><>::
 Projectile Single.png::CompressedTexture2D::3552020305750646261::1706701615::1706701618::1::::<><>::
 UFO.png::CompressedTexture2D::877780877799681730::1706691665::1706691666::1::::<><>::
-::res://bosses/::1706704874
-boss.gd::GDScript::-1::1706704859::0::1::::<>CharacterBody2D<>::
-boss.tscn::PackedScene::7495583182108045954::1706704874::0::1::::<><>::res://bosses/boss.gd
-::res://levels/::1706704466
-level.tscn::PackedScene::656550359907006560::1706704466::0::1::::<><>::uid://bcnaata14w87l::::res://assets/Background.jpg<>uid://oj0pcpf8wyyl::::res://player/player.tscn
-::res://player/::1706704466
+::res://bosses/::1706715830
+boss.gd::GDScript::-1::1706715683::0::1::::<>CharacterBody2D<>::
+boss.tscn::PackedScene::7495583182108045954::1706715830::0::1::::<><>::res://bosses/boss.gd<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://fv1gdgqap4pt::::res://assets/Potato.png<>uid://bxwm5t8mu8mdx::::res://components/health_component.tscn<>uid://dugn6ue3cwdsv::::res://components/hurt_box_component.tscn
+::res://components/::1706715762
+health_component.gd::GDScript::-1::1706715094::0::1::::HealthComponent<>Node<>::
+health_component.tscn::PackedScene::4046963625182966709::1706715762::0::1::::<><>::res://components/health_component.gd
+hurt_box_component.gd::GDScript::-1::1706714186::0::1::::HurtBoxComponent<>Area2D<>::
+hurt_box_component.tscn::PackedScene::8576270928803279189::1706715762::0::1::::<><>::res://components/hurt_box_component.gd
+::res://levels/::1706715762
+level.tscn::PackedScene::656550359907006560::1706715762::0::1::::<><>::uid://bcnaata14w87l::::res://assets/Background.jpg<>uid://oj0pcpf8wyyl::::res://player/player.tscn<>uid://de16fo3l8lx0m::::res://bosses/boss.tscn
+::res://player/::1706715762
 player.gd::GDScript::-1::1706703798::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::1002768050937662395::1706704466::0::1::::<><>::res://player/player.gd<>uid://mrg6m1g4dwfy::::res://assets/UFO.png
-projectile_basic.gd::GDScript::-1::1706703874::0::1::::ProjectileBasic<>Area2D<>::
-projectile_basic.tscn::PackedScene::5631614834416338699::1706704466::0::1::::<><>::res://player/projectile_basic.gd<>uid://bquvixll4bkn2::::res://assets/Projectile Single.png
+player.tscn::PackedScene::1002768050937662395::1706715762::0::1::::<><>::res://player/player.gd<>uid://mrg6m1g4dwfy::::res://assets/UFO.png
+projectile_basic.gd::GDScript::-1::1706713788::0::1::::ProjectileBasic<>Area2D<>::
+projectile_basic.tscn::PackedScene::5631614834416338699::1706715762::0::1::::<><>::res://player/projectile_basic.gd<>uid://bquvixll4bkn2::::res://assets/Projectile Single.png
+::res://shaders/::1706714623
+hit_flash.tres::VisualShader::8576610010746867921::1706714623::0::1::::<><>::

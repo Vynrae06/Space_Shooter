@@ -46,4 +46,4 @@ collision_mask = 124
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="Boss" parent="." instance=ExtResource("3_myftn")]
-position = Vector2(750, 0)
+position = Vector2(693, 0)

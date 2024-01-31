@@ -7,6 +7,7 @@ var PROJECTILE_BASIC_SCENE: PackedScene = preload("res://player/projectile_basic
 var CAN_SHOOT: bool = true
 
 func _ready():
+	print(1)
 	$AnimatedSprite2D.play("idle")
 
 func _process(_delta):
@@ -22,9 +23,9 @@ func move():
 
 func shoot():
 	if Input.is_action_pressed("shoot_normal") and CAN_SHOOT: 
-		var spawned_projectile = PROJECTILE_BASIC_SCENE.instantiate()
-		spawned_projectile.position = $ShotInstantiateMarker.global_position
-		$"../Projectiles".add_child(spawned_projectile)
+		var spawned_projectile = PROJECTILE_BASIC_SCENE.instantiate() as Area2D
+		spawned_projectile.global_position = $ShotInstantiateMarker.global_position
+		$"../ProjectilesHolder".add_child(spawned_projectile)
 		$ShotTimer.start()
 		CAN_SHOOT = false
 

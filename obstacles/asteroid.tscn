@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://sycnr10dwxuw"]
+
+[ext_resource type="Script" path="res://obstacles/asteroid.gd" id="1_1r18x"]
+[ext_resource type="Texture2D" uid="uid://cv3o8vgp4kr5y" path="res://assets/Meteor 1A.png" id="2_7wdpy"]
+[ext_resource type="PackedScene" uid="uid://cc2x5j5hsah37" path="res://components/local_rotation_component.tscn" id="3_nt1o7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_snwlb"]
+radius = 49.2544
+
+[node name="Asteroid" type="RigidBody2D"]
+collision_layer = 32
+mass = 0.01
+gravity_scale = 0.0
+script = ExtResource("1_1r18x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_snwlb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_7wdpy")
+
+[node name="LocalRotationComponent" parent="." node_paths=PackedStringArray("RIGID_BODY") instance=ExtResource("3_nt1o7")]
+RIGID_BODY = NodePath("..")

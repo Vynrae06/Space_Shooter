@@ -1,0 +1,171 @@
+[gd_scene load_steps=23 format=3 uid="uid://de16fo3l8lx0m"]
+
+[ext_resource type="Script" path="res://bosses/boss.gd" id="1_7hmf0"]
+[ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="2_2qnhd"]
+[ext_resource type="Texture2D" uid="uid://fv1gdgqap4pt" path="res://assets/Potato.png" id="2_g1mlo"]
+[ext_resource type="PackedScene" uid="uid://bxwm5t8mu8mdx" path="res://components/health_component.tscn" id="3_g1w4n"]
+[ext_resource type="PackedScene" uid="uid://dugn6ue3cwdsv" path="res://components/hurt_box_component.tscn" id="4_78gxk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_up1uf"]
+resource_local_to_scene = true
+shader = ExtResource("2_2qnhd")
+shader_parameter/Enabled = true
+shader_parameter/Tint = Color(1, 1, 1, 0.501961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji02d"]
+atlas = ExtResource("2_g1mlo")
+region = Rect2(530, 515, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucnx4"]
+atlas = ExtResource("2_g1mlo")
+region = Rect2(1060, 515, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ync5g"]
+atlas = ExtResource("2_g1mlo")
+region = Rect2(1590, 515, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_baxop"]
+atlas = ExtResource("2_g1mlo")
+region = Rect2(2120, 515, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1m4p4"]
+atlas = ExtResource("2_g1mlo")
+region = Rect2(2650, 515, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eofk"]
+atlas = ExtResource("2_g1mlo")
+region = Rect2(0, 1030, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih51i"]
+atlas = ExtResource("2_g1mlo")
+region = Rect2(530, 1030, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nidj"]
+atlas = ExtResource("2_g1mlo")
+region = Rect2(1060, 1030, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e52sl"]
+atlas = ExtResource("2_g1mlo")
+region = Rect2(1590, 1030, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50dpp"]
+atlas = ExtResource("2_g1mlo")
+region = Rect2(2120, 1030, 530, 515)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pqc2h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji02d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucnx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ync5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_baxop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1m4p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eofk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih51i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nidj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e52sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50dpp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_83jig"]
+radius = 118.0
+height = 354.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r15sp"]
+radius = 138.0
+height = 356.0
+
+[sub_resource type="Animation" id="Animation_14s48"]
+resource_name = "hit_flash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_cr6fi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iqxld"]
+_data = {
+"RESET": SubResource("Animation_cr6fi"),
+"hit_flash": SubResource("Animation_14s48")
+}
+
+[node name="Boss" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_7hmf0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_up1uf")
+position = Vector2(-7, -75)
+sprite_frames = SubResource("SpriteFrames_pqc2h")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_83jig")
+metadata/_edit_lock_ = true
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_g1w4n")]
+health = 100
+
+[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("HEALTH_COMPONENT", "ANIMATION_PLAYER") instance=ExtResource("4_78gxk")]
+collision_layer = 4
+collision_mask = 2
+HEALTH_COMPONENT = NodePath("../HealthComponent")
+ANIMATION_PLAYER = NodePath("../HitFlash")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
+shape = SubResource("CapsuleShape2D_r15sp")
+
+[node name="HitFlash" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iqxld")
+}
+
+[connection signal="area_entered" from="HurtBoxComponent" to="." method="_on_hurt_box_component_area_entered"]

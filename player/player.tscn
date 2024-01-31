@@ -1,0 +1,151 @@
+[gd_scene load_steps=21 format=3 uid="uid://oj0pcpf8wyyl"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_th58a"]
+[ext_resource type="Texture2D" uid="uid://mrg6m1g4dwfy" path="res://assets/UFO.png" id="2_ad8w1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pf2us"]
+radius = 18.0
+height = 118.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nelc"]
+atlas = ExtResource("2_ad8w1")
+region = Rect2(0, 0, 160, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acr8h"]
+atlas = ExtResource("2_ad8w1")
+region = Rect2(160, 0, 160, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s50le"]
+atlas = ExtResource("2_ad8w1")
+region = Rect2(320, 0, 160, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3ltc"]
+atlas = ExtResource("2_ad8w1")
+region = Rect2(480, 0, 160, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeu6n"]
+atlas = ExtResource("2_ad8w1")
+region = Rect2(640, 0, 160, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy0l8"]
+atlas = ExtResource("2_ad8w1")
+region = Rect2(0, 55, 160, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2pp8"]
+atlas = ExtResource("2_ad8w1")
+region = Rect2(160, 55, 160, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r27a2"]
+atlas = ExtResource("2_ad8w1")
+region = Rect2(320, 55, 160, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc8ws"]
+atlas = ExtResource("2_ad8w1")
+region = Rect2(480, 55, 160, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogmyl"]
+atlas = ExtResource("2_ad8w1")
+region = Rect2(640, 55, 160, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5hpo"]
+atlas = ExtResource("2_ad8w1")
+region = Rect2(0, 110, 160, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlva6"]
+atlas = ExtResource("2_ad8w1")
+region = Rect2(160, 110, 160, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwic6"]
+atlas = ExtResource("2_ad8w1")
+region = Rect2(320, 110, 160, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eagyi"]
+atlas = ExtResource("2_ad8w1")
+region = Rect2(480, 110, 160, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sh108"]
+atlas = ExtResource("2_ad8w1")
+region = Rect2(640, 110, 160, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrc0h"]
+atlas = ExtResource("2_ad8w1")
+region = Rect2(0, 165, 160, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ve87d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nelc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acr8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s50le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3ltc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeu6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy0l8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2pp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r27a2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lc8ws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogmyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5hpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlva6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwic6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eagyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sh108")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrc0h")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 24.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 28
+script = ExtResource("1_th58a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pf2us")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ve87d")
+animation = &"idle"
+metadata/_edit_lock_ = true
+
+[node name="ShotInstantiateMarker" type="Marker2D" parent="."]
+position = Vector2(114, 0)
+
+[node name="ShotTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

@@ -1,0 +1,6 @@
+res://bosses/boss.tscn::60f62469bfbdccc372d0aeb36c36bd10::1706711215::res://.godot/exported/133200997/export-ac4bacff59ceed8415172213ec74d3d6-boss.scn
+res://components/health_component.tscn::ea284ab5ce86f4f386ac7c812f2f1081::1706711215::res://.godot/exported/133200997/export-389011ced2f16d0dab2aa6d8ad3a3a87-health_component.scn
+res://components/hurt_box_component.tscn::b66a3b11f9360644b6c2ccf38214b690::1706711215::res://.godot/exported/133200997/export-70e5fd0f0dd98588bc273dd70c528fad-hurt_box_component.scn
+res://levels/level.tscn::a207a50163ee0fc8e19c3140519941f1::1706711214::res://.godot/exported/133200997/export-2ba9609e68cc8875d848c4125928a176-level.scn
+res://player/player.tscn::1f001cad50ae47ce098dc4c42a0ae64d::1706711214::res://.godot/exported/133200997/export-753d15e03e0182f9d550ac833b42bb41-player.scn
+res://player/projectile_basic.tscn::cbaf011441bf9734a3074cd009c599ae::1706711214::res://.godot/exported/133200997/export-2b6099e0657095cffc23c52e06a74990-projectile_basic.scn

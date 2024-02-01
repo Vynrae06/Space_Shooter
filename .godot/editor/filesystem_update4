@@ -13,3 +13,5 @@ res://bosses/boss_ufo.gd
 res://player/player.gd
 res://levels/level.gd
 res://bosses/boss.gd
+res://player/projectile_basic.gd
+res://components/boss_attack_component.tscn

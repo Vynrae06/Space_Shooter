@@ -8,7 +8,7 @@ func _ready():
 	$SelfDestructTimer.start()
 
 func _physics_process(delta):
-	position += transform.x * SPEED * delta
+	position.x += SPEED * delta
 
 func _on_self_destruct_timer_timeout():
 	queue_free()

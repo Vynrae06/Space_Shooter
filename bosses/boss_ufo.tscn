@@ -115,12 +115,12 @@ FREQUENCY = 2.0
 AMPLITUDE = 666.0
 CHARACTER_BODY_2D = NodePath("..")
 
-[node name="BasicAttackCooldownTimer" type="Timer" parent="." index="6"]
+[node name="HorizontalAttackCooldown" type="Timer" parent="." index="6"]
 wait_time = 3.0
 one_shot = true
 
-[node name="BasicAttackLengthTimer" type="Timer" parent="." index="7"]
+[node name="HorizontalAttackLength" type="Timer" parent="." index="7"]
 one_shot = true
 
-[connection signal="timeout" from="BasicAttackCooldownTimer" to="." method="_on_basic_attack_cooldown_timer_timeout"]
-[connection signal="timeout" from="BasicAttackLengthTimer" to="." method="_on_basic_attack_length_timer_timeout"]
+[connection signal="timeout" from="HorizontalAttackCooldown" to="." method="_on_basic_attack_cooldown_timer_timeout"]
+[connection signal="timeout" from="HorizontalAttackLength" to="." method="_on_basic_attack_length_timer_timeout"]

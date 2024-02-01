@@ -10,8 +10,8 @@ func _ready():
 func _process(_delta):
 	if CAN_SPAWN:
 		hold_spawning()
-		var obstacle = OBSTACLE_SCENE.instantiate() as Obstacle
-		obstacle.set_spawn_position(MARKERS[0].position)
+		var obstacle = OBSTACLE_SCENE.instantiate() as ObstacleDestroyable
+		obstacle.set_spawn_position(MARKERS.pick_random().position)
 		$ObstaclesHolder.add_child(obstacle)
 
 func hold_spawning():

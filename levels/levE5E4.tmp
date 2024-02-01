@@ -1,0 +1,124 @@
+[gd_scene load_steps=17 format=3 uid="uid://jmbj2rm5qml1"]
+
+[ext_resource type="Texture2D" uid="uid://bcnaata14w87l" path="res://assets/Background.jpg" id="1_abhhe"]
+[ext_resource type="PackedScene" uid="uid://oj0pcpf8wyyl" path="res://player/player.tscn" id="2_mamf8"]
+[ext_resource type="PackedScene" uid="uid://dkwdv7atcmdc6" path="res://obstacles/obstacle_destroyable.tscn" id="4_04d17"]
+[ext_resource type="PackedScene" uid="uid://d4djecahvews7" path="res://obstacles/obstacles_spawner.tscn" id="4_64odp"]
+[ext_resource type="PackedScene" uid="uid://dq3ojxmvj0ebi" path="res://bosses/boss_ufo.tscn" id="5_clvgh"]
+[ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="5_fjpsj"]
+[ext_resource type="Texture2D" uid="uid://cv3o8vgp4kr5y" path="res://assets/Meteor 1A.png" id="6_wv8rt"]
+[ext_resource type="PackedScene" uid="uid://cc2x5j5hsah37" path="res://components/local_rotation_component.tscn" id="7_1onwu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5o00w"]
+size = Vector2(1919, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ssc0"]
+size = Vector2(19, 1041)
+
+[sub_resource type="GDScript" id="GDScript_fs0dh"]
+script/source = "extends ObstacleDestroyable
+
+@export var SPEED: float
+var DIRECTION: Vector2
+var PLAYER_POSITION: Vector2
+
+func _ready():
+	PLAYER_POSITION = get_tree().get_nodes_in_group(\"Player\").pick_random().position
+	DIRECTION = (PLAYER_POSITION - position).normalized()
+
+func _physics_process(delta):
+	position += DIRECTION * SPEED * delta
+
+func _on_health_component_death_signal():
+	queue_free()
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f84va"]
+resource_local_to_scene = true
+shader = ExtResource("5_fjpsj")
+shader_parameter/Enabled = true
+shader_parameter/Tint = Color(1, 1, 1, 0.501961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r1q4"]
+atlas = ExtResource("6_wv8rt")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_17ark"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r1q4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmy1k"]
+radius = 57.0351
+
+[sub_resource type="PackedScene" id="PackedScene_40ved"]
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(4, 0, 23, 22, 2, 0, 0),
+"editable_instances": [NodePath("ObstacleDestroyable"), NodePath("ObstacleDestroyable/HurtBoxComponent")],
+"names": PackedStringArray("Asteroid", "script", "SPEED", "Node2D", "ObstacleDestroyable", "collision_mask", "SelfDestructTimer", "wait_time", "CollisionShape2D", "AnimatedSprite2D", "material", "sprite_frames", "HealthComponent", "HEALTH", "HurtBoxComponent", "collision_layer", "shape", "HitFlashAnimationPlayer", "LocalRotationComponent", "NODE2D", "MIN_ROTATION_SPEED", "MAX_ROTATION_SPEED", "_on_health_component_death_signal", "death_signal"),
+"node_count": 8,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 3, 0, -1, 2, 1, 0, 2, 1, 0, 0, 0, 2147483647, 4, 2, 1, 5, 3, 0, 1, -1, 2147483647, 262150, -1, 1, 7, 4, 0, 1, -1, 2147483647, 786441, -1, 2, 10, 5, 11, 6, 0, 1, -1, 2147483647, 1048588, -1, 1, 13, 7, 0, 1, -1, 2147483647, 1310734, -1, 2, 15, 8, 5, 9, 0, 5, -1, 2147483647, 262152, -1, 1, 16, 10, 0, 0, 0, 2147483647, 18, 11, 3, 1073741843, 12, 20, 13, 21, 14, 0),
+"variants": [SubResource("GDScript_fs0dh"), 250.0, ExtResource("4_04d17"), 1, 10.0, SubResource("ShaderMaterial_f84va"), SubResource("SpriteFrames_17ark"), 5, 16, 2, SubResource("CircleShape2D_hmy1k"), ExtResource("7_1onwu"), NodePath(".."), 1.0, 2.0],
+"version": 3
+}
+
+[node name="LevelEasy" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_abhhe")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+editor_draw_limits = true
+
+[node name="Borders" type="StaticBody2D" parent="Camera2D"]
+collision_layer = 64
+collision_mask = 0
+
+[node name="Top" type="CollisionShape2D" parent="Camera2D/Borders"]
+position = Vector2(0.5, -530)
+shape = SubResource("RectangleShape2D_5o00w")
+
+[node name="Bottom" type="CollisionShape2D" parent="Camera2D/Borders"]
+position = Vector2(0.5, 531)
+shape = SubResource("RectangleShape2D_5o00w")
+
+[node name="Left" type="CollisionShape2D" parent="Camera2D/Borders"]
+position = Vector2(-949.5, 0.5)
+shape = SubResource("RectangleShape2D_7ssc0")
+
+[node name="Right" type="CollisionShape2D" parent="Camera2D/Borders"]
+position = Vector2(950, 0.5)
+shape = SubResource("RectangleShape2D_7ssc0")
+
+[node name="Player" parent="." instance=ExtResource("2_mamf8")]
+position = Vector2(-729, 9)
+collision_mask = 124
+
+[node name="AsteroidSpawner" parent="." node_paths=PackedStringArray("MARKERS") instance=ExtResource("4_64odp")]
+MARKERS = [NodePath("../AsteroidMarkers/MarkerTop"), NodePath("../AsteroidMarkers/MarkerBottom")]
+OBSTACLE_SCENE = SubResource("PackedScene_40ved")
+metadata/_edit_lock_ = true
+
+[node name="AsteroidMarkers" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="MarkerTop" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(950, -640)
+
+[node name="MarkerBottom" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(950, 640)
+
+[node name="ProjectilesHolder" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="BossUFO" parent="." instance=ExtResource("5_clvgh")]
+position = Vector2(713, 0)

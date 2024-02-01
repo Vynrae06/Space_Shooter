@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkwdv7atcmdc6"]
-
-[ext_resource type="Script" path="res://obstacles/obstacle.gd" id="1_kli7d"]
-
-[node name="Obstacle" type="Node2D"]
-script = ExtResource("1_kli7d")

@@ -11,4 +11,4 @@ func _process(delta):
 	move(delta)
 
 func move(delta):
-	CHARACTER_BODY_2D.position.y += cos(TIME*FREQUENCY) * AMPLITUDE * delta
+	CHARACTER_BODY_2D.position.y += cos(TIME * FREQUENCY) * AMPLITUDE * delta

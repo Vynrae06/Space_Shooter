@@ -1,0 +1,116 @@
+[gd_scene load_steps=19 format=3 uid="uid://dq3ojxmvj0ebi"]
+
+[ext_resource type="Script" path="res://bosses/boss_ufo.gd" id="1_6c0ru"]
+[ext_resource type="PackedScene" uid="uid://de16fo3l8lx0m" path="res://bosses/boss.tscn" id="2_re1sr"]
+[ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="3_o8q8i"]
+[ext_resource type="Texture2D" uid="uid://fv1gdgqap4pt" path="res://assets/Potato.png" id="4_6041e"]
+[ext_resource type="PackedScene" uid="uid://yc6drrh5nx08" path="res://components/oscillation_movement_component.tscn" id="5_sdbey"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wk7ru"]
+resource_local_to_scene = true
+shader = ExtResource("3_o8q8i")
+shader_parameter/Enabled = true
+shader_parameter/Tint = Color(1, 1, 1, 0.501961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d52de"]
+atlas = ExtResource("4_6041e")
+region = Rect2(1590, 515, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6jxt"]
+atlas = ExtResource("4_6041e")
+region = Rect2(2120, 515, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jwqc"]
+atlas = ExtResource("4_6041e")
+region = Rect2(2650, 515, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3mlv"]
+atlas = ExtResource("4_6041e")
+region = Rect2(0, 1030, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvsep"]
+atlas = ExtResource("4_6041e")
+region = Rect2(530, 1030, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw48y"]
+atlas = ExtResource("4_6041e")
+region = Rect2(1060, 1030, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgjmb"]
+atlas = ExtResource("4_6041e")
+region = Rect2(1590, 1030, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4tnj"]
+atlas = ExtResource("4_6041e")
+region = Rect2(1060, 515, 530, 515)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6psq"]
+atlas = ExtResource("4_6041e")
+region = Rect2(2120, 1030, 530, 515)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jl0mi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d52de")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6jxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jwqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3mlv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvsep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw48y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgjmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4tnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6psq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uftpm"]
+radius = 128.0
+height = 378.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bnb8n"]
+radius = 126.0
+height = 378.0
+
+[node name="BossUFO" instance=ExtResource("2_re1sr")]
+script = ExtResource("1_6c0ru")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_wk7ru")
+position = Vector2(-9, -63)
+sprite_frames = SubResource("SpriteFrames_jl0mi")
+animation = &"idle"
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_uftpm")
+
+[node name="HealthComponent" parent="." index="2"]
+HEALTH = 100
+
+[node name="CollisionShape2D" parent="HurtBoxComponent" index="0"]
+shape = SubResource("CapsuleShape2D_bnb8n")
+debug_color = Color(0.611765, 0.482353, 0.627451, 0.419608)
+
+[node name="OscillationMovementComponent" parent="." index="5" node_paths=PackedStringArray("CHARACTER_BODY_2D") instance=ExtResource("5_sdbey")]
+FREQUENCY = 2.0
+AMPLITUDE = 666.0
+CHARACTER_BODY_2D = NodePath("..")

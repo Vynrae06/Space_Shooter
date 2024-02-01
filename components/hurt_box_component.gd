@@ -8,3 +8,5 @@ func _on_area_entered(projectile):
 	if HEALTH_COMPONENT.can_take_damage():
 		HEALTH_COMPONENT.take_damage(projectile.DAMAGE)
 		ANIMATION_PLAYER.play("hit_flash")
+	else:
+		print("Health is 0!")

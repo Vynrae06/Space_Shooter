@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkwdv7atcmdc6"]
+
+[ext_resource type="Script" path="res://obstacles/obstacle_destroyable.gd" id="1_byptf"]
+[ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="2_ss7j2"]
+[ext_resource type="PackedScene" uid="uid://bxwm5t8mu8mdx" path="res://components/health_component.tscn" id="2_txlup"]
+[ext_resource type="PackedScene" uid="uid://dugn6ue3cwdsv" path="res://components/hurt_box_component.tscn" id="3_56m71"]
+[ext_resource type="PackedScene" uid="uid://dkc3l14co1pqv" path="res://components/Animation/hit_flash_animation_player.tscn" id="4_rffyg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7fisk"]
+resource_local_to_scene = true
+shader = ExtResource("2_ss7j2")
+shader_parameter/Enabled = true
+shader_parameter/Tint = Color(1, 1, 1, 0.501961)
+
+[node name="ObstacleDestroyable" type="Area2D"]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_byptf")
+
+[node name="SelfDestructTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_7fisk")
+scale = Vector2(0.25, 0.25)
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_txlup")]
+
+[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("HEALTH_COMPONENT", "ANIMATION_PLAYER") instance=ExtResource("3_56m71")]
+HEALTH_COMPONENT = NodePath("../HealthComponent")
+ANIMATION_PLAYER = NodePath("../HitFlashAnimationPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
+
+[node name="HitFlashAnimationPlayer" parent="." instance=ExtResource("4_rffyg")]
+
+[connection signal="timeout" from="SelfDestructTimer" to="." method="_on_self_destruct_timer_timeout"]
+[connection signal="death_signal" from="HealthComponent" to="." method="_on_health_component_death_signal"]
+
+[editable path="HurtBoxComponent"]

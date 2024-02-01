@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bcnaata14w87l" path="res://assets/Background.jpg" id="1_abhhe"]
 [ext_resource type="PackedScene" uid="uid://oj0pcpf8wyyl" path="res://player/player.tscn" id="2_mamf8"]
-[ext_resource type="PackedScene" uid="uid://de16fo3l8lx0m" path="res://bosses/boss.tscn" id="3_pfblc"]
 [ext_resource type="PackedScene" uid="uid://d4djecahvews7" path="res://obstacles/obstacles_spawner.tscn" id="4_64odp"]
-[ext_resource type="PackedScene" uid="uid://sycnr10dwxuw" path="res://obstacles/asteroid.tscn" id="5_byyqb"]
+[ext_resource type="PackedScene" uid="uid://n3tlv7fswfx2" path="res://obstacles/asteroid.tscn" id="4_h07pf"]
+[ext_resource type="PackedScene" uid="uid://dq3ojxmvj0ebi" path="res://bosses/boss_ufo.tscn" id="5_clvgh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5o00w"]
 size = Vector2(1919, 19)
@@ -45,12 +45,9 @@ shape = SubResource("RectangleShape2D_7ssc0")
 position = Vector2(-729, 9)
 collision_mask = 124
 
-[node name="Boss" parent="." instance=ExtResource("3_pfblc")]
-position = Vector2(693, 0)
-
 [node name="AsteroidSpawner" parent="." node_paths=PackedStringArray("MARKERS") instance=ExtResource("4_64odp")]
 MARKERS = [NodePath("../AsteroidMarkers/MarkerTop"), NodePath("../AsteroidMarkers/MarkerBottom")]
-OBSTACLE_SCENE = ExtResource("5_byyqb")
+OBSTACLE_SCENE = ExtResource("4_h07pf")
 metadata/_edit_lock_ = true
 
 [node name="AsteroidMarkers" type="Node2D" parent="."]
@@ -64,3 +61,8 @@ position = Vector2(950, 640)
 
 [node name="ProjectilesHolder" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
+
+[node name="BossUFO" parent="." instance=ExtResource("5_clvgh")]
+position = Vector2(713, 0)
+
+[editable path="AsteroidSpawner"]

@@ -1,11 +1,14 @@
 extends Node
 
 @export var NODE2D: Node2D
-@export var ROTATION_SPEED: float = 1
+@export var MIN_ROTATION_SPEED: float
+@export var MAX_ROTATION_SPEED: float
 var ROTATE_CLOCKWISE: bool = true
+var ROTATION_SPEED: float
 
 func _ready():
-	ROTATE_CLOCKWISE = bool(randi() % 2)
+	ROTATE_CLOCKWISE = [true,false].pick_random()
+	ROTATION_SPEED = randf_range(MIN_ROTATION_SPEED, MAX_ROTATION_SPEED)
 
 func _process(delta):
 	if ROTATE_CLOCKWISE:

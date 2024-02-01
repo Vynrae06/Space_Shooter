@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 var PROJECTILE_BASIC_SCENE: PackedScene = preload("res://player/projectile_basic.tscn")
 var CAN_SHOOT: bool = true
+var SPECIAL_CHARGE: int = 0
 
 func _ready():
 	$AnimatedSprite2D.play("idle")
@@ -27,6 +28,7 @@ func shoot_basic():
 	if Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_B) and CAN_SHOOT: 
 		var spawned_projectile = PROJECTILE_BASIC_SCENE.instantiate() as Area2D
 		spawned_projectile.global_position = $ShotInstantiateMarker.global_position
+		spawned_projectile.connect("damage_dealt_signal", damage_dealt_signal_received)
 		$"../ProjectilesHolder".add_child(spawned_projectile)
 		$ShotTimer.start()
 		CAN_SHOOT = false
@@ -40,3 +42,7 @@ func _on_shot_timer_timeout():
 
 func _on_death_area_entered(_area):
 	queue_free()
+	
+func damage_dealt_signal_received():
+	SPECIAL_CHARGE += 1
+	print(SPECIAL_CHARGE)

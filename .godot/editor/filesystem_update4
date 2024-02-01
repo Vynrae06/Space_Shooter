@@ -6,3 +6,6 @@ res://levels/level_easy.tscn
 res://bosses/boss.tscn
 res://components/boss_attack_component.tscn
 res://obstacles/asteroid.tscn
+res://bosses/boss_ufo.gd
+res://player/projectile_basic.gd
+res://player/projectile_basic.tscn

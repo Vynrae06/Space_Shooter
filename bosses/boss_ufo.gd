@@ -17,12 +17,14 @@ func attack():
 	CAN_ATTACK = false
 	$HorizontalAttackLength.start()
 	$OscillationMovementComponent.set_process(false)
+	$BossAttackHorizontal/BossAttackSprite.visible = true
 	$BossAttackHorizontal/AnimationPlayer.play("laser_beam")
 	# TODO: Turn the collider on at a frame of the attack
 
 func _on_basic_attack_length_timer_timeout():
 	$BossAttackHorizontal/AnimationPlayer.stop()
 	$HorizontalAttackCooldown.start()
+	$BossAttackHorizontal/BossAttackSprite.visible = false
 	$OscillationMovementComponent.set_process(true)
 
 func _on_basic_attack_cooldown_timer_timeout():

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://n3tlv7fswfx2"]
+[gd_scene load_steps=11 format=3 uid="uid://n3tlv7fswfx2"]
 
 [ext_resource type="Script" path="res://obstacles/asteroid.gd" id="1_1r18x"]
 [ext_resource type="Texture2D" uid="uid://cv3o8vgp4kr5y" path="res://assets/Meteor 1A.png" id="2_7wdpy"]
 [ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="3_mpbgr"]
 [ext_resource type="PackedScene" uid="uid://dkwdv7atcmdc6" path="res://obstacles/obstacle_destroyable.tscn" id="3_w5w0x"]
+[ext_resource type="PackedScene" uid="uid://cc2x5j5hsah37" path="res://components/local_rotation_component.tscn" id="5_qacx8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kce2k"]
 radius = 52.1536
@@ -56,5 +57,10 @@ collision_mask = 2
 [node name="CollisionShape2D" parent="HurtBoxComponent" index="0"]
 shape = SubResource("CircleShape2D_0t0gd")
 debug_color = Color(0.588235, 0.490196, 0.662745, 0.419608)
+
+[node name="LocalRotationComponent" parent="." index="6" node_paths=PackedStringArray("NODE2D") instance=ExtResource("5_qacx8")]
+NODE2D = NodePath("..")
+MIN_ROTATION_SPEED = 1.0
+MAX_ROTATION_SPEED = 2.0
 
 [editable path="HurtBoxComponent"]

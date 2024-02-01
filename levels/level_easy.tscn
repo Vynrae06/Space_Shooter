@@ -54,6 +54,12 @@ shape = SubResource("RectangleShape2D_7ssc0")
 position = Vector2(-729, 9)
 collision_mask = 124
 
+[node name="Player2" parent="." instance=ExtResource("2_mamf8")]
+modulate = Color(0, 0.403922, 0.901961, 1)
+position = Vector2(-732, 266)
+collision_mask = 124
+PLAYER_INDEX = 1
+
 [node name="AsteroidSpawner" parent="." node_paths=PackedStringArray("MARKERS") instance=ExtResource("4_64odp")]
 MARKERS = [NodePath("../AsteroidMarkers/MarkerTop"), NodePath("../AsteroidMarkers/MarkerBottom")]
 OBSTACLE_SCENE = ExtResource("4_h07pf")

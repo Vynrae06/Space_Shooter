@@ -30,3 +30,6 @@ func shoot():
 
 func _on_shot_timer_timeout():
 	CAN_SHOOT = true
+
+func _on_death_area_entered(area):
+	queue_free()

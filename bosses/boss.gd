@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Boss
 
 func _ready():
-	# $AnimatedSprite2D.play("idle")
+	$AnimatedSprite2D.play("idle")
 	pass
 
 func _on_health_component_death_signal():

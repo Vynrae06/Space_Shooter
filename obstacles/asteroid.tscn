@@ -47,7 +47,7 @@ material = SubResource("ShaderMaterial_q2gmf")
 sprite_frames = SubResource("SpriteFrames_wfmxu")
 
 [node name="HealthComponent" parent="." index="3"]
-HEALTH = 10
+HEALTH = 5
 
 [node name="HurtBoxComponent" parent="." index="4"]
 collision_layer = 16

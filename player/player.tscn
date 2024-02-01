@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://oj0pcpf8wyyl"]
+[gd_scene load_steps=22 format=3 uid="uid://oj0pcpf8wyyl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_th58a"]
 [ext_resource type="Texture2D" uid="uid://mrg6m1g4dwfy" path="res://assets/UFO.png" id="2_ad8w1"]
@@ -127,11 +127,15 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6laq"]
+radius = 18.0
+height = 118.0
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-collision_mask = 28
+collision_mask = 64
 script = ExtResource("1_th58a")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="BorderCollider" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pf2us")
 
@@ -148,4 +152,13 @@ position = Vector2(114, 0)
 wait_time = 0.15
 one_shot = true
 
+[node name="DeathArea" type="Area2D" parent="."]
+collision_mask = 60
+
+[node name="DeathCollider" type="CollisionShape2D" parent="DeathArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_b6laq")
+debug_color = Color(0.631373, 0.47451, 0.635294, 0.419608)
+
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
+[connection signal="area_entered" from="DeathArea" to="." method="_on_death_area_entered"]

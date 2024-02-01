@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://jmbj2rm5qml1"]
+[gd_scene load_steps=9 format=3 uid="uid://jmbj2rm5qml1"]
 
 [ext_resource type="Texture2D" uid="uid://bcnaata14w87l" path="res://assets/Background.jpg" id="1_abhhe"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_dayi8"]
 [ext_resource type="PackedScene" uid="uid://oj0pcpf8wyyl" path="res://player/player.tscn" id="2_mamf8"]
 [ext_resource type="PackedScene" uid="uid://d4djecahvews7" path="res://obstacles/obstacles_spawner.tscn" id="4_64odp"]
 [ext_resource type="PackedScene" uid="uid://n3tlv7fswfx2" path="res://obstacles/asteroid.tscn" id="4_h07pf"]
@@ -12,7 +13,8 @@ size = Vector2(1919, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ssc0"]
 size = Vector2(19, 1041)
 
-[node name="LevelEasy" type="Node2D"]
+[node name="Level" type="Node2D"]
+script = ExtResource("1_dayi8")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_abhhe")

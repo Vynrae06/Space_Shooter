@@ -1,10 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://dq3ojxmvj0ebi"]
+[gd_scene load_steps=24 format=3 uid="uid://dq3ojxmvj0ebi"]
 
 [ext_resource type="Script" path="res://bosses/boss_ufo.gd" id="1_6c0ru"]
 [ext_resource type="PackedScene" uid="uid://de16fo3l8lx0m" path="res://bosses/boss.tscn" id="2_re1sr"]
 [ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="3_o8q8i"]
 [ext_resource type="Texture2D" uid="uid://fv1gdgqap4pt" path="res://assets/Potato.png" id="4_6041e"]
 [ext_resource type="PackedScene" uid="uid://yc6drrh5nx08" path="res://components/oscillation_movement_component.tscn" id="5_sdbey"]
+[ext_resource type="PackedScene" uid="uid://2grtpdddiryx" path="res://components/boss_attack_component.tscn" id="6_qe556"]
+[ext_resource type="Texture2D" uid="uid://d4ky317csseqt" path="res://assets/Laser Spritesheet.png" id="7_1ij0g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wk7ru"]
 resource_local_to_scene = true
@@ -91,6 +93,31 @@ height = 378.0
 radius = 126.0
 height = 378.0
 
+[sub_resource type="Animation" id="Animation_lprig"]
+resource_name = "laser_beam"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossAttackSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mooxt"]
+_data = {
+"laser_beam": SubResource("Animation_lprig")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obquk"]
+size = Vector2(1011, 256)
+
 [node name="BossUFO" instance=ExtResource("2_re1sr")]
 script = ExtResource("1_6c0ru")
 
@@ -122,5 +149,31 @@ one_shot = true
 [node name="HorizontalAttackLength" type="Timer" parent="." index="7"]
 one_shot = true
 
+[node name="BossAttackHorizontal" parent="." index="8" instance=ExtResource("6_qe556")]
+position = Vector2(-788, 0)
+metadata/_edit_group_ = true
+
+[node name="Cooldown" parent="BossAttackHorizontal" index="0"]
+wait_time = 4.0
+
+[node name="BossAttackSprite" parent="BossAttackHorizontal" index="2"]
+position = Vector2(-1.09653, -0.5)
+rotation = 3.14159
+scale = Vector2(3.84828, 3.84828)
+texture = ExtResource("7_1ij0g")
+hframes = 5
+vframes = 3
+
+[node name="AnimationPlayer" parent="BossAttackHorizontal" index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_mooxt")
+}
+
+[node name="CollisionShape2D" parent="BossAttackHorizontal/HitBox" index="0"]
+position = Vector2(-109.5, 0)
+shape = SubResource("RectangleShape2D_obquk")
+
 [connection signal="timeout" from="HorizontalAttackCooldown" to="." method="_on_basic_attack_cooldown_timer_timeout"]
 [connection signal="timeout" from="HorizontalAttackLength" to="." method="_on_basic_attack_length_timer_timeout"]
+
+[editable path="BossAttackHorizontal"]

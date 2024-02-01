@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://jmbj2rm5qml1"]
+[gd_scene load_steps=11 format=3 uid="uid://jmbj2rm5qml1"]
 
 [ext_resource type="Texture2D" uid="uid://bcnaata14w87l" path="res://assets/Background.jpg" id="1_abhhe"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_dayi8"]
@@ -6,12 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://d4djecahvews7" path="res://obstacles/obstacles_spawner.tscn" id="4_64odp"]
 [ext_resource type="PackedScene" uid="uid://n3tlv7fswfx2" path="res://obstacles/asteroid.tscn" id="4_h07pf"]
 [ext_resource type="PackedScene" uid="uid://dq3ojxmvj0ebi" path="res://bosses/boss_ufo.tscn" id="5_clvgh"]
+[ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="5_fjpsj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5o00w"]
 size = Vector2(1919, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ssc0"]
 size = Vector2(19, 1041)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wk3au"]
+resource_local_to_scene = true
+shader = ExtResource("5_fjpsj")
+shader_parameter/Enabled = true
+shader_parameter/Tint = Color(1, 1, 1, 0.501961)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_dayi8")
@@ -67,4 +74,9 @@ metadata/_edit_lock_ = true
 [node name="BossUFO" parent="." instance=ExtResource("5_clvgh")]
 position = Vector2(713, 0)
 
+[node name="AnimatedSprite2D" parent="BossUFO" index="0"]
+material = SubResource("ShaderMaterial_wk3au")
+
 [editable path="AsteroidSpawner"]
+[editable path="BossUFO"]
+[editable path="BossUFO/BossAttackHorizontal"]

@@ -4,28 +4,38 @@ class_name Player
 @export var PLAYER_INDEX: int
 @export var MOVEMENT_SPEED: float = 666.0
 @export var MOVEMENT_SPEED_LEFT: float = 250.0
-@export var SPECIAL_CHARGE_MAX: int = 100
-@export var SPECIAL_CHARGE_COST: int = 20
+@export var SPECIAL_CHARGE_MAX: int = 15
+@export var SPECIAL_CHARGE_COST: int = 15
 @export var SPECIAL_CHARGE_RATE: int = 1
 
 var PROJECTILE_BASIC_SCENE: PackedScene = preload("res://player/player_projectile_basic.tscn")
 var PROJECTILE_SPECIAL_SCENE: PackedScene = preload("res://player/player_projectile_special.tscn")
 var CAN_SHOOT_BASIC: bool = true
 var CAN_SHOOT_SPECIAL: bool = true
+var CAN_MOVE: bool = true
 var SPECIAL_CHARGE: int = 0
 
 signal player_died
 
 func _ready():
+	get_parent().connect("fight_over", disable_player)
 	$AnimatedSprite2D.play("idle")
 
 func _process(_delta):
 	shoot_basic()
 	shoot_special()
+	
+	$SpecialChargeBar.max_value = SPECIAL_CHARGE_MAX
+	set_special_charge_bar()
 
 func _physics_process(_delta):
-	move()
-	move_and_slide()
+	if CAN_MOVE:
+		move()
+		move_and_slide()
+	
+func set_special_charge_bar() -> void:
+	$SpecialChargeBar.value = SPECIAL_CHARGE
+	pass
 
 func move():
 	var input_x = Input.get_joy_axis(PLAYER_INDEX, JOY_AXIS_LEFT_X)
@@ -50,10 +60,12 @@ func shoot_special():
 		$ShotSpecialTimer.start()
 		CAN_SHOOT_SPECIAL = false
 		SPECIAL_CHARGE -= SPECIAL_CHARGE_COST
+		set_special_charge_bar()
 		
 func damage_dealt_signal_received():
 	if SPECIAL_CHARGE < SPECIAL_CHARGE_MAX:
 		SPECIAL_CHARGE += SPECIAL_CHARGE_RATE
+		set_special_charge_bar()
 	
 func _on_shot_special_timer_timeout():
 	CAN_SHOOT_SPECIAL = true
@@ -64,3 +76,9 @@ func _on_shot_basic_timer_timeout():
 func _on_death_area_entered(_area):
 	player_died.emit()
 	queue_free()
+
+func disable_player():
+	CAN_MOVE = false
+	CAN_SHOOT_BASIC = false
+	CAN_SHOOT_SPECIAL = false
+	get_node("DeathArea/DeathCollider").set_deferred("disabled", true)

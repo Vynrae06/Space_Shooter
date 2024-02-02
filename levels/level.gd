@@ -10,6 +10,7 @@ var PLAYERS_ALIVE_COUNT: int
 signal fight_over
 
 func _ready():
+	print(get_win_time())
 	var players = get_tree().get_nodes_in_group("player") as Array[Player]
 	PLAYERS_ALIVE_COUNT = players.size()
 	for player in players:
@@ -18,12 +19,16 @@ func _ready():
 func _process(delta):
 	FIGHT_TIMER+= delta
 
-func get_win_time() -> float:
-	return FIGHT_TIMER - COUNTDOWN
+func get_win_time() -> String:
+	var fight_duration : float = FIGHT_TIMER - COUNTDOWN
+	var fight_duration_minutes : float = floor(fight_duration/60)
+	var fight_duration_seconds : float = floori(fight_duration) % 60
+	var fight_duration_milliseconds : float = round((fight_duration - floorf(fight_duration)) * 100)
+	var fight_duration_formatted : String = "%02d:%02d:%02d" % [fight_duration_minutes, fight_duration_seconds, fight_duration_milliseconds]
+	return fight_duration_formatted
 
 func _on_boss_ufo_boss_defeated():
 	fight_over.emit()
-	print(get_win_time())
 
 func register_player_death():
 	PLAYERS_ALIVE_COUNT -= 1

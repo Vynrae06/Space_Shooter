@@ -164,6 +164,13 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_b6laq")
 debug_color = Color(0.631373, 0.47451, 0.635294, 0.419608)
 
+[node name="SpecialChargeBar" type="TextureProgressBar" parent="."]
+offset_left = -56.0
+offset_top = 35.0
+offset_right = 56.0
+offset_bottom = 65.0
+max_value = 15.0
+
 [connection signal="timeout" from="ShotBasicTimer" to="." method="_on_shot_basic_timer_timeout"]
 [connection signal="timeout" from="ShotSpecialTimer" to="." method="_on_shot_special_timer_timeout"]
 [connection signal="area_entered" from="DeathArea" to="." method="_on_death_area_entered"]

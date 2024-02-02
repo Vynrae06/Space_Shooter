@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv3o8vgp4kr5y"
-path="res://.godot/imported/Meteor 1A.png-9f3e1b70c00ef5f89d0132b2e2058da2.ctex"
+uid="uid://fv1gdgqap4pt"
+path="res://.godot/imported/Potato.png-7226f9e68057da4bce2fe0cb3ba7844e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Meteor 1A.png"
-dest_files=["res://.godot/imported/Meteor 1A.png-9f3e1b70c00ef5f89d0132b2e2058da2.ctex"]
+source_file="res://assets/temporary/Potato.png"
+dest_files=["res://.godot/imported/Potato.png-7226f9e68057da4bce2fe0cb3ba7844e.ctex"]
 
 [params]
 

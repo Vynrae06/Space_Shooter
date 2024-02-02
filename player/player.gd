@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 @export var PLAYER_INDEX: int
-@export var MOVEMENT_SPEED: float = 666
-@export var MOVEMENT_SPEED_LEFT: float = 250
-@export var SPECIAL_CHARGE_MAX: float = 100
-@export var SPECIAL_CHARGE_COST: float = 20
-@export var SPECIAL_CHARGE_RATE: float = 1
+@export var MOVEMENT_SPEED: float = 666.0
+@export var MOVEMENT_SPEED_LEFT: float = 250.0
+@export var SPECIAL_CHARGE_MAX: int = 100
+@export var SPECIAL_CHARGE_COST: int = 20
+@export var SPECIAL_CHARGE_RATE: int = 1
 
 var PROJECTILE_BASIC_SCENE: PackedScene = preload("res://player/player_projectile_basic.tscn")
 var PROJECTILE_SPECIAL_SCENE: PackedScene = preload("res://player/player_projectile_special.tscn")

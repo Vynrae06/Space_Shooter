@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3egt5dbpqjl7"
-path="res://.godot/imported/Meteor 1B.png-b5dfeb5df4691f2f0fa05238ef43a89a.ctex"
+uid="uid://mrg6m1g4dwfy"
+path="res://.godot/imported/UFO.png-4a981b49343d55d8eccf43b8abf15dfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Meteor 1B.png"
-dest_files=["res://.godot/imported/Meteor 1B.png-b5dfeb5df4691f2f0fa05238ef43a89a.ctex"]
+source_file="res://assets/temporary/UFO.png"
+dest_files=["res://.godot/imported/UFO.png-4a981b49343d55d8eccf43b8abf15dfb.ctex"]
 
 [params]
 

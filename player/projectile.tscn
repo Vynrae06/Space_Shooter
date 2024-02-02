@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmh84x2mocib0"]
 
 [ext_resource type="Script" path="res://player/projectile.gd" id="1_5ydmv"]
-[ext_resource type="Texture2D" uid="uid://bquvixll4bkn2" path="res://assets/Projectile Single.png" id="2_viq7j"]
+[ext_resource type="Texture2D" uid="uid://bquvixll4bkn2" path="res://assets/temporary/Projectile Single.png" id="2_71ejn"]
 
 [node name="Projectile" type="Area2D"]
 collision_layer = 0
@@ -15,7 +15,7 @@ rotation = 1.5708
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -1)
-texture = ExtResource("2_viq7j")
+texture = ExtResource("2_71ejn")
 
 [node name="SelfDestructTimer" type="Timer" parent="."]
 wait_time = 2.0

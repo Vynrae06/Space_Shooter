@@ -3,6 +3,7 @@ extends Node2D
 @export var MARKERS: Array[Marker2D]
 @export var OBSTACLE_SCENE: PackedScene
 var CAN_SPAWN: bool = true
+# TODO: Check if the fight is happening, which itself checks if both players are alive
 
 func _ready():
 	hold_spawning()

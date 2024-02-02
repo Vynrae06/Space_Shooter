@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bquvixll4bkn2"
-path="res://.godot/imported/Projectile Single.png-929300526a015e6595c156656f205c99.ctex"
+uid="uid://d4ky317csseqt"
+path="res://.godot/imported/Laser Spritesheet.png-5a209c4f062d826e2edaf4a7840a9c3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Projectile Single.png"
-dest_files=["res://.godot/imported/Projectile Single.png-929300526a015e6595c156656f205c99.ctex"]
+source_file="res://assets/temporary/Laser Spritesheet.png"
+dest_files=["res://.godot/imported/Laser Spritesheet.png-5a209c4f062d826e2edaf4a7840a9c3b.ctex"]
 
 [params]
 

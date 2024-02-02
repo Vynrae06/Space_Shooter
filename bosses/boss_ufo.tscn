@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://bosses/boss_ufo.gd" id="1_6c0ru"]
 [ext_resource type="PackedScene" uid="uid://de16fo3l8lx0m" path="res://bosses/boss.tscn" id="2_re1sr"]
 [ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="3_o8q8i"]
-[ext_resource type="Texture2D" uid="uid://fv1gdgqap4pt" path="res://assets/Potato.png" id="4_6041e"]
+[ext_resource type="Texture2D" uid="uid://fv1gdgqap4pt" path="res://assets/temporary/Potato.png" id="4_6041e"]
 [ext_resource type="PackedScene" uid="uid://2grtpdddiryx" path="res://components/boss_attack.tscn" id="5_kv5d4"]
 [ext_resource type="PackedScene" uid="uid://yc6drrh5nx08" path="res://components/oscillation_movement_component.tscn" id="5_sdbey"]
-[ext_resource type="Texture2D" uid="uid://d4ky317csseqt" path="res://assets/Laser Spritesheet.png" id="7_1ij0g"]
+[ext_resource type="Texture2D" uid="uid://d4ky317csseqt" path="res://assets/temporary/Laser Spritesheet.png" id="7_1ij0g"]
 
 [sub_resource type="Animation" id="Animation_lprig"]
 resource_name = "laser_beam"
@@ -208,7 +208,7 @@ scale = Vector2(3.27586, 8.66207)
 texture = ExtResource("7_1ij0g")
 hframes = 5
 vframes = 3
-frame = 1
+frame = 3
 
 [node name="AnimationPlayer" parent="BossAttackVertical" index="2"]
 libraries = {

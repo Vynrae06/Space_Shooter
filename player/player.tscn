@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://oj0pcpf8wyyl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_th58a"]
-[ext_resource type="Texture2D" uid="uid://mrg6m1g4dwfy" path="res://assets/UFO.png" id="2_ad8w1"]
+[ext_resource type="Texture2D" uid="uid://mrg6m1g4dwfy" path="res://assets/temporary/UFO.png" id="2_ad8w1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pf2us"]
 radius = 18.0

@@ -56,10 +56,22 @@ tracks/0/path = NodePath("BossAttackSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rop3w"]
@@ -174,6 +186,7 @@ scale = Vector2(3.84828, 3.84828)
 texture = ExtResource("7_1ij0g")
 hframes = 5
 vframes = 3
+frame = 4
 
 [node name="AnimationPlayer" parent="BossAttackHorizontal" index="2"]
 libraries = {
@@ -188,6 +201,7 @@ shape = SubResource("RectangleShape2D_obquk")
 ANIMATION_NAME = "laser_beam_vertical"
 
 [node name="BossAttackSprite" parent="BossAttackVertical" index="1"]
+visible = true
 modulate = Color(0.121569, 0.831373, 0.423529, 1)
 position = Vector2(-424.5, -32.8965)
 rotation = 1.5708
@@ -195,6 +209,7 @@ scale = Vector2(3.27586, 8.66207)
 texture = ExtResource("7_1ij0g")
 hframes = 5
 vframes = 3
+frame = 1
 
 [node name="AnimationPlayer" parent="BossAttackVertical" index="2"]
 libraries = {

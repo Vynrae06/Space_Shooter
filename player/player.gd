@@ -3,11 +3,14 @@ extends CharacterBody2D
 @export var PLAYER_INDEX: int
 @export var MOVEMENT_SPEED: float = 666
 @export var MOVEMENT_SPEED_LEFT: float = 250
-@export var SPECIAL_MAX_CHARGE: float = 100
+@export var SPECIAL_CHARGE_MAX: float = 100
+@export var SPECIAL_CHARGE_COST: float = 20
+@export var SPECIAL_CHARGE_RATE: float = 1
 
 var PROJECTILE_BASIC_SCENE: PackedScene = preload("res://player/player_projectile_basic.tscn")
-var PROJECTILE_SPECIAL_SCENE: PackedScene = preload("res://player/player_projectile_basic.tscn")
-var CAN_SHOOT: bool = true
+var PROJECTILE_SPECIAL_SCENE: PackedScene = preload("res://player/player_projectile_special.tscn")
+var CAN_SHOOT_BASIC: bool = true
+var CAN_SHOOT_SPECIAL: bool = true
 var SPECIAL_CHARGE: int = 0
 
 func _ready():
@@ -28,25 +31,33 @@ func move():
 	velocity = input_direction * MOVEMENT_SPEED
 
 func shoot_basic():
-	if Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_B) and CAN_SHOOT: 
+	if Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_B) and CAN_SHOOT_BASIC: 
 		var spawned_projectile = PROJECTILE_BASIC_SCENE.instantiate() as Area2D
 		spawned_projectile.global_position = $ShotInstantiateMarker.global_position
 		spawned_projectile.connect("damage_dealt_signal", damage_dealt_signal_received)
 		$"../ProjectilesHolder".add_child(spawned_projectile)
-		$ShotTimer.start()
-		CAN_SHOOT = false
+		$ShotBasicTimer.start()
+		CAN_SHOOT_BASIC = false
 
 func shoot_special():
-	if Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_RIGHT_SHOULDER) && SPECIAL_CHARGE >= 5:
-		SPECIAL_CHARGE -= 5;
-		pass
+	if Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_RIGHT_SHOULDER) and SPECIAL_CHARGE >= SPECIAL_CHARGE_COST and CAN_SHOOT_SPECIAL:
+		var spawned_projectile = PROJECTILE_SPECIAL_SCENE.instantiate() as Area2D
+		spawned_projectile.global_position = $ShotInstantiateMarker.global_position
+		$"../ProjectilesHolder".add_child(spawned_projectile)
+		$ShotSpecialTimer.start()
+		CAN_SHOOT_SPECIAL = false
+		SPECIAL_CHARGE -= SPECIAL_CHARGE_COST
+		
+func damage_dealt_signal_received():
+	if SPECIAL_CHARGE < SPECIAL_CHARGE_MAX:
+		SPECIAL_CHARGE += SPECIAL_CHARGE_RATE
+	print(SPECIAL_CHARGE)
+	
+func _on_shot_special_timer_timeout():
+	CAN_SHOOT_SPECIAL = true
 
-func _on_shot_timer_timeout():
-	CAN_SHOOT = true
+func _on_shot_basic_timer_timeout():
+	CAN_SHOOT_BASIC = true
 
 func _on_death_area_entered(_area):
 	queue_free()
-	
-func damage_dealt_signal_received():
-	SPECIAL_CHARGE += 1
-	print(SPECIAL_CHARGE)

@@ -13,3 +13,4 @@ res://player/projectile.gd
 res://player/player.gd
 res://player/player_projectile_basic.tscn
 res://player/player_projectile_special.tscn
+res://levels/level.gd

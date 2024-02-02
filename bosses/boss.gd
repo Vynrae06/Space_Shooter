@@ -6,6 +6,7 @@ var ATTACKS: Array[BossAttack]
 var CURRENT_ATTACK: BossAttack
 var CLOSE_PLAYERS_COUNT: int
 
+var FIGHT_ONGOING: bool = true
 signal boss_defeated
 
 func _ready():
@@ -27,5 +28,6 @@ func is_a_player_close() -> bool:
 	return CLOSE_PLAYERS_COUNT > 0
 
 func _on_health_component_death_signal():
+	FIGHT_ONGOING = false
 	boss_defeated.emit()
 	queue_free()

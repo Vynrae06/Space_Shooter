@@ -62,4 +62,5 @@ func _on_shot_basic_timer_timeout():
 	CAN_SHOOT_BASIC = true
 
 func _on_death_area_entered(_area):
+	player_died.emit()
 	queue_free()

@@ -27,4 +27,5 @@ func _on_boss_ufo_boss_defeated():
 
 func register_player_death():
 	PLAYERS_ALIVE_COUNT -= 1
-	# TODO: Continue here, check if players are 0 and signal that the game is over
+	if PLAYERS_ALIVE_COUNT <= 0:
+		fight_over.emit()

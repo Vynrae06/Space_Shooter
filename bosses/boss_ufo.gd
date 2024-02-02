@@ -8,12 +8,15 @@ func _ready():
 	$AttackCooldown.start()
 
 func _process(_delta):
-	if CAN_ATTACK && !ATTACKS.is_empty():
-		if is_a_player_close():
-			CURRENT_ATTACK = $BossAttackVertical
-		else:
-			CURRENT_ATTACK = $BossAttackHorizontal
-		attack()
+	if FIGHT_ONGOING:
+		if CAN_ATTACK && !ATTACKS.is_empty():
+			if is_a_player_close():
+				CURRENT_ATTACK = $BossAttackVertical
+			else:
+				CURRENT_ATTACK = $BossAttackHorizontal
+			attack()
+	else:
+		$OscillationMovementComponent.set_process(false)
 		
 func attack():
 	super.attack()
@@ -31,3 +34,6 @@ func stop_attack():
 	$AttackCooldown.start()
 	$OscillationMovementComponent.set_process(true)
 	CURRENT_ATTACK.stop_attack()
+
+func _on_level_fight_over():
+	FIGHT_ONGOING = false

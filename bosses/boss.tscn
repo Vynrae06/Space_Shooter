@@ -34,4 +34,8 @@ ANIMATION_PLAYER = NodePath("../HitFlashAnimationPlayer")
 
 [node name="HitFlashAnimationPlayer" parent="." instance=ExtResource("5_cgfh0")]
 
+[node name="PlayerProximityDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerProximityDetector"]
+
 [connection signal="death_signal" from="HealthComponent" to="." method="_on_health_component_death_signal"]

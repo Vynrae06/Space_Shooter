@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dq3ojxmvj0ebi"]
+[gd_scene load_steps=26 format=3 uid="uid://dq3ojxmvj0ebi"]
 
 [ext_resource type="Script" path="res://bosses/boss_ufo.gd" id="1_6c0ru"]
 [ext_resource type="PackedScene" uid="uid://de16fo3l8lx0m" path="res://bosses/boss.tscn" id="2_re1sr"]
@@ -134,6 +134,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obquk"]
 size = Vector2(1011, 256)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5b3a"]
+size = Vector2(581, 1000)
+
 [node name="BossUFO" instance=ExtResource("2_re1sr")]
 script = ExtResource("1_6c0ru")
 
@@ -170,13 +173,14 @@ position = Vector2(-788, 0)
 metadata/_edit_group_ = true
 
 [node name="BossAttackSprite" parent="BossAttackHorizontal" index="1"]
+modulate = Color(0.662745, 0.466667, 0.25098, 1)
 position = Vector2(-1.09653, -0.5)
 rotation = 3.14159
 scale = Vector2(3.84828, 3.84828)
 texture = ExtResource("7_1ij0g")
 hframes = 5
 vframes = 3
-frame = 4
+frame = 6
 
 [node name="AnimationPlayer" parent="BossAttackHorizontal" index="2"]
 libraries = {
@@ -186,6 +190,13 @@ libraries = {
 [node name="CollisionShape2D" parent="BossAttackHorizontal/HitBox" index="0"]
 position = Vector2(-109.5, 0)
 shape = SubResource("RectangleShape2D_obquk")
+
+[node name="PlayerProximityDetector" parent="." index="9"]
+collision_layer = 128
+
+[node name="CollisionShape2D" parent="PlayerProximityDetector" index="0"]
+position = Vector2(-426.5, 0)
+shape = SubResource("RectangleShape2D_m5b3a")
 
 [connection signal="timeout" from="HorizontalAttackCooldown" to="." method="_on_basic_attack_cooldown_timer_timeout"]
 [connection signal="timeout" from="HorizontalAttackLength" to="." method="_on_basic_attack_length_timer_timeout"]

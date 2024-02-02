@@ -29,6 +29,7 @@ window/size/viewport_height=1080
 2d_physics/layer_5="Obstacles Destroyable"
 2d_physics/layer_6="Obstacles Undestroyable"
 2d_physics/layer_7="Borders"
+2d_physics/layer_8="Player Detector"
 
 [rendering]
 

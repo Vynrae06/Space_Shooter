@@ -8,3 +8,8 @@ res://components/boss_attack.tscn
 res://player/player.tscn
 res://player/projectile_basic.tscn
 res://components/boss_attack.gd
+res://player/projectile.tscn
+res://player/projectile.gd
+res://player/player.gd
+res://player/player_projectile_basic.tscn
+res://player/player_projectile_special.tscn

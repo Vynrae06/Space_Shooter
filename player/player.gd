@@ -3,8 +3,10 @@ extends CharacterBody2D
 @export var PLAYER_INDEX: int
 @export var MOVEMENT_SPEED: float = 666
 @export var MOVEMENT_SPEED_LEFT: float = 250
+@export var SPECIAL_MAX_CHARGE: float = 100
 
-var PROJECTILE_BASIC_SCENE: PackedScene = preload("res://player/projectile_basic.tscn")
+var PROJECTILE_BASIC_SCENE: PackedScene = preload("res://player/player_projectile_basic.tscn")
+var PROJECTILE_SPECIAL_SCENE: PackedScene = preload("res://player/player_projectile_basic.tscn")
 var CAN_SHOOT: bool = true
 var SPECIAL_CHARGE: int = 0
 
@@ -13,6 +15,7 @@ func _ready():
 
 func _process(_delta):
 	shoot_basic()
+	shoot_special()
 
 func _physics_process(_delta):
 	move()
@@ -34,7 +37,8 @@ func shoot_basic():
 		CAN_SHOOT = false
 
 func shoot_special():
-	if Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_RIGHT_SHOULDER):
+	if Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_RIGHT_SHOULDER) && SPECIAL_CHARGE >= 5:
+		SPECIAL_CHARGE -= 5;
 		pass
 
 func _on_shot_timer_timeout():

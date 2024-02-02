@@ -1,5 +1,5 @@
 extends Area2D
-class_name ProjectileBasic
+class_name Projectile
 
 signal damage_dealt_signal
 

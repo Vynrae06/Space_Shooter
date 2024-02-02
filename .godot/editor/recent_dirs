@@ -1,3 +1,4 @@
+res://player
 res://components
 res://obstacles
 res://assets
@@ -5,6 +6,5 @@ res://bosses
 res://shaders
 res://components/Animation
 D:/Game Development/Temp
-res://player
 res://levels
 res://Levels

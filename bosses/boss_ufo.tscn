@@ -201,7 +201,6 @@ shape = SubResource("RectangleShape2D_obquk")
 ANIMATION_NAME = "laser_beam_vertical"
 
 [node name="BossAttackSprite" parent="BossAttackVertical" index="1"]
-visible = true
 modulate = Color(0.121569, 0.831373, 0.423529, 1)
 position = Vector2(-424.5, -32.8965)
 rotation = 1.5708

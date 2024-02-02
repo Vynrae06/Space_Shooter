@@ -42,4 +42,6 @@ ANIMATION_PLAYER = NodePath("../HitFlashAnimationPlayer")
 one_shot = true
 
 [connection signal="death_signal" from="HealthComponent" to="." method="_on_health_component_death_signal"]
+[connection signal="area_entered" from="PlayerProximityDetector" to="." method="_on_player_proximity_detector_area_entered"]
+[connection signal="area_exited" from="PlayerProximityDetector" to="." method="_on_player_proximity_detector_area_exited"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

@@ -4,6 +4,9 @@ class_name Boss
 var CAN_ATTACK: bool = false
 var ATTACKS: Array[BossAttack]
 var CURRENT_ATTACK: BossAttack
+var CLOSE_PLAYERS_COUNT: int
+
+signal boss_defeated
 
 func _ready():
 	$AnimatedSprite2D.play("idle")
@@ -11,10 +14,18 @@ func _ready():
 func attack():
 	CAN_ATTACK = false
 
-func _on_health_component_death_signal():
-	# TODO: Handle Level Complete: You win screen, Boss Death Animation
-	queue_free()
-
 func _on_attack_cooldown_timeout():
-	#print("can attack")
 	CAN_ATTACK = true
+
+func _on_player_proximity_detector_area_entered(_area):
+	CLOSE_PLAYERS_COUNT+= 1
+
+func _on_player_proximity_detector_area_exited(_area):
+	CLOSE_PLAYERS_COUNT -=1
+
+func is_a_player_close() -> bool:
+	return CLOSE_PLAYERS_COUNT > 0
+
+func _on_health_component_death_signal():
+	boss_defeated.emit()
+	queue_free()

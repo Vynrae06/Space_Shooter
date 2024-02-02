@@ -9,7 +9,10 @@ func _ready():
 
 func _process(_delta):
 	if CAN_ATTACK && !ATTACKS.is_empty():
-		CURRENT_ATTACK = ATTACKS.pick_random()
+		if is_a_player_close():
+			CURRENT_ATTACK = $BossAttackVertical
+		else:
+			CURRENT_ATTACK = $BossAttackHorizontal
 		attack()
 		
 func attack():

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var PLAYER_INDEX: int
 @export var MOVEMENT_SPEED: float = 666.0
@@ -12,6 +13,8 @@ var PROJECTILE_SPECIAL_SCENE: PackedScene = preload("res://player/player_project
 var CAN_SHOOT_BASIC: bool = true
 var CAN_SHOOT_SPECIAL: bool = true
 var SPECIAL_CHARGE: int = 0
+
+signal player_died
 
 func _ready():
 	$AnimatedSprite2D.play("idle")
@@ -51,7 +54,6 @@ func shoot_special():
 func damage_dealt_signal_received():
 	if SPECIAL_CHARGE < SPECIAL_CHARGE_MAX:
 		SPECIAL_CHARGE += SPECIAL_CHARGE_RATE
-	print(SPECIAL_CHARGE)
 	
 func _on_shot_special_timer_timeout():
 	CAN_SHOOT_SPECIAL = true

@@ -50,7 +50,7 @@ shape = SubResource("RectangleShape2D_7ssc0")
 position = Vector2(950, 0.5)
 shape = SubResource("RectangleShape2D_7ssc0")
 
-[node name="Player" parent="." instance=ExtResource("2_mamf8")]
+[node name="Player1" parent="." instance=ExtResource("2_mamf8")]
 position = Vector2(-729, 9)
 collision_mask = 124
 
@@ -60,10 +60,14 @@ position = Vector2(-732, 266)
 collision_mask = 124
 PLAYER_INDEX = 1
 
-[node name="AsteroidSpawner" parent="." node_paths=PackedStringArray("MARKERS") instance=ExtResource("4_64odp")]
-MARKERS = [NodePath("../AsteroidMarkers/MarkerTop"), NodePath("../AsteroidMarkers/MarkerBottom")]
-OBSTACLE_SCENE = ExtResource("4_h07pf")
-metadata/_edit_lock_ = true
+[node name="BossUFO" parent="." instance=ExtResource("5_clvgh")]
+position = Vector2(713, 0)
+
+[node name="AnimatedSprite2D" parent="BossUFO" index="2"]
+material = SubResource("ShaderMaterial_wk3au")
+
+[node name="AttackCooldown" parent="BossUFO" index="8"]
+one_shot = false
 
 [node name="AsteroidMarkers" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -74,19 +78,15 @@ position = Vector2(950, -640)
 [node name="MarkerBottom" type="Marker2D" parent="AsteroidMarkers"]
 position = Vector2(950, 640)
 
+[node name="AsteroidSpawner" parent="." node_paths=PackedStringArray("MARKERS") instance=ExtResource("4_64odp")]
+MARKERS = [NodePath("../AsteroidMarkers/MarkerTop"), NodePath("../AsteroidMarkers/MarkerBottom")]
+OBSTACLE_SCENE = ExtResource("4_h07pf")
+metadata/_edit_lock_ = true
+
 [node name="ProjectilesHolder" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="BossUFO" parent="." instance=ExtResource("5_clvgh")]
-position = Vector2(713, 0)
-
-[node name="AnimatedSprite2D" parent="BossUFO" index="0"]
-material = SubResource("ShaderMaterial_wk3au")
-
-[node name="AttackCooldown" parent="BossUFO" index="6"]
-one_shot = false
-
-[editable path="AsteroidSpawner"]
 [editable path="BossUFO"]
 [editable path="BossUFO/BossAttackHorizontal"]
 [editable path="BossUFO/BossAttackVertical"]
+[editable path="AsteroidSpawner"]

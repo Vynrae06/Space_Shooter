@@ -7,3 +7,4 @@ res://levels/level_easy.tscn
 res://components/boss_attack.tscn
 res://player/player.tscn
 res://player/projectile_basic.tscn
+res://components/boss_attack.gd

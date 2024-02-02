@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dq3ojxmvj0ebi"]
+[gd_scene load_steps=25 format=3 uid="uid://dq3ojxmvj0ebi"]
 
 [ext_resource type="Script" path="res://bosses/boss_ufo.gd" id="1_6c0ru"]
 [ext_resource type="PackedScene" uid="uid://de16fo3l8lx0m" path="res://bosses/boss.tscn" id="2_re1sr"]
@@ -109,9 +109,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_t0qqg"]
+length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mooxt"]
 _data = {
+"RESET": SubResource("Animation_t0qqg"),
 "laser_beam": SubResource("Animation_lprig")
 }
 
@@ -153,18 +169,16 @@ one_shot = true
 position = Vector2(-788, 0)
 metadata/_edit_group_ = true
 
-[node name="Cooldown" parent="BossAttackHorizontal" index="0"]
-wait_time = 4.0
-
-[node name="BossAttackSprite" parent="BossAttackHorizontal" index="2"]
+[node name="BossAttackSprite" parent="BossAttackHorizontal" index="1"]
 position = Vector2(-1.09653, -0.5)
 rotation = 3.14159
 scale = Vector2(3.84828, 3.84828)
 texture = ExtResource("7_1ij0g")
 hframes = 5
 vframes = 3
+frame = 4
 
-[node name="AnimationPlayer" parent="BossAttackHorizontal" index="3"]
+[node name="AnimationPlayer" parent="BossAttackHorizontal" index="2"]
 libraries = {
 "": SubResource("AnimationLibrary_mooxt")
 }

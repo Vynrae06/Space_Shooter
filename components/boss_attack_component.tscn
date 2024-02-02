@@ -2,8 +2,6 @@
 
 [node name="BossAttackComponent" type="Node2D"]
 
-[node name="Cooldown" type="Timer" parent="."]
-
 [node name="Duration" type="Timer" parent="."]
 
 [node name="BossAttackSprite" type="Sprite2D" parent="."]
@@ -12,5 +10,7 @@ visible = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="HitBox" type="Area2D" parent="."]
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+disabled = true

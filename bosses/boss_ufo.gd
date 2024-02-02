@@ -8,6 +8,7 @@ var CAN_ATTACK: bool = false
 func _ready():
 	super._ready()
 	$HorizontalAttackCooldown.start()
+	
 
 func _process(_delta):
 	if CAN_ATTACK:
@@ -19,7 +20,6 @@ func attack():
 	$OscillationMovementComponent.set_process(false)
 	$BossAttackHorizontal/BossAttackSprite.visible = true
 	$BossAttackHorizontal/AnimationPlayer.play("laser_beam")
-	# TODO: Turn the collider on at a frame of the attack
 
 func _on_basic_attack_length_timer_timeout():
 	$BossAttackHorizontal/AnimationPlayer.stop()

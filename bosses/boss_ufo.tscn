@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://de16fo3l8lx0m" path="res://bosses/boss.tscn" id="2_re1sr"]
 [ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="3_o8q8i"]
 [ext_resource type="Texture2D" uid="uid://fv1gdgqap4pt" path="res://assets/Potato.png" id="4_6041e"]
+[ext_resource type="PackedScene" uid="uid://2grtpdddiryx" path="res://components/boss_attack.tscn" id="5_kv5d4"]
 [ext_resource type="PackedScene" uid="uid://yc6drrh5nx08" path="res://components/oscillation_movement_component.tscn" id="5_sdbey"]
-[ext_resource type="PackedScene" uid="uid://2grtpdddiryx" path="res://components/boss_attack_component.tscn" id="6_qe556"]
 [ext_resource type="Texture2D" uid="uid://d4ky317csseqt" path="res://assets/Laser Spritesheet.png" id="7_1ij0g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wk7ru"]
@@ -93,6 +93,12 @@ height = 378.0
 radius = 126.0
 height = 378.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5b3a"]
+size = Vector2(581, 1000)
+
+[sub_resource type="Animation" id="Animation_t0qqg"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_lprig"]
 resource_name = "laser_beam"
 length = 0.3
@@ -122,9 +128,6 @@ tracks/1/keys = {
 "values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_t0qqg"]
-length = 0.001
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mooxt"]
 _data = {
 "RESET": SubResource("Animation_t0qqg"),
@@ -133,9 +136,6 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obquk"]
 size = Vector2(1011, 256)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5b3a"]
-size = Vector2(581, 1000)
 
 [node name="BossUFO" instance=ExtResource("2_re1sr")]
 script = ExtResource("1_6c0ru")
@@ -156,19 +156,17 @@ HEALTH = 100
 shape = SubResource("CapsuleShape2D_bnb8n")
 debug_color = Color(0.611765, 0.482353, 0.627451, 0.419608)
 
-[node name="OscillationMovementComponent" parent="." index="5" node_paths=PackedStringArray("CHARACTER_BODY_2D") instance=ExtResource("5_sdbey")]
-FREQUENCY = 2.0
-AMPLITUDE = 666.0
-CHARACTER_BODY_2D = NodePath("..")
+[node name="PlayerProximityDetector" parent="." index="5"]
+collision_layer = 128
 
-[node name="HorizontalAttackCooldown" type="Timer" parent="." index="6"]
-wait_time = 3.0
-one_shot = true
+[node name="CollisionShape2D" parent="PlayerProximityDetector" index="0"]
+position = Vector2(-426.5, 0)
+shape = SubResource("RectangleShape2D_m5b3a")
 
-[node name="HorizontalAttackLength" type="Timer" parent="." index="7"]
-one_shot = true
+[node name="AttackCooldown" parent="." index="6"]
+wait_time = 2.0
 
-[node name="BossAttackHorizontal" parent="." index="8" instance=ExtResource("6_qe556")]
+[node name="BossAttackHorizontal" parent="." index="7" instance=ExtResource("5_kv5d4")]
 position = Vector2(-788, 0)
 metadata/_edit_group_ = true
 
@@ -191,14 +189,14 @@ libraries = {
 position = Vector2(-109.5, 0)
 shape = SubResource("RectangleShape2D_obquk")
 
-[node name="PlayerProximityDetector" parent="." index="9"]
-collision_layer = 128
+[node name="BossAttackVertical" parent="." index="8" instance=ExtResource("5_kv5d4")]
 
-[node name="CollisionShape2D" parent="PlayerProximityDetector" index="0"]
-position = Vector2(-426.5, 0)
-shape = SubResource("RectangleShape2D_m5b3a")
+[node name="OscillationMovementComponent" parent="." index="9" node_paths=PackedStringArray("CHARACTER_BODY_2D") instance=ExtResource("5_sdbey")]
+FREQUENCY = 2.0
+AMPLITUDE = 666.0
+CHARACTER_BODY_2D = NodePath("..")
 
-[connection signal="timeout" from="HorizontalAttackCooldown" to="." method="_on_basic_attack_cooldown_timer_timeout"]
-[connection signal="timeout" from="HorizontalAttackLength" to="." method="_on_basic_attack_length_timer_timeout"]
+[connection signal="timeout" from="BossAttackHorizontal/BossAttackDuration" to="." method="_on_horizontal_boss_attack_timeout"]
 
 [editable path="BossAttackHorizontal"]
+[editable path="BossAttackVertical"]

@@ -83,6 +83,10 @@ position = Vector2(713, 0)
 [node name="AnimatedSprite2D" parent="BossUFO" index="0"]
 material = SubResource("ShaderMaterial_wk3au")
 
+[node name="AttackCooldown" parent="BossUFO" index="6"]
+one_shot = false
+
 [editable path="AsteroidSpawner"]
 [editable path="BossUFO"]
 [editable path="BossUFO/BossAttackHorizontal"]
+[editable path="BossUFO/BossAttackVertical"]

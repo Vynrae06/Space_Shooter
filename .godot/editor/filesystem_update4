@@ -1,8 +1,9 @@
-res://components/boss_attack_component.tscn
+res://bosses/boss.tscn
 res://shaders/hit_flash.tres
+res://bosses/boss.gd
 res://bosses/boss_ufo.tscn
 res://bosses/boss_ufo.gd
 res://levels/level_easy.tscn
-res://bosses/boss.tscn
+res://components/boss_attack.tscn
 res://player/player.tscn
 res://player/projectile_basic.tscn

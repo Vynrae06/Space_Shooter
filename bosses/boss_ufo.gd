@@ -3,29 +3,24 @@ class_name BossUFO
 
 #TODO: Move all of the attacking into the boss attack component
 
-var CAN_ATTACK: bool = false
-
 func _ready():
 	super._ready()
-	$HorizontalAttackCooldown.start()
-	
+	ATTACKS.append($BossAttackHorizontal)
+	ATTACKS.append($BossAttackVertical)
+	$AttackCooldown.start()
 
 func _process(_delta):
-	if CAN_ATTACK:
+	if CAN_ATTACK && !ATTACKS.is_empty():
+		CURRENT_ATTACK = ATTACKS[0]
 		attack()
-	
+		
 func attack():
-	CAN_ATTACK = false
-	$HorizontalAttackLength.start()
+	super.attack()
+	CURRENT_ATTACK.get_node("BossAttackDuration").start()
 	$OscillationMovementComponent.set_process(false)
-	$BossAttackHorizontal/BossAttackSprite.visible = true
-	$BossAttackHorizontal/AnimationPlayer.play("laser_beam")
+	CURRENT_ATTACK.execute_attack("laser_beam")
 
-func _on_basic_attack_length_timer_timeout():
-	$BossAttackHorizontal/AnimationPlayer.stop()
-	$HorizontalAttackCooldown.start()
-	$BossAttackHorizontal/BossAttackSprite.visible = false
+func _on_horizontal_boss_attack_timeout():
+	$AttackCooldown.start()
 	$OscillationMovementComponent.set_process(true)
-
-func _on_basic_attack_cooldown_timer_timeout():
-	CAN_ATTACK = true
+	CURRENT_ATTACK.stop_attack()

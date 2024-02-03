@@ -51,7 +51,7 @@ func move():
 		velocity = keyboard_input_direction * MOVEMENT_SPEED
 
 func shoot_basic():
-	if Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_B) and CAN_SHOOT_BASIC: 
+	if (Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_B) or Input.is_action_pressed("shoot_basic")) and CAN_SHOOT_BASIC: 
 		var spawned_projectile = PROJECTILE_BASIC_SCENE.instantiate() as Area2D
 		spawned_projectile.global_position = $ShotInstantiateMarker.global_position
 		spawned_projectile.connect("damage_dealt_signal", damage_dealt_signal_received)
@@ -60,7 +60,7 @@ func shoot_basic():
 		CAN_SHOOT_BASIC = false
 
 func shoot_special():
-	if Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_RIGHT_SHOULDER) and SPECIAL_CHARGE >= SPECIAL_CHARGE_COST and CAN_SHOOT_SPECIAL:
+	if (Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_RIGHT_SHOULDER) or Input.is_action_pressed("shoot_special")) and SPECIAL_CHARGE >= SPECIAL_CHARGE_COST and CAN_SHOOT_SPECIAL:
 		var spawned_projectile = PROJECTILE_SPECIAL_SCENE.instantiate() as Area2D
 		spawned_projectile.global_position = $ShotInstantiateMarker.global_position
 		$"../ProjectilesHolder".add_child(spawned_projectile)

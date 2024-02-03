@@ -229,7 +229,7 @@ animation = &"idle"
 shape = SubResource("CapsuleShape2D_uftpm")
 
 [node name="HealthComponent" parent="." index="4"]
-HEALTH = 20
+HEALTH = 100
 
 [node name="CollisionShape2D" parent="HurtBoxComponent" index="0"]
 shape = SubResource("CapsuleShape2D_bnb8n")

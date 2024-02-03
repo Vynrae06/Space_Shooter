@@ -1,49 +1,42 @@
-[gd_scene load_steps=23 format=3 uid="uid://jmbj2rm5qml1"]
+[gd_scene load_steps=22 format=3 uid="uid://jmbj2rm5qml1"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_7uvhw"]
 [ext_resource type="PackedScene" uid="uid://dvc0nldgfwv4l" path="res://parallax/parallax.tscn" id="2_munxv"]
 [ext_resource type="PackedScene" uid="uid://oj0pcpf8wyyl" path="res://player/player.tscn" id="3_cbgt6"]
-[ext_resource type="Texture2D" uid="uid://cgelvbpav5kv6" path="res://assets/temporary/cuphead_plane_straight.png" id="4_kdipb"]
+[ext_resource type="Texture2D" uid="uid://c07rh2o1olid7" path="res://assets/Spritesheet.png" id="4_1alof"]
 [ext_resource type="PackedScene" uid="uid://dq3ojxmvj0ebi" path="res://bosses/boss_ufo.tscn" id="4_mjjur"]
 [ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="5_5vdl1"]
 [ext_resource type="Texture2D" uid="uid://c7eq3bwmmqyi6" path="res://assets/temporary/chalice_plane_straight.png" id="5_7lpwx"]
 [ext_resource type="PackedScene" uid="uid://d4djecahvews7" path="res://obstacles/obstacles_spawner.tscn" id="6_kp30j"]
 [ext_resource type="PackedScene" uid="uid://n3tlv7fswfx2" path="res://obstacles/asteroid.tscn" id="7_kbb0w"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r262m"]
-atlas = ExtResource("4_kdipb")
-region = Rect2(3, 0, 111, 101)
+[sub_resource type="AtlasTexture" id="AtlasTexture_530ho"]
+atlas = ExtResource("4_1alof")
+region = Rect2(0, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_05mqj"]
-atlas = ExtResource("4_kdipb")
-region = Rect2(114, 0, 111, 101)
+[sub_resource type="AtlasTexture" id="AtlasTexture_11n4o"]
+atlas = ExtResource("4_1alof")
+region = Rect2(512, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g7p4i"]
-atlas = ExtResource("4_kdipb")
-region = Rect2(225, 0, 111, 101)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w5786"]
-atlas = ExtResource("4_kdipb")
-region = Rect2(336, 0, 111, 101)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ik6w"]
+atlas = ExtResource("4_1alof")
+region = Rect2(1024, 0, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8x7la"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r262m")
+"texture": SubResource("AtlasTexture_530ho")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_05mqj")
+"texture": SubResource("AtlasTexture_11n4o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g7p4i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w5786")
+"texture": SubResource("AtlasTexture_8ik6w")
 }],
 "loop": true,
 "name": &"straight",
-"speed": 16.0
+"speed": 12.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eovgj"]
@@ -105,6 +98,7 @@ position = Vector2(-729, 9)
 collision_mask = 124
 
 [node name="PlaneAnimatedSprite" parent="Player1" index="1"]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8x7la")
 animation = &"straight"
 

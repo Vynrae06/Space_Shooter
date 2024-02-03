@@ -2,7 +2,7 @@ extends Node2D
 class_name Level
 
 var GAME_PAUSED: bool = false
-@export var COUNTDOWN : float = 3.0 
+@export var COUNTDOWN : float
 
 var FIGHT_TIMER: float
 var PLAYERS_ALIVE_COUNT: int
@@ -28,7 +28,7 @@ func get_win_time() -> String:
 
 func _on_boss_ufo_boss_defeated():
 	fight_over.emit()
-	print("boss defeated")
+	print("Win Time:" + get_win_time())
 
 func register_player_death():
 	PLAYERS_ALIVE_COUNT -= 1

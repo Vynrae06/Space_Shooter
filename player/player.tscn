@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://oj0pcpf8wyyl"]
+[gd_scene load_steps=10 format=3 uid="uid://oj0pcpf8wyyl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_th58a"]
-[ext_resource type="Texture2D" uid="uid://bstao4n21rdj3" path="res://assets/temporary/charge_bar/bg.png" id="3_8gysw"]
+[ext_resource type="Texture2D" uid="uid://0g4fwfshoghs" path="res://assets/charge_bar/under.png" id="2_17bly"]
+[ext_resource type="Texture2D" uid="uid://r3h43qdjgn8g" path="res://assets/charge_bar/over.png" id="3_no70j"]
 [ext_resource type="Texture2D" uid="uid://csg8x8p68xg10" path="res://assets/light_texture.png" id="3_x30pb"]
-[ext_resource type="Texture2D" uid="uid://0yrby1c1xf82" path="res://assets/temporary/charge_bar/progress.png" id="5_kiffg"]
+[ext_resource type="Texture2D" uid="uid://dykhh5i631dmu" path="res://assets/charge_bar/progress.png" id="4_v6c44"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pf2us"]
 radius = 18.0
@@ -47,7 +48,7 @@ shape = SubResource("CapsuleShape2D_pf2us")
 scale = Vector2(1.5, 1.5)
 
 [node name="ShotInstantiateMarker" type="Marker2D" parent="."]
-position = Vector2(114, 0)
+position = Vector2(59, 36)
 
 [node name="ShotBasicTimer" type="Timer" parent="."]
 wait_time = 0.15
@@ -66,19 +67,21 @@ shape = SubResource("CapsuleShape2D_b6laq")
 debug_color = Color(0.631373, 0.47451, 0.635294, 0.419608)
 
 [node name="SpecialChargeBar" type="TextureProgressBar" parent="."]
-offset_left = -150.0
-offset_top = 77.0
-offset_right = 150.0
-offset_bottom = 107.0
+offset_left = -13.0
+offset_top = 27.0
+offset_right = 103.0
+offset_bottom = 63.0
+scale = Vector2(0.5, 0.5)
 max_value = 15.0
 value = 10.0
-texture_under = ExtResource("3_8gysw")
-texture_progress = ExtResource("5_kiffg")
+texture_under = ExtResource("2_17bly")
+texture_over = ExtResource("3_no70j")
+texture_progress = ExtResource("4_v6c44")
 metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="SpecialChargeBar"]
-position = Vector2(150, 15)
-scale = Vector2(0.585938, 0.0585937)
+position = Vector2(59, 19)
+scale = Vector2(0.199219, 0.0429687)
 color = Color(1, 0.882353, 0.862745, 1)
 energy = 0.0
 texture = ExtResource("3_x30pb")

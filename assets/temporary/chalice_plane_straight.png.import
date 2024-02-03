@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgelvbpav5kv6"
-path="res://.godot/imported/cuphead_plane_idle.png-0130152c4914ef18d4c0c607c5e92453.ctex"
+uid="uid://c7eq3bwmmqyi6"
+path="res://.godot/imported/chalice_plane_straight.png-36acdcae860d6caea3c224553710b364.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temporary/cuphead_plane_idle.png"
-dest_files=["res://.godot/imported/cuphead_plane_idle.png-0130152c4914ef18d4c0c607c5e92453.ctex"]
+source_file="res://assets/temporary/chalice_plane_straight.png"
+dest_files=["res://.godot/imported/chalice_plane_straight.png-36acdcae860d6caea3c224553710b364.ctex"]
 
 [params]
 

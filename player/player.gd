@@ -19,7 +19,6 @@ signal player_died
 
 func _ready():
 	get_parent().connect("fight_over", disable_player)
-	$UFOAnimatedSprite.play("idle")
 	$PlaneAnimatedSprite.play("idle")
 
 func _process(_delta):
@@ -30,6 +29,7 @@ func _process(_delta):
 	update_special_charge_bar()
 
 func _physics_process(_delta):
+	velocity = Vector2.ZERO
 	if CAN_MOVE:
 		move()
 		move_and_slide()
@@ -38,10 +38,16 @@ func update_special_charge_bar() -> void:
 	$SpecialChargeBar.value = SPECIAL_CHARGE
 
 func move():
-	var input_x = Input.get_joy_axis(PLAYER_INDEX, JOY_AXIS_LEFT_X)
-	var input_y = Input.get_joy_axis(PLAYER_INDEX, JOY_AXIS_LEFT_Y)
-	var input_direction = Vector2(input_x, input_y)
-	velocity = input_direction * MOVEMENT_SPEED
+	var joy_input_x = Input.get_joy_axis(PLAYER_INDEX, JOY_AXIS_LEFT_X)
+	var joy_input_y = Input.get_joy_axis(PLAYER_INDEX, JOY_AXIS_LEFT_Y)
+	var joy_input_direction = Vector2(joy_input_x, joy_input_y)
+	
+	var keyboard_input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
+	if joy_input_direction != Vector2.ZERO:
+		velocity = joy_input_direction * MOVEMENT_SPEED
+	elif keyboard_input_direction != Vector2.ZERO:
+		velocity = keyboard_input_direction * MOVEMENT_SPEED
 
 func shoot_basic():
 	if Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_B) and CAN_SHOOT_BASIC: 

@@ -1,12 +1,86 @@
-[gd_scene load_steps=11 format=3 uid="uid://jmbj2rm5qml1"]
+[gd_scene load_steps=23 format=3 uid="uid://jmbj2rm5qml1"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_7uvhw"]
 [ext_resource type="PackedScene" uid="uid://dvc0nldgfwv4l" path="res://parallax/parallax.tscn" id="2_munxv"]
 [ext_resource type="PackedScene" uid="uid://oj0pcpf8wyyl" path="res://player/player.tscn" id="3_cbgt6"]
+[ext_resource type="Texture2D" uid="uid://cgelvbpav5kv6" path="res://assets/temporary/cuphead_plane_straight.png" id="4_kdipb"]
 [ext_resource type="PackedScene" uid="uid://dq3ojxmvj0ebi" path="res://bosses/boss_ufo.tscn" id="4_mjjur"]
 [ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="5_5vdl1"]
+[ext_resource type="Texture2D" uid="uid://c7eq3bwmmqyi6" path="res://assets/temporary/chalice_plane_straight.png" id="5_7lpwx"]
 [ext_resource type="PackedScene" uid="uid://d4djecahvews7" path="res://obstacles/obstacles_spawner.tscn" id="6_kp30j"]
 [ext_resource type="PackedScene" uid="uid://n3tlv7fswfx2" path="res://obstacles/asteroid.tscn" id="7_kbb0w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r262m"]
+atlas = ExtResource("4_kdipb")
+region = Rect2(3, 0, 111, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05mqj"]
+atlas = ExtResource("4_kdipb")
+region = Rect2(114, 0, 111, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7p4i"]
+atlas = ExtResource("4_kdipb")
+region = Rect2(225, 0, 111, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5786"]
+atlas = ExtResource("4_kdipb")
+region = Rect2(336, 0, 111, 101)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8x7la"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r262m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05mqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7p4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5786")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 16.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eovgj"]
+atlas = ExtResource("5_7lpwx")
+region = Rect2(0, 0, 114, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5s4k"]
+atlas = ExtResource("5_7lpwx")
+region = Rect2(114, 0, 114, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uggmt"]
+atlas = ExtResource("5_7lpwx")
+region = Rect2(228, 0, 114, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsmjc"]
+atlas = ExtResource("5_7lpwx")
+region = Rect2(342, 0, 114, 93)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iqc30"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eovgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5s4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uggmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsmjc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 24.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wk3au"]
 resource_local_to_scene = true
@@ -30,11 +104,19 @@ STARS_SPEED = 25.0
 position = Vector2(-729, 9)
 collision_mask = 124
 
+[node name="PlaneAnimatedSprite" parent="Player1" index="1"]
+sprite_frames = SubResource("SpriteFrames_8x7la")
+frame_progress = 0.143778
+
 [node name="Player2" parent="." instance=ExtResource("3_cbgt6")]
 modulate = Color(0.968627, 1, 0.25098, 1)
 position = Vector2(-732, 266)
 collision_mask = 124
 PLAYER_INDEX = 1
+
+[node name="PlaneAnimatedSprite" parent="Player2" index="1"]
+sprite_frames = SubResource("SpriteFrames_iqc30")
+frame_progress = 0.310997
 
 [node name="BossUFO" parent="." instance=ExtResource("4_mjjur")]
 position = Vector2(713, 0)
@@ -84,8 +166,9 @@ shape = SubResource("RectangleShape2D_7ssc0")
 
 [connection signal="fight_over" from="." to="BossUFO" method="_on_level_fight_over"]
 [connection signal="fight_over" from="." to="AsteroidSpawner" method="_on_level_fight_over"]
-[connection signal="boss_defeated" from="BossUFO" to="." method="_on_boss_ufo_boss_defeated"]
 
+[editable path="Player1"]
+[editable path="Player2"]
 [editable path="BossUFO"]
 [editable path="BossUFO/BossAttackHorizontal"]
 [editable path="BossUFO/BossAttackVertical"]

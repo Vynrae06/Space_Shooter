@@ -1,3 +1,4 @@
+AnimatedSprite2D
 AnimationPlayer
 PointLight2D
 TextureProgressBar
@@ -11,4 +12,3 @@ CollisionShape2D
 Area2D
 Node
 CharacterBody2D
-AnimatedSprite2D

@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://oj0pcpf8wyyl"]
+[gd_scene load_steps=33 format=3 uid="uid://oj0pcpf8wyyl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_th58a"]
 [ext_resource type="Texture2D" uid="uid://mrg6m1g4dwfy" path="res://assets/temporary/cuphead_UFO.png" id="2_ad8w1"]
 [ext_resource type="Texture2D" uid="uid://bstao4n21rdj3" path="res://assets/temporary/charge_bar/bg.png" id="3_8gysw"]
 [ext_resource type="Texture2D" uid="uid://csg8x8p68xg10" path="res://assets/light_texture.png" id="3_x30pb"]
 [ext_resource type="Texture2D" uid="uid://0yrby1c1xf82" path="res://assets/temporary/charge_bar/progress.png" id="5_kiffg"]
+[ext_resource type="Texture2D" uid="uid://cgelvbpav5kv6" path="res://assets/temporary/cuphead_plane_idle.png" id="6_l7hih"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pf2us"]
 radius = 18.0
@@ -130,6 +131,42 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x7j8"]
+atlas = ExtResource("6_l7hih")
+region = Rect2(3, 0, 111, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5eei"]
+atlas = ExtResource("6_l7hih")
+region = Rect2(114, 0, 111, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q7sv"]
+atlas = ExtResource("6_l7hih")
+region = Rect2(225, 0, 111, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51tw1"]
+atlas = ExtResource("6_l7hih")
+region = Rect2(336, 0, 111, 101)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nh8uw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7x7j8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5eei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q7sv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51tw1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6laq"]
 radius = 18.0
 height = 118.0
@@ -164,11 +201,16 @@ script = ExtResource("1_th58a")
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pf2us")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="UFOAnimatedSprite" type="AnimatedSprite2D" parent="."]
+visible = false
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ve87d")
 animation = &"idle"
-metadata/_edit_lock_ = true
+
+[node name="PlaneAnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nh8uw")
+animation = &"idle"
+frame_progress = 0.479698
 
 [node name="ShotInstantiateMarker" type="Marker2D" parent="."]
 position = Vector2(114, 0)

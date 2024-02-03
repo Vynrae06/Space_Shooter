@@ -19,7 +19,8 @@ signal player_died
 
 func _ready():
 	get_parent().connect("fight_over", disable_player)
-	$AnimatedSprite2D.play("idle")
+	$UFOAnimatedSprite.play("idle")
+	$PlaneAnimatedSprite.play("idle")
 
 func _process(_delta):
 	shoot_basic()

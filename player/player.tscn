@@ -45,7 +45,6 @@ shape = SubResource("CapsuleShape2D_pf2us")
 
 [node name="PlaneAnimatedSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
-animation = &""
 
 [node name="ShotInstantiateMarker" type="Marker2D" parent="."]
 position = Vector2(114, 0)

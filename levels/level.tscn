@@ -42,7 +42,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_w5786")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"straight",
 "speed": 16.0
 }]
 
@@ -78,7 +78,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_dsmjc")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"straight",
 "speed": 24.0
 }]
 
@@ -106,17 +106,16 @@ collision_mask = 124
 
 [node name="PlaneAnimatedSprite" parent="Player1" index="1"]
 sprite_frames = SubResource("SpriteFrames_8x7la")
-frame_progress = 0.143778
+animation = &"straight"
 
 [node name="Player2" parent="." instance=ExtResource("3_cbgt6")]
-modulate = Color(0.968627, 1, 0.25098, 1)
 position = Vector2(-732, 266)
 collision_mask = 124
 PLAYER_INDEX = 1
 
 [node name="PlaneAnimatedSprite" parent="Player2" index="1"]
 sprite_frames = SubResource("SpriteFrames_iqc30")
-frame_progress = 0.310997
+animation = &"straight"
 
 [node name="BossUFO" parent="." instance=ExtResource("4_mjjur")]
 position = Vector2(713, 0)

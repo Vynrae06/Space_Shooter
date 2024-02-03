@@ -29,7 +29,6 @@ func _process(_delta):
 	update_special_charge_bar()
 
 func _physics_process(_delta):
-	velocity = Vector2.ZERO
 	if CAN_MOVE:
 		move()
 		move_and_slide()
@@ -38,6 +37,8 @@ func update_special_charge_bar() -> void:
 	$SpecialChargeBar.value = SPECIAL_CHARGE
 
 func move():
+	velocity = Vector2.ZERO
+	
 	var joy_input_x = Input.get_joy_axis(PLAYER_INDEX, JOY_AXIS_LEFT_X)
 	var joy_input_y = Input.get_joy_axis(PLAYER_INDEX, JOY_AXIS_LEFT_Y)
 	var joy_input_direction = Vector2(joy_input_x, joy_input_y)
@@ -88,6 +89,7 @@ func _on_death_area_entered(_area):
 	queue_free()
 
 func disable_player():
+	print("disabling player")
 	CAN_MOVE = false
 	CAN_SHOOT_BASIC = false
 	CAN_SHOOT_SPECIAL = false

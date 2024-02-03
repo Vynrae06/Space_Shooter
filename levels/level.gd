@@ -10,7 +10,6 @@ var PLAYERS_ALIVE_COUNT: int
 signal fight_over
 
 func _ready():
-	print(get_win_time())
 	var players = get_tree().get_nodes_in_group("player") as Array[Player]
 	PLAYERS_ALIVE_COUNT = players.size()
 	for player in players:
@@ -29,6 +28,7 @@ func get_win_time() -> String:
 
 func _on_boss_ufo_boss_defeated():
 	fight_over.emit()
+	print("boss defeated")
 
 func register_player_death():
 	PLAYERS_ALIVE_COUNT -= 1

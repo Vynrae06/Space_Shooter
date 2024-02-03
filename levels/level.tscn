@@ -165,6 +165,7 @@ shape = SubResource("RectangleShape2D_7ssc0")
 
 [connection signal="fight_over" from="." to="BossUFO" method="_on_level_fight_over"]
 [connection signal="fight_over" from="." to="AsteroidSpawner" method="_on_level_fight_over"]
+[connection signal="boss_defeated" from="BossUFO" to="." method="_on_boss_ufo_boss_defeated"]
 
 [editable path="Player1"]
 [editable path="Player2"]

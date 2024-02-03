@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv3o8vgp4kr5y"
-path="res://.godot/imported/Meteor 1A.png-bc323afdc96a07454370d102508f7089.ctex"
+uid="uid://cg4u6sbmyo72u"
+path="res://.godot/imported/nightmare_bg_space.png-59d7b033da68ecdfea54812fc0582f5a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temporary/Meteor 1A.png"
-dest_files=["res://.godot/imported/Meteor 1A.png-bc323afdc96a07454370d102508f7089.ctex"]
+source_file="res://assets/temporary/background/nightmare_bg_space.png"
+dest_files=["res://.godot/imported/nightmare_bg_space.png-59d7b033da68ecdfea54812fc0582f5a.ctex"]
 
 [params]
 

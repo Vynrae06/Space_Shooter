@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceu5et7i80em8"
-path="res://.godot/imported/nightmare_bg_space_stars_b.png-ab9b13d98713e4b8807c140c590a765e.ctex"
+uid="uid://fv1gdgqap4pt"
+path="res://.godot/imported/cuphead_potato.png-a47d31cddc6ab5d4f07c60261f2003c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/nightmare_bg_space_stars_b.png"
-dest_files=["res://.godot/imported/nightmare_bg_space_stars_b.png-ab9b13d98713e4b8807c140c590a765e.ctex"]
+source_file="res://assets/temporary/cuphead_potato.png"
+dest_files=["res://.godot/imported/cuphead_potato.png-a47d31cddc6ab5d4f07c60261f2003c6.ctex"]
 
 [params]
 

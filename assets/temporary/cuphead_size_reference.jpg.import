@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bquvixll4bkn2"
-path="res://.godot/imported/Projectile Single.png-d96f44dde8749e67d8d6f0b0d02d9f75.ctex"
+uid="uid://ch7uxcg5stp3n"
+path="res://.godot/imported/cuphead_size_reference.jpg-4211444d525eddd560226b32ee503d6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temporary/Projectile Single.png"
-dest_files=["res://.godot/imported/Projectile Single.png-d96f44dde8749e67d8d6f0b0d02d9f75.ctex"]
+source_file="res://assets/temporary/cuphead_size_reference.jpg"
+dest_files=["res://.godot/imported/cuphead_size_reference.jpg-4211444d525eddd560226b32ee503d6f.ctex"]
 
 [params]
 

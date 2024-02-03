@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n082mbo04ojl"
-path="res://.godot/imported/cuphead_plane_idle_straight_0001.png-0f929ab24ad106ea310086b1dd830941.ctex"
+uid="uid://cv3o8vgp4kr5y"
+path="res://.godot/imported/meteor_1.png-fb4538505eb94b59e15509616a3a4a62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temporary/cuphead_plane_idle_straight_0001.png"
-dest_files=["res://.godot/imported/cuphead_plane_idle_straight_0001.png-0f929ab24ad106ea310086b1dd830941.ctex"]
+source_file="res://assets/meteor_1.png"
+dest_files=["res://.godot/imported/meteor_1.png-fb4538505eb94b59e15509616a3a4a62.ctex"]
 
 [params]
 

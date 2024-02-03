@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch7uxcg5stp3n"
-path="res://.godot/imported/Cuphead_ObUV8YH66Z.jpg-af897bed2e1ac0dfc28a84f6d0b3403e.ctex"
+uid="uid://d4ky317csseqt"
+path="res://.godot/imported/generic_laser_spritesheet.png-17ebd03a6e03fd05711ed2339e4d60b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temporary/Cuphead_ObUV8YH66Z.jpg"
-dest_files=["res://.godot/imported/Cuphead_ObUV8YH66Z.jpg-af897bed2e1ac0dfc28a84f6d0b3403e.ctex"]
+source_file="res://assets/temporary/generic_laser_spritesheet.png"
+dest_files=["res://.godot/imported/generic_laser_spritesheet.png-17ebd03a6e03fd05711ed2339e4d60b8.ctex"]
 
 [params]
 

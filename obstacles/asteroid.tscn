@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://n3tlv7fswfx2"]
 
 [ext_resource type="Script" path="res://obstacles/asteroid.gd" id="1_1r18x"]
-[ext_resource type="Texture2D" uid="uid://cv3o8vgp4kr5y" path="res://assets/temporary/Meteor 1A.png" id="2_7wdpy"]
+[ext_resource type="Texture2D" uid="uid://cv3o8vgp4kr5y" path="res://assets/meteor_1.png" id="2_7wdpy"]
 [ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="3_mpbgr"]
 [ext_resource type="PackedScene" uid="uid://dkwdv7atcmdc6" path="res://obstacles/obstacle_destroyable.tscn" id="3_w5w0x"]
 [ext_resource type="PackedScene" uid="uid://cc2x5j5hsah37" path="res://components/local_rotation_component.tscn" id="5_qacx8"]

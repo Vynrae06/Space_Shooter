@@ -26,16 +26,15 @@ func _process(_delta):
 	shoot_special()
 	
 	$SpecialChargeBar.max_value = SPECIAL_CHARGE_MAX
-	set_special_charge_bar()
+	update_special_charge_bar()
 
 func _physics_process(_delta):
 	if CAN_MOVE:
 		move()
 		move_and_slide()
 	
-func set_special_charge_bar() -> void:
+func update_special_charge_bar() -> void:
 	$SpecialChargeBar.value = SPECIAL_CHARGE
-	pass
 
 func move():
 	var input_x = Input.get_joy_axis(PLAYER_INDEX, JOY_AXIS_LEFT_X)
@@ -60,12 +59,16 @@ func shoot_special():
 		$ShotSpecialTimer.start()
 		CAN_SHOOT_SPECIAL = false
 		SPECIAL_CHARGE -= SPECIAL_CHARGE_COST
-		set_special_charge_bar()
+		update_special_charge_bar()
+		$SpecialChargeBar/BlinkingLightAnimationPlayer.stop()
+		$SpecialChargeBar/PointLight2D.energy = 0
 		
 func damage_dealt_signal_received():
 	if SPECIAL_CHARGE < SPECIAL_CHARGE_MAX:
 		SPECIAL_CHARGE += SPECIAL_CHARGE_RATE
-		set_special_charge_bar()
+		update_special_charge_bar()
+		if SPECIAL_CHARGE == SPECIAL_CHARGE_MAX:
+			$SpecialChargeBar/BlinkingLightAnimationPlayer.play("blinking_light")
 	
 func _on_shot_special_timer_timeout():
 	CAN_SHOOT_SPECIAL = true

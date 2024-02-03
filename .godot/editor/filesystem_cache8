@@ -1,24 +1,28 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706901866
+::res://::1706949882
 icon.svg::CompressedTexture2D::2012259090947846481::1706725738::1706725738::1::::<><>::
-::res://assets/::1706897331
-nightmare_bg_space.png::CompressedTexture2D::5255112031091503322::1706897331::1706897331::1::::<><>::
-nightmare_bg_space_stars_b.png::CompressedTexture2D::5096713997764104865::1706897331::1706897331::1::::<><>::
-::res://assets/temporary/::1706907200
-Background.jpg::CompressedTexture2D::2553636280936574351::1706897331::1706897331::1::::<><>::
-Cuphead_ObUV8YH66Z.jpg::CompressedTexture2D::5331478889800892153::1706907200::1706907200::1::::<><>::
-cuphead_plane_idle_straight_0001.png::CompressedTexture2D::966116920838307693::1706897331::1706897331::1::::<><>::
-Laser Spritesheet.png::CompressedTexture2D::9216890919335054899::1706897331::1706897331::1::::<><>::
-Meteor 1A.png::CompressedTexture2D::6305519742976026328::1706897331::1706897331::1::::<><>::
-Meteor 1B.png::CompressedTexture2D::4360365629016076426::1706897331::1706897331::1::::<><>::
-Potato.png::CompressedTexture2D::395885675167241981::1706897331::1706897331::1::::<><>::
-Projectile Single.png::CompressedTexture2D::3552020305750646261::1706897331::1706897331::1::::<><>::
-UFO.png::CompressedTexture2D::877780877799681730::1706897331::1706897331::1::::<><>::
-::res://bosses/::1706906181
+::res://assets/::1706947786
+light_texture.png::CompressedTexture2D::6050673311312379661::1706947761::1706947762::1::::<><>::
+meteor_1.png::CompressedTexture2D::6305519742976026328::1706897331::1706947786::1::::<><>::
+::res://assets/temporary/::1706949882
+cuphead_plane_idle.png::CompressedTexture2D::966116920838307693::1706897331::1706948242::1::::<><>::
+cuphead_potato.png::CompressedTexture2D::395885675167241981::1706897331::1706948267::1::::<><>::
+cuphead_projectile_basic.png::CompressedTexture2D::3552020305750646261::1706897331::1706948278::1::::<><>::
+cuphead_size_reference.jpg::CompressedTexture2D::5331478889800892153::1706907200::1706948235::1::::<><>::
+cuphead_UFO.png::CompressedTexture2D::877780877799681730::1706897331::1706948286::1::::<><>::
+generic_laser_spritesheet.png::CompressedTexture2D::9216890919335054899::1706897331::1706948254::1::::<><>::
+::res://assets/temporary/background/::1706948223
+nightmare_bg_space.png::CompressedTexture2D::5255112031091503322::1706897331::1706948218::1::::<><>::
+nightmare_bg_space_stars_b.png::CompressedTexture2D::5096713997764104865::1706897331::1706948218::1::::<><>::
+::res://assets/temporary/charge_bar/::1706949882
+bg.png::CompressedTexture2D::3689069592141272994::1706948308::1706948308::1::::<><>::
+over.png::CompressedTexture2D::7528879344719835544::1706948308::1706948308::1::::<><>::
+progress.png::CompressedTexture2D::1805301432571023785::1706949878::1706949882::1::::<><>::
+::res://bosses/::1706949395
 boss.gd::GDScript::-1::1706898405::0::1::::Boss<>CharacterBody2D<>::
-boss.tscn::PackedScene::7495583182108045954::1706906181::0::1::::<><>::res://bosses/boss.gd<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://bxwm5t8mu8mdx::::res://components/health_component.tscn<>uid://dugn6ue3cwdsv::::res://components/hurt_box_component.tscn<>uid://dkc3l14co1pqv::::res://components/Animation/hit_flash_animation_player.tscn
+boss.tscn::PackedScene::7495583182108045954::1706949395::0::1::::<><>::res://bosses/boss.gd<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://bxwm5t8mu8mdx::::res://components/health_component.tscn<>uid://dugn6ue3cwdsv::::res://components/hurt_box_component.tscn<>uid://dkc3l14co1pqv::::res://components/Animation/hit_flash_animation_player.tscn
 boss_ufo.gd::GDScript::-1::1706898591::0::1::::BossUFO<>Boss<>::
-boss_ufo.tscn::PackedScene::8340953463987234098::1706906181::0::1::::<><>::res://bosses/boss_ufo.gd<>uid://de16fo3l8lx0m::::res://bosses/boss.tscn<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://fv1gdgqap4pt::::res://assets/temporary/Potato.png<>uid://2grtpdddiryx::::res://components/boss_attack.tscn<>uid://yc6drrh5nx08::::res://components/oscillation_movement_component.tscn<>uid://d4ky317csseqt::::res://assets/temporary/Laser Spritesheet.png
+boss_ufo.tscn::PackedScene::8340953463987234098::1706949395::0::1::::<><>::res://bosses/boss_ufo.gd<>uid://de16fo3l8lx0m::::res://bosses/boss.tscn<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://fv1gdgqap4pt::::res://assets/temporary/cuphead_potato.png<>uid://2grtpdddiryx::::res://components/boss_attack.tscn<>uid://yc6drrh5nx08::::res://components/oscillation_movement_component.tscn<>uid://d4ky317csseqt::::res://assets/temporary/generic_laser_spritesheet.png
 ::res://components/::1706897331
 boss_attack.gd::GDScript::-1::1706897331::0::1::::BossAttack<>Node2D<>::
 boss_attack.tscn::PackedScene::1908551956337771547::1706897331::0::1::::<><>::res://components/boss_attack.gd
@@ -32,25 +36,25 @@ oscillation_movement_component.gd::GDScript::-1::1706814232::0::1::::<>Node<>::
 oscillation_movement_component.tscn::PackedScene::1690549506495675831::1706736279::0::1::::<><>::res://components/oscillation_movement_component.gd
 ::res://components/Animation/::1706814232
 hit_flash_animation_player.tscn::PackedScene::7867000373015212577::1706814232::0::1::::<><>::
-::res://levels/::1706906181
-level.gd::GDScript::-1::1706902288::0::1::::Level<>Node2D<>::
-level.tscn::PackedScene::656550359907006560::1706906181::0::1::::<><>::res://levels/level.gd<>uid://dvc0nldgfwv4l::::res://parallax/parallax.tscn<>uid://oj0pcpf8wyyl::::res://player/player.tscn<>uid://dq3ojxmvj0ebi::::res://bosses/boss_ufo.tscn<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://d4djecahvews7::::res://obstacles/obstacles_spawner.tscn<>uid://n3tlv7fswfx2::::res://obstacles/asteroid.tscn
-::res://obstacles/::1706906182
+::res://levels/::1706949395
+level.gd::GDScript::-1::1706907709::0::1::::Level<>Node2D<>::
+level.tscn::PackedScene::656550359907006560::1706949395::0::1::::<><>::res://levels/level.gd<>uid://dvc0nldgfwv4l::::res://parallax/parallax.tscn<>uid://oj0pcpf8wyyl::::res://player/player.tscn<>uid://dq3ojxmvj0ebi::::res://bosses/boss_ufo.tscn<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://d4djecahvews7::::res://obstacles/obstacles_spawner.tscn<>uid://n3tlv7fswfx2::::res://obstacles/asteroid.tscn
+::res://obstacles/::1706949395
 asteroid.gd::GDScript::-1::1706898209::0::1::::Asteroid<>ObstacleDestroyable<>::
-asteroid.tscn::PackedScene::971431963679808173::1706897331::0::1::::<><>::res://obstacles/asteroid.gd<>uid://cv3o8vgp4kr5y::::res://assets/temporary/Meteor 1A.png<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://dkwdv7atcmdc6::::res://obstacles/obstacle_destroyable.tscn<>uid://cc2x5j5hsah37::::res://components/local_rotation_component.tscn
-obstacles_spawner.tscn::PackedScene::9201485351347933996::1706906182::0::1::::<><>::res://obstacles/obstacle_spawner.gd
+asteroid.tscn::PackedScene::971431963679808173::1706947786::0::1::::<><>::res://obstacles/asteroid.gd<>uid://cv3o8vgp4kr5y::::res://assets/meteor_1.png<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://dkwdv7atcmdc6::::res://obstacles/obstacle_destroyable.tscn<>uid://cc2x5j5hsah37::::res://components/local_rotation_component.tscn
+obstacles_spawner.tscn::PackedScene::9201485351347933996::1706949395::0::1::::<><>::res://obstacles/obstacle_spawner.gd
 obstacle_destroyable.gd::GDScript::-1::1706814232::0::1::::ObstacleDestroyable<>Area2D<>::
 obstacle_destroyable.tscn::PackedScene::7906788132312869839::1706814232::0::1::::<><>::res://obstacles/obstacle_destroyable.gd<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://bxwm5t8mu8mdx::::res://components/health_component.tscn<>uid://dugn6ue3cwdsv::::res://components/hurt_box_component.tscn<>uid://dkc3l14co1pqv::::res://components/Animation/hit_flash_animation_player.tscn
 obstacle_spawner.gd::GDScript::-1::1706897331::0::1::::<>Node2D<>::
-::res://parallax/::1706897331
+::res://parallax/::1706948218
 parallax.gd::GDScript::-1::1706897331::0::1::::<>ParallaxBackground<>::
-parallax.tscn::PackedScene::8638898245797477049::1706897331::0::1::::<><>::res://parallax/parallax.gd<>uid://cg4u6sbmyo72u::::res://assets/nightmare_bg_space.png<>uid://ceu5et7i80em8::::res://assets/nightmare_bg_space_stars_b.png
-::res://player/::1706906402
-player.gd::GDScript::-1::1706903836::0::1::::Player<>CharacterBody2D<>::
-player.tscn::PackedScene::1002768050937662395::1706906402::0::1::::<><>::res://player/player.gd<>uid://mrg6m1g4dwfy::::res://assets/temporary/UFO.png<>uid://n082mbo04ojl::::res://assets/temporary/cuphead_plane_idle_straight_0001.png
+parallax.tscn::PackedScene::8638898245797477049::1706948218::0::1::::<><>::res://parallax/parallax.gd<>uid://cg4u6sbmyo72u::::res://assets/temporary/background/nightmare_bg_space.png<>uid://ceu5et7i80em8::::res://assets/temporary/background/nightmare_bg_space_stars_b.png
+::res://player/::1706949661
+player.gd::GDScript::-1::1706908184::0::1::::Player<>CharacterBody2D<>::
+player.tscn::PackedScene::1002768050937662395::1706949661::0::1::::<><>::res://player/player.gd<>uid://mrg6m1g4dwfy::::res://assets/temporary/cuphead_UFO.png<>uid://bstao4n21rdj3::::res://assets/temporary/charge_bar/bg.png<>uid://csg8x8p68xg10::::res://assets/light_texture.png<>uid://dfjbsprf6gj1a::::res://assets/temporary/charge_bar/over.png<>uid://dhp5do71u6bth::::res://assets/temporary/charge_bar/progress.png
 player_projectile_basic.tscn::PackedScene::2756164605024422612::1706897331::0::1::::<><>::uid://cmh84x2mocib0::::res://player/projectile.tscn
 player_projectile_special.tscn::PackedScene::7560098701721465313::1706897331::0::1::::<><>::uid://cmh84x2mocib0::::res://player/projectile.tscn
 projectile.gd::GDScript::-1::1706897331::0::1::::Projectile<>Area2D<>::
-projectile.tscn::PackedScene::5631614834416338699::1706897331::0::1::::<><>::res://player/projectile.gd<>uid://bquvixll4bkn2::::res://assets/temporary/Projectile Single.png
-::res://shaders/::1706898080
-hit_flash.tres::VisualShader::8576610010746867921::1706898080::0::1::::<><>::
+projectile.tscn::PackedScene::5631614834416338699::1706948278::0::1::::<><>::res://player/projectile.gd<>uid://bquvixll4bkn2::::res://assets/temporary/cuphead_projectile_basic.png
+::res://shaders/::1706947852
+hit_flash.tres::VisualShader::8576610010746867921::1706947852::0::1::::<><>::

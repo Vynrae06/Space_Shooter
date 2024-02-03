@@ -1,7 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://oj0pcpf8wyyl"]
+[gd_scene load_steps=27 format=3 uid="uid://oj0pcpf8wyyl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_th58a"]
-[ext_resource type="Texture2D" uid="uid://mrg6m1g4dwfy" path="res://assets/temporary/UFO.png" id="2_ad8w1"]
+[ext_resource type="Texture2D" uid="uid://mrg6m1g4dwfy" path="res://assets/temporary/cuphead_UFO.png" id="2_ad8w1"]
+[ext_resource type="Texture2D" uid="uid://bstao4n21rdj3" path="res://assets/temporary/charge_bar/bg.png" id="3_8gysw"]
+[ext_resource type="Texture2D" uid="uid://csg8x8p68xg10" path="res://assets/light_texture.png" id="3_x30pb"]
+[ext_resource type="Texture2D" uid="uid://0yrby1c1xf82" path="res://assets/temporary/charge_bar/progress.png" id="5_kiffg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pf2us"]
 radius = 18.0
@@ -131,6 +134,28 @@ animations = [{
 radius = 18.0
 height = 118.0
 
+[sub_resource type="Animation" id="Animation_4i2lf"]
+resource_name = "blinking_light"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [16.0, 0.0, 16.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_skooe"]
+_data = {
+"blinking_light": SubResource("Animation_4i2lf")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 64
 script = ExtResource("1_th58a")
@@ -165,11 +190,27 @@ shape = SubResource("CapsuleShape2D_b6laq")
 debug_color = Color(0.631373, 0.47451, 0.635294, 0.419608)
 
 [node name="SpecialChargeBar" type="TextureProgressBar" parent="."]
-offset_left = -56.0
-offset_top = 35.0
-offset_right = 56.0
-offset_bottom = 65.0
+offset_left = -150.0
+offset_top = 36.0
+offset_right = 150.0
+offset_bottom = 66.0
 max_value = 15.0
+value = 10.0
+texture_under = ExtResource("3_8gysw")
+texture_progress = ExtResource("5_kiffg")
+
+[node name="PointLight2D" type="PointLight2D" parent="SpecialChargeBar"]
+position = Vector2(150, 15)
+scale = Vector2(0.585938, 0.0585937)
+color = Color(0.85098, 0.0509804, 0, 1)
+energy = 0.0
+texture = ExtResource("3_x30pb")
+texture_scale = 0.5
+
+[node name="BlinkingLightAnimationPlayer" type="AnimationPlayer" parent="SpecialChargeBar"]
+libraries = {
+"": SubResource("AnimationLibrary_skooe")
+}
 
 [connection signal="timeout" from="ShotBasicTimer" to="." method="_on_shot_basic_timer_timeout"]
 [connection signal="timeout" from="ShotSpecialTimer" to="." method="_on_shot_special_timer_timeout"]

@@ -1,78 +1,71 @@
-[gd_scene load_steps=22 format=3 uid="uid://jmbj2rm5qml1"]
+[gd_scene load_steps=21 format=3 uid="uid://jmbj2rm5qml1"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_7uvhw"]
 [ext_resource type="PackedScene" uid="uid://dvc0nldgfwv4l" path="res://parallax/parallax.tscn" id="2_munxv"]
 [ext_resource type="PackedScene" uid="uid://oj0pcpf8wyyl" path="res://player/player.tscn" id="3_cbgt6"]
-[ext_resource type="Texture2D" uid="uid://c07rh2o1olid7" path="res://assets/Spritesheet.png" id="4_1alof"]
+[ext_resource type="Texture2D" uid="uid://co2n3y4bby78b" path="res://assets/player/player_limer.png" id="4_c3vi6"]
 [ext_resource type="PackedScene" uid="uid://dq3ojxmvj0ebi" path="res://bosses/boss_ufo.tscn" id="4_mjjur"]
+[ext_resource type="Texture2D" uid="uid://cam40gb0wlctk" path="res://assets/player/player_orangina.png" id="5_4sgeg"]
 [ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="5_5vdl1"]
-[ext_resource type="Texture2D" uid="uid://c7eq3bwmmqyi6" path="res://assets/temporary/chalice_plane_straight.png" id="5_7lpwx"]
 [ext_resource type="PackedScene" uid="uid://d4djecahvews7" path="res://obstacles/obstacles_spawner.tscn" id="6_kp30j"]
 [ext_resource type="PackedScene" uid="uid://n3tlv7fswfx2" path="res://obstacles/asteroid.tscn" id="7_kbb0w"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_530ho"]
-atlas = ExtResource("4_1alof")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikewv"]
+atlas = ExtResource("4_c3vi6")
 region = Rect2(0, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_11n4o"]
-atlas = ExtResource("4_1alof")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qgwd"]
+atlas = ExtResource("4_c3vi6")
 region = Rect2(512, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ik6w"]
-atlas = ExtResource("4_1alof")
+[sub_resource type="AtlasTexture" id="AtlasTexture_m434g"]
+atlas = ExtResource("4_c3vi6")
 region = Rect2(1024, 0, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8x7la"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_530ho")
+"texture": SubResource("AtlasTexture_ikewv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_11n4o")
+"texture": SubResource("AtlasTexture_0qgwd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8ik6w")
+"texture": SubResource("AtlasTexture_m434g")
 }],
 "loop": true,
 "name": &"straight",
 "speed": 12.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eovgj"]
-atlas = ExtResource("5_7lpwx")
-region = Rect2(0, 0, 114, 93)
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3jpc"]
+atlas = ExtResource("5_4sgeg")
+region = Rect2(0, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l5s4k"]
-atlas = ExtResource("5_7lpwx")
-region = Rect2(114, 0, 114, 93)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3vxr"]
+atlas = ExtResource("5_4sgeg")
+region = Rect2(512, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uggmt"]
-atlas = ExtResource("5_7lpwx")
-region = Rect2(228, 0, 114, 93)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dsmjc"]
-atlas = ExtResource("5_7lpwx")
-region = Rect2(342, 0, 114, 93)
+[sub_resource type="AtlasTexture" id="AtlasTexture_us7nu"]
+atlas = ExtResource("5_4sgeg")
+region = Rect2(1024, 0, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iqc30"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eovgj")
+"texture": SubResource("AtlasTexture_f3jpc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l5s4k")
+"texture": SubResource("AtlasTexture_x3vxr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uggmt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dsmjc")
+"texture": SubResource("AtlasTexture_us7nu")
 }],
 "loop": true,
 "name": &"straight",
-"speed": 24.0
+"speed": 12.0
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wk3au"]
@@ -96,16 +89,23 @@ STARS_SPEED = 25.0
 [node name="Player1" parent="." instance=ExtResource("3_cbgt6")]
 position = Vector2(-729, 9)
 collision_mask = 124
+projectile_sprite_path_basic = "res://assets/player/projectiles/projectile_basic_lime.png"
+projectile_sprite_path_special = "res://assets/player/projectiles/projectile_special_lime.png"
+shot_spawn_flash_sprite_path = "res://assets/player/projectiles/projectile_spawn_lime.png"
 
 [node name="PlaneAnimatedSprite" parent="Player1" index="1"]
-scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8x7la")
 animation = &"straight"
+frame = 1
+frame_progress = 0.785525
 
 [node name="Player2" parent="." instance=ExtResource("3_cbgt6")]
 position = Vector2(-732, 266)
 collision_mask = 124
 PLAYER_INDEX = 1
+projectile_sprite_path_basic = "res://assets/player/projectiles/projectile_basic_orangina.png"
+projectile_sprite_path_special = "res://assets/player/projectiles/projectile_special_orangina.png"
+shot_spawn_flash_sprite_path = "res://assets/player/projectiles/projectile_spawn_orangina.png"
 
 [node name="PlaneAnimatedSprite" parent="Player2" index="1"]
 sprite_frames = SubResource("SpriteFrames_iqc30")

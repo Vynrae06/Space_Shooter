@@ -19,3 +19,6 @@ func _on_area_entered(_area: Area2D):
 	if _area is HurtBoxComponent:
 		damage_dealt_signal.emit()
 	queue_free()
+
+func set_sprite(path: String):
+	$Sprite2D.texture = ResourceLoader.load(path)

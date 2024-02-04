@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c07rh2o1olid7"
-path="res://.godot/imported/spritesheet.png-76e0b916bc20d45ac6900db6e21d8a9e.ctex"
+uid="uid://yjapwerodtsv"
+path="res://.godot/imported/projectile_spawn_lime.png-0a6ab791973c73688bc1e0db5cf6e112.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/spritesheet.png"
-dest_files=["res://.godot/imported/spritesheet.png-76e0b916bc20d45ac6900db6e21d8a9e.ctex"]
+source_file="res://assets/player/projectiles/projectile_spawn_lime.png"
+dest_files=["res://.godot/imported/projectile_spawn_lime.png-0a6ab791973c73688bc1e0db5cf6e112.ctex"]
 
 [params]
 

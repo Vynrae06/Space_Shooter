@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://oj0pcpf8wyyl"]
+[gd_scene load_steps=16 format=3 uid="uid://oj0pcpf8wyyl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_th58a"]
 [ext_resource type="Texture2D" uid="uid://cly0nj1i6mtgx" path="res://assets/charge_bar/under 1.png" id="2_hq05b"]
@@ -9,12 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://bboekewk3vval" path="res://assets/charge_bar/light_texture.png" id="7_hmqby"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pf2us"]
-radius = 18.0
-height = 118.0
+radius = 57.0
+height = 230.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6laq"]
-radius = 18.0
-height = 118.0
+radius = 47.0
+height = 168.0
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_s01qa"]
 frames = 2
@@ -52,32 +52,61 @@ _data = {
 "blinking_light": SubResource("Animation_4i2lf")
 }
 
+[sub_resource type="Animation" id="Animation_nppbl"]
+resource_name = "shot_spawn_flash"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShotSpawnFlash:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShotSpawnFlash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_youp4"]
+_data = {
+"shot_spawn_flash": SubResource("Animation_nppbl")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+position = Vector2(-1, 0)
 collision_mask = 64
 script = ExtResource("1_th58a")
 SPECIAL_CHARGE_MAX = 20
 SPECIAL_CHARGE_COST = 20
+metadata/_edit_lock_ = true
 
 [node name="BorderCollider" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pf2us")
+metadata/_edit_lock_ = true
 
 [node name="PlaneAnimatedSprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
-
-[node name="ShotInstantiateMarker" type="Marker2D" parent="."]
-position = Vector2(59, 36)
-
-[node name="ShotBasicTimer" type="Timer" parent="."]
-wait_time = 0.15
-one_shot = true
-
-[node name="ShotSpecialTimer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
+position = Vector2(-10, 4)
+scale = Vector2(0.5, 0.5)
+metadata/_edit_lock_ = true
 
 [node name="DeathArea" type="Area2D" parent="."]
 collision_mask = 60
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="DeathCollider" type="CollisionShape2D" parent="DeathArea"]
 rotation = 1.5708
@@ -85,10 +114,10 @@ shape = SubResource("CapsuleShape2D_b6laq")
 debug_color = Color(0.631373, 0.47451, 0.635294, 0.419608)
 
 [node name="SpecialChargeBar" type="TextureProgressBar" parent="."]
-offset_left = -13.0
-offset_top = 27.0
-offset_right = 103.0
-offset_bottom = 63.0
+offset_left = -24.0
+offset_top = 31.0
+offset_right = 92.0
+offset_bottom = 72.0
 scale = Vector2(0.5, 0.5)
 max_value = 15.0
 value = 10.0
@@ -96,6 +125,7 @@ texture_under = SubResource("AnimatedTexture_s01qa")
 texture_over = SubResource("AnimatedTexture_aiakn")
 texture_progress = ExtResource("4_v6c44")
 texture_progress_offset = Vector2(0, 4)
+metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="SpecialChargeBar"]
 position = Vector2(58, 20)
@@ -110,6 +140,28 @@ libraries = {
 "": SubResource("AnimationLibrary_skooe")
 }
 
+[node name="ShotBasicTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="ShotSpecialTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="ShotSpawnFlash" type="Sprite2D" parent="."]
+position = Vector2(69, 41)
+scale = Vector2(0.25, 0.25)
+hframes = 4
+
+[node name="ShotInstantiateMarker" type="Marker2D" parent="."]
+position = Vector2(69, 41)
+
+[node name="ShotSpawnFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_youp4")
+}
+speed_scale = 4.0
+
+[connection signal="area_entered" from="DeathArea" to="." method="_on_death_area_entered"]
 [connection signal="timeout" from="ShotBasicTimer" to="." method="_on_shot_basic_timer_timeout"]
 [connection signal="timeout" from="ShotSpecialTimer" to="." method="_on_shot_special_timer_timeout"]
-[connection signal="area_entered" from="DeathArea" to="." method="_on_death_area_entered"]

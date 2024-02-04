@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://oj0pcpf8wyyl"]
+[gd_scene load_steps=14 format=3 uid="uid://oj0pcpf8wyyl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_th58a"]
-[ext_resource type="Texture2D" uid="uid://0g4fwfshoghs" path="res://assets/charge_bar/under.png" id="2_17bly"]
-[ext_resource type="Texture2D" uid="uid://r3h43qdjgn8g" path="res://assets/charge_bar/over.png" id="3_no70j"]
-[ext_resource type="Texture2D" uid="uid://csg8x8p68xg10" path="res://assets/light_texture.png" id="3_x30pb"]
+[ext_resource type="Texture2D" uid="uid://cly0nj1i6mtgx" path="res://assets/charge_bar/under 1.png" id="2_hq05b"]
+[ext_resource type="Texture2D" uid="uid://ot3wf5gm17yw" path="res://assets/charge_bar/under 2.png" id="3_t8vs2"]
 [ext_resource type="Texture2D" uid="uid://dykhh5i631dmu" path="res://assets/charge_bar/progress.png" id="4_v6c44"]
+[ext_resource type="Texture2D" uid="uid://cjkxey2jyxt8l" path="res://assets/charge_bar/over 1.png" id="4_yc41i"]
+[ext_resource type="Texture2D" uid="uid://bs50e1ne1wfkv" path="res://assets/charge_bar/over 2.png" id="5_6oo0c"]
+[ext_resource type="Texture2D" uid="uid://bboekewk3vval" path="res://assets/charge_bar/Light.png" id="7_h78o6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pf2us"]
 radius = 18.0
@@ -13,6 +15,20 @@ height = 118.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6laq"]
 radius = 18.0
 height = 118.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_s01qa"]
+frames = 2
+frame_0/texture = ExtResource("2_hq05b")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("3_t8vs2")
+frame_1/duration = 0.1
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_aiakn"]
+frames = 2
+frame_0/texture = ExtResource("4_yc41i")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("5_6oo0c")
+frame_1/duration = 0.1
 
 [sub_resource type="Animation" id="Animation_4i2lf"]
 resource_name = "blinking_light"
@@ -28,7 +44,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [16.0, 0.0, 16.0, 0.0]
+"values": [0.0, 8.0, 0.0, 8.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_skooe"]
@@ -74,17 +90,17 @@ offset_bottom = 63.0
 scale = Vector2(0.5, 0.5)
 max_value = 15.0
 value = 10.0
-texture_under = ExtResource("2_17bly")
-texture_over = ExtResource("3_no70j")
+texture_under = SubResource("AnimatedTexture_s01qa")
+texture_over = SubResource("AnimatedTexture_aiakn")
 texture_progress = ExtResource("4_v6c44")
-metadata/_edit_group_ = true
+texture_progress_offset = Vector2(0, 4)
 
 [node name="PointLight2D" type="PointLight2D" parent="SpecialChargeBar"]
-position = Vector2(59, 19)
-scale = Vector2(0.199219, 0.0429687)
+position = Vector2(58, 20)
+scale = Vector2(2, 1.93104)
 color = Color(1, 0.882353, 0.862745, 1)
 energy = 0.0
-texture = ExtResource("3_x30pb")
+texture = ExtResource("7_h78o6")
 texture_scale = 0.5
 
 [node name="BlinkingLightAnimationPlayer" type="AnimationPlayer" parent="SpecialChargeBar"]

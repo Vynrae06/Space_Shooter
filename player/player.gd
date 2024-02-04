@@ -28,6 +28,7 @@ signal player_died
 func _ready():
 	get_parent().connect("fight_over", disable_player)
 	$ShotSpawnFlash.texture = ResourceLoader.load(shot_spawn_flash_sprite_path)
+	$ShotSpawnFlash.visible = false
 	$PlaneAnimatedSprite.play("straight")
 
 func _process(_delta):

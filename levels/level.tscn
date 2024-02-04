@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://jmbj2rm5qml1"]
+[gd_scene load_steps=22 format=3 uid="uid://jmbj2rm5qml1"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_7uvhw"]
 [ext_resource type="PackedScene" uid="uid://dvc0nldgfwv4l" path="res://parallax/parallax.tscn" id="2_munxv"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="5_5vdl1"]
 [ext_resource type="PackedScene" uid="uid://d4djecahvews7" path="res://obstacles/obstacles_spawner.tscn" id="6_kp30j"]
 [ext_resource type="PackedScene" uid="uid://n3tlv7fswfx2" path="res://obstacles/asteroid.tscn" id="7_kbb0w"]
+[ext_resource type="AudioStream" uid="uid://bvqpgafy7uwoj" path="res://audio/music/Space Jazz 1.mp3" id="10_kbd6n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ikewv"]
 atlas = ExtResource("4_c3vi6")
@@ -156,6 +157,10 @@ shape = SubResource("RectangleShape2D_7ssc0")
 [node name="Right" type="CollisionShape2D" parent="Camera2D/Borders"]
 position = Vector2(950, 0.5)
 shape = SubResource("RectangleShape2D_7ssc0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_kbd6n")
+autoplay = true
 
 [connection signal="fight_over" from="." to="BossUFO" method="_on_level_fight_over"]
 [connection signal="fight_over" from="." to="AsteroidSpawner" method="_on_level_fight_over"]

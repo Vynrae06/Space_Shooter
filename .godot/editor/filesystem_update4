@@ -1,14 +1,9 @@
-res://player/player.tscn
-res://shaders/hit_flash.tres
 res://levels/level.tscn
+res://shaders/hit_flash.tres
+res://player/player.tscn
 res://bosses/boss.tscn
-res://bosses/boss_ufo.tscn
-res://obstacles/obstacles_spawner.tscn
-res://obstacles/asteroid.tscn
 res://player/projectile.tscn
 res://player/player_projectile_basic.tscn
 res://player/player_projectile_special.tscn
+res://bosses/boss_ufo.tscn
 res://player/player.gd
-res://player/projectile.gd
-res://levels/level.gd
-res://player/projectile_spawn_animation_player.tscn

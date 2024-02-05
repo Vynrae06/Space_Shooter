@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dq3ojxmvj0ebi"]
+[gd_scene load_steps=29 format=3 uid="uid://dq3ojxmvj0ebi"]
 
 [ext_resource type="Script" path="res://bosses/boss_ufo.gd" id="1_6c0ru"]
 [ext_resource type="PackedScene" uid="uid://de16fo3l8lx0m" path="res://bosses/boss.tscn" id="2_re1sr"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://2grtpdddiryx" path="res://components/boss_attack.tscn" id="5_kv5d4"]
 [ext_resource type="PackedScene" uid="uid://yc6drrh5nx08" path="res://components/oscillation_movement_component.tscn" id="5_sdbey"]
 [ext_resource type="Texture2D" uid="uid://d4ky317csseqt" path="res://assets/temporary/generic_laser_spritesheet.png" id="7_1ij0g"]
+[ext_resource type="Texture2D" uid="uid://cl655crbfdkp1" path="res://assets/ufo_1.png" id="8_44205"]
 
 [sub_resource type="Animation" id="Animation_lprig"]
 resource_name = "laser_beam"
@@ -160,11 +161,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uftpm"]
-radius = 128.0
+radius = 112.0
 height = 378.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bnb8n"]
-radius = 126.0
+radius = 113.0
 height = 378.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5b3a"]
@@ -220,18 +221,21 @@ position = Vector2(-426.5, 0)
 shape = SubResource("RectangleShape2D_6844w")
 
 [node name="AnimatedSprite2D" parent="." index="2"]
+visible = false
 material = SubResource("ShaderMaterial_wk7ru")
 position = Vector2(-9, -63)
 sprite_frames = SubResource("SpriteFrames_jl0mi")
 animation = &"idle"
 
 [node name="CollisionShape2D" parent="." index="3"]
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uftpm")
 
 [node name="HealthComponent" parent="." index="4"]
 HEALTH = 100
 
 [node name="CollisionShape2D" parent="HurtBoxComponent" index="0"]
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_bnb8n")
 debug_color = Color(0.611765, 0.482353, 0.627451, 0.419608)
 
@@ -249,6 +253,11 @@ wait_time = 2.0
 FREQUENCY = 2.0
 AMPLITUDE = 666.0
 CHARACTER_BODY_2D = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="10"]
+position = Vector2(0, 13)
+scale = Vector2(0.315412, 0.315412)
+texture = ExtResource("8_44205")
 
 [connection signal="timeout" from="BossAttackHorizontal/BossAttackDuration" to="." method="_on_horizontal_boss_attack_timeout"]
 [connection signal="timeout" from="BossAttackVertical/BossAttackDuration" to="." method="_on_boss_attack_duration_timeout"]

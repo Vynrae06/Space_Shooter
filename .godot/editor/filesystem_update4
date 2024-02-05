@@ -1,9 +1,10 @@
-res://levels/level.tscn
+res://bosses/boss_ufo.tscn
 res://shaders/hit_flash.tres
+res://levels/level.tscn
 res://player/player.tscn
 res://bosses/boss.tscn
 res://player/projectile.tscn
 res://player/player_projectile_basic.tscn
 res://player/player_projectile_special.tscn
-res://bosses/boss_ufo.tscn
-res://player/player.gd
+res://parallax/parallax.tscn
+res://parallax/parallax.gd

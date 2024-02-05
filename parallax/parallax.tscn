@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvc0nldgfwv4l"]
+[gd_scene load_steps=6 format=3 uid="uid://dvc0nldgfwv4l"]
 
 [ext_resource type="Script" path="res://parallax/parallax.gd" id="1_gikjo"]
-[ext_resource type="Texture2D" uid="uid://cg4u6sbmyo72u" path="res://assets/temporary/background/nightmare_bg_space.png" id="2_wbysw"]
-[ext_resource type="Texture2D" uid="uid://ceu5et7i80em8" path="res://assets/temporary/background/nightmare_bg_space_stars_b.png" id="3_ds3wu"]
+[ext_resource type="Texture2D" uid="uid://diey4b1q3xpa" path="res://assets/background/backgrouns_space.png" id="2_j8gyw"]
+[ext_resource type="Texture2D" uid="uid://r3nfee3tl76k" path="res://assets/background/nightmare_bg_space_stars_b-1.png" id="3_0pte7"]
+[ext_resource type="Texture2D" uid="uid://b8rvigndpjllo" path="res://assets/background/nightmare_bg_space_stars_b-2.png" id="4_mxtib"]
+[ext_resource type="Texture2D" uid="uid://ch3hi8fvta84q" path="res://assets/background/nightmare_bg_space_stars_b-3.png" id="5_elrma"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 script = ExtResource("1_gikjo")
@@ -12,13 +14,29 @@ motion_offset = Vector2(-960, -540)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
 texture_filter = 1
-texture = ExtResource("2_wbysw")
+texture = ExtResource("2_j8gyw")
 centered = false
 
-[node name="Stars" type="ParallaxLayer" parent="."]
+[node name="StarsFront" type="ParallaxLayer" parent="."]
 motion_offset = Vector2(-960, -540)
 motion_mirroring = Vector2(1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Stars"]
-texture = ExtResource("3_ds3wu")
+[node name="Sprite2D" type="Sprite2D" parent="StarsFront"]
+texture = ExtResource("3_0pte7")
+centered = false
+
+[node name="StarsMiddle" type="ParallaxLayer" parent="."]
+motion_offset = Vector2(-960, -540)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="StarsMiddle"]
+texture = ExtResource("4_mxtib")
+centered = false
+
+[node name="StarsBack" type="ParallaxLayer" parent="."]
+motion_offset = Vector2(-960, -540)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="StarsBack"]
+texture = ExtResource("5_elrma")
 centered = false

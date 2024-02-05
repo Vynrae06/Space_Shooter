@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc2x5j5hsah37"]
+
+[ext_resource type="Script" path="res://scenes/components/local_rotation_component.gd" id="1_yiytx"]
+
+[node name="LocalRotationComponent" type="Node"]
+script = ExtResource("1_yiytx")

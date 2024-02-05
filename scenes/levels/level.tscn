@@ -1,0 +1,174 @@
+[gd_scene load_steps=22 format=3 uid="uid://jmbj2rm5qml1"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_7uvhw"]
+[ext_resource type="PackedScene" uid="uid://dvc0nldgfwv4l" path="res://scenes/parallax/parallax.tscn" id="2_munxv"]
+[ext_resource type="PackedScene" uid="uid://oj0pcpf8wyyl" path="res://scenes/player/player.tscn" id="3_cbgt6"]
+[ext_resource type="Texture2D" uid="uid://co2n3y4bby78b" path="res://assets/player/player_limer.png" id="4_c3vi6"]
+[ext_resource type="PackedScene" uid="uid://dq3ojxmvj0ebi" path="res://scenes/bosses/boss_ufo.tscn" id="4_mjjur"]
+[ext_resource type="Texture2D" uid="uid://cam40gb0wlctk" path="res://assets/player/player_orangina.png" id="5_4sgeg"]
+[ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="5_5vdl1"]
+[ext_resource type="PackedScene" uid="uid://d4djecahvews7" path="res://scenes/obstacles/obstacles_spawner.tscn" id="6_kp30j"]
+[ext_resource type="PackedScene" uid="uid://n3tlv7fswfx2" path="res://scenes/obstacles/asteroid.tscn" id="7_kbb0w"]
+[ext_resource type="AudioStream" uid="uid://bvqpgafy7uwoj" path="res://audio/music/Space Jazz 1.mp3" id="10_kbd6n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikewv"]
+atlas = ExtResource("4_c3vi6")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qgwd"]
+atlas = ExtResource("4_c3vi6")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m434g"]
+atlas = ExtResource("4_c3vi6")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8x7la"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikewv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qgwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m434g")
+}],
+"loop": true,
+"name": &"straight",
+"speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3jpc"]
+atlas = ExtResource("5_4sgeg")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3vxr"]
+atlas = ExtResource("5_4sgeg")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us7nu"]
+atlas = ExtResource("5_4sgeg")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iqc30"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3jpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3vxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us7nu")
+}],
+"loop": true,
+"name": &"straight",
+"speed": 12.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wk3au"]
+resource_local_to_scene = true
+shader = ExtResource("5_5vdl1")
+shader_parameter/Enabled = true
+shader_parameter/Tint = Color(1, 1, 1, 0.501961)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5o00w"]
+size = Vector2(1919, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ssc0"]
+size = Vector2(19, 1041)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_7uvhw")
+
+[node name="Parallax" parent="." instance=ExtResource("2_munxv")]
+STARS_SPEED = 25.0
+
+[node name="Player1" parent="." instance=ExtResource("3_cbgt6")]
+position = Vector2(-729, 9)
+collision_mask = 124
+projectile_sprite_path_basic = "res://assets/player/projectiles/projectile_basic_lime.png"
+projectile_sprite_path_special = "res://assets/player/projectiles/projectile_special_lime.png"
+shot_spawn_flash_sprite_path = "res://assets/player/projectiles/projectile_spawn_lime.png"
+
+[node name="PlaneAnimatedSprite" parent="Player1" index="1"]
+sprite_frames = SubResource("SpriteFrames_8x7la")
+animation = &"straight"
+frame = 1
+frame_progress = 0.785525
+
+[node name="Player2" parent="." instance=ExtResource("3_cbgt6")]
+position = Vector2(-732, 266)
+collision_mask = 124
+PLAYER_INDEX = 1
+projectile_sprite_path_basic = "res://assets/player/projectiles/projectile_basic_orangina.png"
+projectile_sprite_path_special = "res://assets/player/projectiles/projectile_special_orangina.png"
+shot_spawn_flash_sprite_path = "res://assets/player/projectiles/projectile_spawn_orangina.png"
+
+[node name="PlaneAnimatedSprite" parent="Player2" index="1"]
+sprite_frames = SubResource("SpriteFrames_iqc30")
+animation = &"straight"
+
+[node name="BossUFO" parent="." instance=ExtResource("4_mjjur")]
+position = Vector2(713, 0)
+
+[node name="AnimatedSprite2D" parent="BossUFO" index="2"]
+material = SubResource("ShaderMaterial_wk3au")
+
+[node name="AttackCooldown" parent="BossUFO" index="8"]
+one_shot = false
+
+[node name="AsteroidMarkers" type="Node2D" parent="."]
+
+[node name="MarkerTop" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(950, -640)
+
+[node name="MarkerBottom" type="Marker2D" parent="AsteroidMarkers"]
+position = Vector2(950, 640)
+
+[node name="AsteroidSpawner" parent="." node_paths=PackedStringArray("MARKERS") instance=ExtResource("6_kp30j")]
+MARKERS = [NodePath("../AsteroidMarkers/MarkerTop"), NodePath("../AsteroidMarkers/MarkerBottom")]
+OBSTACLE_SCENE = ExtResource("7_kbb0w")
+
+[node name="ProjectilesHolder" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+editor_draw_limits = true
+
+[node name="Borders" type="StaticBody2D" parent="Camera2D"]
+collision_layer = 64
+collision_mask = 0
+
+[node name="Top" type="CollisionShape2D" parent="Camera2D/Borders"]
+position = Vector2(0.5, -530)
+shape = SubResource("RectangleShape2D_5o00w")
+
+[node name="Bottom" type="CollisionShape2D" parent="Camera2D/Borders"]
+position = Vector2(0.5, 531)
+shape = SubResource("RectangleShape2D_5o00w")
+
+[node name="Left" type="CollisionShape2D" parent="Camera2D/Borders"]
+position = Vector2(-949.5, 0.5)
+shape = SubResource("RectangleShape2D_7ssc0")
+
+[node name="Right" type="CollisionShape2D" parent="Camera2D/Borders"]
+position = Vector2(950, 0.5)
+shape = SubResource("RectangleShape2D_7ssc0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_kbd6n")
+autoplay = true
+
+[connection signal="fight_over" from="." to="BossUFO" method="_on_level_fight_over"]
+[connection signal="fight_over" from="." to="AsteroidSpawner" method="_on_level_fight_over"]
+[connection signal="boss_defeated" from="BossUFO" to="." method="_on_boss_ufo_boss_defeated"]
+
+[editable path="Player1"]
+[editable path="Player2"]
+[editable path="BossUFO"]
+[editable path="BossUFO/BossAttackHorizontal"]
+[editable path="BossUFO/BossAttackVertical"]
+[editable path="AsteroidSpawner"]

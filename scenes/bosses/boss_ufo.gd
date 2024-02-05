@@ -5,7 +5,10 @@ func _ready():
 	super._ready()
 	ATTACKS.append($BossAttackHorizontal)
 	ATTACKS.append($BossAttackVertical)
+	
+	#TODO: Move this to start after the intro
 	$AttackCooldown.start()
+	$OscillationMovementComponent.set_process(false)
 
 func _process(_delta):
 	if FIGHT_ONGOING:

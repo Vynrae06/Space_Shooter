@@ -42,3 +42,4 @@ func _on_begin_boss_fight_timer_timeout():
 		add_child(BOSS_UFO)
 		BOSS_UFO.connect("boss_defeated", _on_boss_ufo_boss_defeated)
 		BOSS_UFO.position.x = 705
+		

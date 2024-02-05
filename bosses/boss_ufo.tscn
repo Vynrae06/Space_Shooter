@@ -1,13 +1,13 @@
-[gd_scene load_steps=29 format=3 uid="uid://dq3ojxmvj0ebi"]
+[gd_scene load_steps=24 format=3 uid="uid://dq3ojxmvj0ebi"]
 
 [ext_resource type="Script" path="res://bosses/boss_ufo.gd" id="1_6c0ru"]
 [ext_resource type="PackedScene" uid="uid://de16fo3l8lx0m" path="res://bosses/boss.tscn" id="2_re1sr"]
 [ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="3_o8q8i"]
-[ext_resource type="Texture2D" uid="uid://fv1gdgqap4pt" path="res://assets/temporary/cuphead_potato.png" id="4_6041e"]
+[ext_resource type="Texture2D" uid="uid://bkjn7bw5ohxq0" path="res://assets/Horizontal.png" id="4_mjbu6"]
 [ext_resource type="PackedScene" uid="uid://2grtpdddiryx" path="res://components/boss_attack.tscn" id="5_kv5d4"]
 [ext_resource type="PackedScene" uid="uid://yc6drrh5nx08" path="res://components/oscillation_movement_component.tscn" id="5_sdbey"]
 [ext_resource type="Texture2D" uid="uid://d4ky317csseqt" path="res://assets/temporary/generic_laser_spritesheet.png" id="7_1ij0g"]
-[ext_resource type="Texture2D" uid="uid://cl655crbfdkp1" path="res://assets/ufo_1.png" id="8_44205"]
+[ext_resource type="Texture2D" uid="uid://bhdcc3n047d7u" path="res://assets/ufo.png" id="8_mokru"]
 
 [sub_resource type="Animation" id="Animation_lprig"]
 resource_name = "laser_beam"
@@ -44,7 +44,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obquk"]
-size = Vector2(1011, 256)
+size = Vector2(1376, 478)
 
 [sub_resource type="Animation" id="Animation_pqggb"]
 resource_name = "laser_beam_vertical"
@@ -89,71 +89,36 @@ shader = ExtResource("3_o8q8i")
 shader_parameter/Enabled = true
 shader_parameter/Tint = Color(1, 1, 1, 0.501961)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d52de"]
-atlas = ExtResource("4_6041e")
-region = Rect2(1590, 515, 530, 515)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4himc"]
+atlas = ExtResource("8_mokru")
+region = Rect2(0, 0, 1920, 1080)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h6jxt"]
-atlas = ExtResource("4_6041e")
-region = Rect2(2120, 515, 530, 515)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb80a"]
+atlas = ExtResource("8_mokru")
+region = Rect2(1920, 0, 1920, 1080)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0jwqc"]
-atlas = ExtResource("4_6041e")
-region = Rect2(2650, 515, 530, 515)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq6ne"]
+atlas = ExtResource("8_mokru")
+region = Rect2(3840, 0, 1920, 1080)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r3mlv"]
-atlas = ExtResource("4_6041e")
-region = Rect2(0, 1030, 530, 515)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uvsep"]
-atlas = ExtResource("4_6041e")
-region = Rect2(530, 1030, 530, 515)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yw48y"]
-atlas = ExtResource("4_6041e")
-region = Rect2(1060, 1030, 530, 515)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kgjmb"]
-atlas = ExtResource("4_6041e")
-region = Rect2(1590, 1030, 530, 515)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t4tnj"]
-atlas = ExtResource("4_6041e")
-region = Rect2(1060, 515, 530, 515)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i6psq"]
-atlas = ExtResource("4_6041e")
-region = Rect2(2120, 1030, 530, 515)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhyx1"]
+atlas = ExtResource("8_mokru")
+region = Rect2(5760, 0, 1920, 1080)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jl0mi"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d52de")
+"texture": SubResource("AtlasTexture_4himc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h6jxt")
+"texture": SubResource("AtlasTexture_kb80a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0jwqc")
+"texture": SubResource("AtlasTexture_lq6ne")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r3mlv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uvsep")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yw48y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kgjmb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t4tnj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i6psq")
+"texture": SubResource("AtlasTexture_jhyx1")
 }],
 "loop": true,
 "name": &"idle",
@@ -177,17 +142,11 @@ script = ExtResource("1_6c0ru")
 [node name="BossAttackHorizontal" parent="." index="0" instance=ExtResource("5_kv5d4")]
 position = Vector2(-788, 0)
 ANIMATION_NAME = "laser_beam_horizontal"
-metadata/_edit_group_ = true
 
 [node name="BossAttackSprite" parent="BossAttackHorizontal" index="1"]
-modulate = Color(0.662745, 0.466667, 0.25098, 1)
-position = Vector2(-1.09653, -0.5)
-rotation = 3.14159
-scale = Vector2(3.84828, 3.84828)
-texture = ExtResource("7_1ij0g")
-hframes = 5
-vframes = 3
-frame = 4
+texture_filter = 1
+position = Vector2(-139, -3)
+texture = ExtResource("4_mjbu6")
 
 [node name="AnimationPlayer" parent="BossAttackHorizontal" index="2"]
 libraries = {
@@ -195,7 +154,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" parent="BossAttackHorizontal/HitBox" index="0"]
-position = Vector2(-109.5, 0)
+position = Vector2(-137, -2)
 shape = SubResource("RectangleShape2D_obquk")
 
 [node name="BossAttackVertical" parent="." index="1" instance=ExtResource("5_kv5d4")]
@@ -221,9 +180,9 @@ position = Vector2(-426.5, 0)
 shape = SubResource("RectangleShape2D_6844w")
 
 [node name="AnimatedSprite2D" parent="." index="2"]
-visible = false
 material = SubResource("ShaderMaterial_wk7ru")
-position = Vector2(-9, -63)
+position = Vector2(26, -22)
+scale = Vector2(0.315, 0.315)
 sprite_frames = SubResource("SpriteFrames_jl0mi")
 animation = &"idle"
 
@@ -245,6 +204,7 @@ collision_layer = 128
 [node name="CollisionShape2D" parent="PlayerProximityDetector" index="0"]
 position = Vector2(-426.5, 0)
 shape = SubResource("RectangleShape2D_m5b3a")
+disabled = true
 
 [node name="AttackCooldown" parent="." index="8"]
 wait_time = 2.0
@@ -253,11 +213,6 @@ wait_time = 2.0
 FREQUENCY = 2.0
 AMPLITUDE = 666.0
 CHARACTER_BODY_2D = NodePath("..")
-
-[node name="Sprite2D" type="Sprite2D" parent="." index="10"]
-position = Vector2(0, 13)
-scale = Vector2(0.315412, 0.315412)
-texture = ExtResource("8_44205")
 
 [connection signal="timeout" from="BossAttackHorizontal/BossAttackDuration" to="." method="_on_horizontal_boss_attack_timeout"]
 [connection signal="timeout" from="BossAttackVertical/BossAttackDuration" to="." method="_on_boss_attack_duration_timeout"]

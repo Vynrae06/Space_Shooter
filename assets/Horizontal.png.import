@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8rvigndpjllo"
-path="res://.godot/imported/nightmare_bg_space_stars_b-2.png-93e0cd697fc2e431f2392705897b193d.ctex"
+uid="uid://bkjn7bw5ohxq0"
+path="res://.godot/imported/Horizontal.png-4f34fd9ff60a40779a3a9f4f9a2836d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/nightmare_bg_space_stars_b-2.png"
-dest_files=["res://.godot/imported/nightmare_bg_space_stars_b-2.png-93e0cd697fc2e431f2392705897b193d.ctex"]
+source_file="res://assets/Horizontal.png"
+dest_files=["res://.godot/imported/Horizontal.png-4f34fd9ff60a40779a3a9f4f9a2836d1.ctex"]
 
 [params]
 

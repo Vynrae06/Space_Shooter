@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvc0nldgfwv4l"]
+[gd_scene load_steps=8 format=3 uid="uid://dvc0nldgfwv4l"]
 
 [ext_resource type="Script" path="res://parallax/parallax.gd" id="1_gikjo"]
 [ext_resource type="Texture2D" uid="uid://diey4b1q3xpa" path="res://assets/background/backgrouns_space.png" id="2_j8gyw"]
-[ext_resource type="Texture2D" uid="uid://r3nfee3tl76k" path="res://assets/background/nightmare_bg_space_stars_b-1.png" id="3_0pte7"]
-[ext_resource type="Texture2D" uid="uid://b8rvigndpjllo" path="res://assets/background/nightmare_bg_space_stars_b-2.png" id="4_mxtib"]
-[ext_resource type="Texture2D" uid="uid://ch3hi8fvta84q" path="res://assets/background/nightmare_bg_space_stars_b-3.png" id="5_elrma"]
+[ext_resource type="Texture2D" uid="uid://r3nfee3tl76k" path="res://assets/background/stars_1.png" id="3_0bsaf"]
+[ext_resource type="Texture2D" uid="uid://b8rvigndpjllo" path="res://assets/background/stars_2.png" id="4_jpc3c"]
+[ext_resource type="Texture2D" uid="uid://ch3hi8fvta84q" path="res://assets/background/stars_3.png" id="5_qnxp1"]
+[ext_resource type="Texture2D" uid="uid://dsdkcit3w8vv4" path="res://assets/background/dust_front.png" id="6_mqke1"]
+[ext_resource type="Texture2D" uid="uid://ds0n2ton0fvt8" path="res://assets/background/dust_back.png" id="7_8gndl"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 script = ExtResource("1_gikjo")
@@ -22,7 +24,7 @@ motion_offset = Vector2(-960, -540)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="StarsFront"]
-texture = ExtResource("3_0pte7")
+texture = ExtResource("3_0bsaf")
 centered = false
 
 [node name="StarsMiddle" type="ParallaxLayer" parent="."]
@@ -30,7 +32,7 @@ motion_offset = Vector2(-960, -540)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="StarsMiddle"]
-texture = ExtResource("4_mxtib")
+texture = ExtResource("4_jpc3c")
 centered = false
 
 [node name="StarsBack" type="ParallaxLayer" parent="."]
@@ -38,5 +40,21 @@ motion_offset = Vector2(-960, -540)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="StarsBack"]
-texture = ExtResource("5_elrma")
+texture = ExtResource("5_qnxp1")
+centered = false
+
+[node name="StartdustFront" type="ParallaxLayer" parent="."]
+motion_offset = Vector2(-960, -540)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="StartdustFront"]
+texture = ExtResource("6_mqke1")
+centered = false
+
+[node name="StartdustBack" type="ParallaxLayer" parent="."]
+motion_offset = Vector2(-960, -540)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="StartdustBack"]
+texture = ExtResource("7_8gndl")
 centered = false

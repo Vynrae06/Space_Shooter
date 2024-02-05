@@ -6,3 +6,5 @@ func _process(delta):
 	$StarsFront.motion_offset.x -= delta * STARS_SPEED
 	$StarsMiddle.motion_offset.x -= delta * STARS_SPEED * 0.66
 	$StarsBack.motion_offset.x -= delta * STARS_SPEED * 0.33
+	$StartdustFront.motion_offset.x -= delta * STARS_SPEED * 0.90
+	$StartdustBack.motion_offset.x -= delta * STARS_SPEED * 0.80

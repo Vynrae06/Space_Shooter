@@ -34,3 +34,10 @@ func register_player_death():
 	PLAYERS_ALIVE_COUNT -= 1
 	if PLAYERS_ALIVE_COUNT <= 0:
 		fight_over.emit()
+
+func _on_spawn_ufo_minions_timer_timeout():
+	$UFOSpawner.ALLOWED_TO_SPAWN = true
+
+
+func _on_begin_boss_fight_timer_timeout():
+	pass # Replace with function body.

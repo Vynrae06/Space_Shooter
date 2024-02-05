@@ -1,12 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://jmbj2rm5qml1"]
+[gd_scene load_steps=20 format=3 uid="uid://jmbj2rm5qml1"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_7uvhw"]
 [ext_resource type="PackedScene" uid="uid://dvc0nldgfwv4l" path="res://scenes/parallax/parallax.tscn" id="2_munxv"]
 [ext_resource type="PackedScene" uid="uid://oj0pcpf8wyyl" path="res://scenes/player/player.tscn" id="3_cbgt6"]
 [ext_resource type="Texture2D" uid="uid://co2n3y4bby78b" path="res://assets/player/player_limer.png" id="4_c3vi6"]
-[ext_resource type="PackedScene" uid="uid://dq3ojxmvj0ebi" path="res://scenes/bosses/boss_ufo.tscn" id="4_mjjur"]
 [ext_resource type="Texture2D" uid="uid://cam40gb0wlctk" path="res://assets/player/player_orangina.png" id="5_4sgeg"]
-[ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="5_5vdl1"]
 [ext_resource type="PackedScene" uid="uid://d4djecahvews7" path="res://scenes/obstacles/obstacles_spawner.tscn" id="6_kp30j"]
 [ext_resource type="PackedScene" uid="uid://n3tlv7fswfx2" path="res://scenes/obstacles/asteroid.tscn" id="7_kbb0w"]
 [ext_resource type="PackedScene" uid="uid://nwnqvqtwjrxf" path="res://scenes/obstacles/minion_ufo.tscn" id="9_kemsp"]
@@ -70,12 +68,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wk3au"]
-resource_local_to_scene = true
-shader = ExtResource("5_5vdl1")
-shader_parameter/Enabled = true
-shader_parameter/Tint = Color(1, 1, 1, 0.501961)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5o00w"]
 size = Vector2(1919, 19)
 
@@ -114,17 +106,6 @@ metadata/_edit_group_ = true
 [node name="PlaneAnimatedSprite" parent="Player2" index="1"]
 sprite_frames = SubResource("SpriteFrames_iqc30")
 animation = &"straight"
-
-[node name="BossUFO" parent="." instance=ExtResource("4_mjjur")]
-position = Vector2(713, 0)
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
-
-[node name="AnimatedSprite2D" parent="BossUFO" index="2"]
-material = SubResource("ShaderMaterial_wk3au")
-
-[node name="AttackCooldown" parent="BossUFO" index="8"]
-one_shot = false
 
 [node name="UFOMarkers" type="Node2D" parent="."]
 
@@ -200,25 +181,21 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="SpawnUFOMinionsTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 one_shot = true
 autostart = true
 
 [node name="BeginBossFightTimer" type="Timer" parent="."]
-wait_time = 45.0
+wait_time = 10.0
 one_shot = true
 autostart = true
 
-[connection signal="fight_over" from="." to="BossUFO" method="_on_level_fight_over"]
 [connection signal="fight_over" from="." to="UFOSpawner" method="_on_level_fight_over"]
 [connection signal="fight_over" from="." to="AsteroidSpawner" method="_on_level_fight_over"]
-[connection signal="boss_defeated" from="BossUFO" to="." method="_on_boss_ufo_boss_defeated"]
 [connection signal="timeout" from="SpawnUFOMinionsTimer" to="." method="_on_spawn_ufo_minions_timer_timeout"]
+[connection signal="timeout" from="BeginBossFightTimer" to="." method="_on_begin_boss_fight_timer_timeout"]
 
 [editable path="Player1"]
 [editable path="Player2"]
-[editable path="BossUFO"]
-[editable path="BossUFO/BossAttackHorizontal"]
-[editable path="BossUFO/BossAttackVertical"]
 [editable path="UFOSpawner"]
 [editable path="AsteroidSpawner"]

@@ -31,3 +31,6 @@ func _on_health_component_death_signal():
 	FIGHT_ONGOING = false
 	boss_defeated.emit()
 	queue_free()
+
+func set_fight_ongoing(fight_ongoing: bool):
+	FIGHT_ONGOING = fight_ongoing

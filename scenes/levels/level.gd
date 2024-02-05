@@ -6,17 +6,19 @@ var GAME_PAUSED: bool = false
 
 var FIGHT_TIMER: float
 var PLAYERS_ALIVE_COUNT: int
+var BOSS_UFO_SCENE = preload("res://scenes/bosses/boss_ufo.tscn")
+var FIGHT_ONGOING = true
+var BOSS_UFO: Boss
 
 signal fight_over
 
-func _ready():
-	var players = get_tree().get_nodes_in_group("player") as Array[Player]
-	PLAYERS_ALIVE_COUNT = players.size()
-	for player in players:
-		player.connect("player_died", register_player_death)
-
 func _process(delta):
 	FIGHT_TIMER+= delta
+	# Check how many players are left
+	if get_tree().get_nodes_in_group("player").size() <= 0:
+		fight_over.emit()
+		FIGHT_ONGOING = false
+		BOSS_UFO.set_fight_ongoing(false)
 
 func get_win_time() -> String:
 	var fight_duration : float = FIGHT_TIMER - COUNTDOWN
@@ -30,14 +32,13 @@ func _on_boss_ufo_boss_defeated():
 	fight_over.emit()
 	print("Win Time:" + get_win_time())
 
-func register_player_death():
-	PLAYERS_ALIVE_COUNT -= 1
-	if PLAYERS_ALIVE_COUNT <= 0:
-		fight_over.emit()
-
 func _on_spawn_ufo_minions_timer_timeout():
-	$UFOSpawner.ALLOWED_TO_SPAWN = true
-
+	if FIGHT_ONGOING:
+		$UFOSpawner.ALLOWED_TO_SPAWN = true
 
 func _on_begin_boss_fight_timer_timeout():
-	pass # Replace with function body.
+	if FIGHT_ONGOING:
+		BOSS_UFO = BOSS_UFO_SCENE.instantiate()
+		add_child(BOSS_UFO)
+		BOSS_UFO.connect("boss_defeated", _on_boss_ufo_boss_defeated)
+		BOSS_UFO.position.x = 705

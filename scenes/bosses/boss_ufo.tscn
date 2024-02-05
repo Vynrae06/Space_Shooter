@@ -208,7 +208,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uftpm")
 
 [node name="HealthComponent" parent="." index="4"]
-HEALTH = 100
+HEALTH = 5
 
 [node name="CollisionShape2D" parent="HurtBoxComponent" index="0"]
 rotation = 1.5708

@@ -100,6 +100,7 @@ func _on_shot_special_timer_timeout():
 	SHOOT_SPECIAL_CD_FREE = true
 
 func _on_death_area_entered(_area):
+	print("player died")
 	player_died.emit()
 	queue_free()
 

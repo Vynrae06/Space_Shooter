@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://jmbj2rm5qml1"]
+[gd_scene load_steps=23 format=3 uid="uid://jmbj2rm5qml1"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_7uvhw"]
 [ext_resource type="PackedScene" uid="uid://dvc0nldgfwv4l" path="res://scenes/parallax/parallax.tscn" id="2_munxv"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="5_5vdl1"]
 [ext_resource type="PackedScene" uid="uid://d4djecahvews7" path="res://scenes/obstacles/obstacles_spawner.tscn" id="6_kp30j"]
 [ext_resource type="PackedScene" uid="uid://n3tlv7fswfx2" path="res://scenes/obstacles/asteroid.tscn" id="7_kbb0w"]
+[ext_resource type="PackedScene" uid="uid://nwnqvqtwjrxf" path="res://scenes/obstacles/minion_ufo.tscn" id="9_kemsp"]
 [ext_resource type="AudioStream" uid="uid://bvqpgafy7uwoj" path="res://audio/music/Space Jazz 1.mp3" id="10_kbd6n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ikewv"]
@@ -93,6 +94,7 @@ collision_mask = 124
 projectile_sprite_path_basic = "res://assets/player/projectiles/projectile_basic_lime.png"
 projectile_sprite_path_special = "res://assets/player/projectiles/projectile_special_lime.png"
 shot_spawn_flash_sprite_path = "res://assets/player/projectiles/projectile_spawn_lime.png"
+metadata/_edit_group_ = true
 
 [node name="PlaneAnimatedSprite" parent="Player1" index="1"]
 sprite_frames = SubResource("SpriteFrames_8x7la")
@@ -107,6 +109,7 @@ PLAYER_INDEX = 1
 projectile_sprite_path_basic = "res://assets/player/projectiles/projectile_basic_orangina.png"
 projectile_sprite_path_special = "res://assets/player/projectiles/projectile_special_orangina.png"
 shot_spawn_flash_sprite_path = "res://assets/player/projectiles/projectile_spawn_orangina.png"
+metadata/_edit_group_ = true
 
 [node name="PlaneAnimatedSprite" parent="Player2" index="1"]
 sprite_frames = SubResource("SpriteFrames_iqc30")
@@ -114,6 +117,8 @@ animation = &"straight"
 
 [node name="BossUFO" parent="." instance=ExtResource("4_mjjur")]
 position = Vector2(713, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" parent="BossUFO" index="2"]
 material = SubResource("ShaderMaterial_wk3au")
@@ -121,7 +126,27 @@ material = SubResource("ShaderMaterial_wk3au")
 [node name="AttackCooldown" parent="BossUFO" index="8"]
 one_shot = false
 
+[node name="UFOMarkers" type="Node2D" parent="."]
+
+[node name="MarkerTop" type="Marker2D" parent="UFOMarkers"]
+position = Vector2(1080, 0)
+
+[node name="MarkerMiddle" type="Marker2D" parent="UFOMarkers"]
+position = Vector2(1080, -270)
+
+[node name="MarkerBottom" type="Marker2D" parent="UFOMarkers"]
+position = Vector2(1080, 270)
+
+[node name="UFOSpawner" parent="." node_paths=PackedStringArray("MARKERS") instance=ExtResource("6_kp30j")]
+MARKERS = [NodePath("../UFOMarkers/MarkerTop"), NodePath("../UFOMarkers/MarkerMiddle"), NodePath("../UFOMarkers/MarkerBottom")]
+OBSTACLE_SCENE = ExtResource("9_kemsp")
+
+[node name="SpawnTimer" parent="UFOSpawner" index="1"]
+one_shot = true
+
 [node name="AsteroidMarkers" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="MarkerTop" type="Marker2D" parent="AsteroidMarkers"]
 position = Vector2(950, -640)
@@ -132,11 +157,20 @@ position = Vector2(950, 640)
 [node name="AsteroidSpawner" parent="." node_paths=PackedStringArray("MARKERS") instance=ExtResource("6_kp30j")]
 MARKERS = [NodePath("../AsteroidMarkers/MarkerTop"), NodePath("../AsteroidMarkers/MarkerBottom")]
 OBSTACLE_SCENE = ExtResource("7_kbb0w")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="SpawnTimer" parent="AsteroidSpawner" index="1"]
+one_shot = true
 
 [node name="ProjectilesHolder" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 editor_draw_limits = true
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Borders" type="StaticBody2D" parent="Camera2D"]
 collision_layer = 64
@@ -161,8 +195,19 @@ shape = SubResource("RectangleShape2D_7ssc0")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_kbd6n")
 autoplay = true
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="SpawnUFOMinionsTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[node name="BeginBossFightTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
 
 [connection signal="fight_over" from="." to="BossUFO" method="_on_level_fight_over"]
+[connection signal="fight_over" from="." to="UFOSpawner" method="_on_level_fight_over"]
 [connection signal="fight_over" from="." to="AsteroidSpawner" method="_on_level_fight_over"]
 [connection signal="boss_defeated" from="BossUFO" to="." method="_on_boss_ufo_boss_defeated"]
 
@@ -171,4 +216,5 @@ autoplay = true
 [editable path="BossUFO"]
 [editable path="BossUFO/BossAttackHorizontal"]
 [editable path="BossUFO/BossAttackVertical"]
+[editable path="UFOSpawner"]
 [editable path="AsteroidSpawner"]

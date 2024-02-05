@@ -30,6 +30,8 @@ scale = Vector2(0.25, 0.25)
 [node name="HealthComponent" parent="." instance=ExtResource("2_txlup")]
 
 [node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("HEALTH_COMPONENT", "ANIMATION_PLAYER") instance=ExtResource("3_56m71")]
+collision_layer = 16
+collision_mask = 2
 HEALTH_COMPONENT = NodePath("../HealthComponent")
 ANIMATION_PLAYER = NodePath("../HitFlashAnimationPlayer")
 

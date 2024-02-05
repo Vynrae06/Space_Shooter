@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://rs7gxdja0xhe" path="res://assets/ufo/ufo_horizontal_attack.png" id="4_5hosa"]
 [ext_resource type="PackedScene" uid="uid://2grtpdddiryx" path="res://scenes/components/boss_attack.tscn" id="5_kv5d4"]
 [ext_resource type="PackedScene" uid="uid://yc6drrh5nx08" path="res://scenes/components/oscillation_movement_component.tscn" id="5_sdbey"]
-[ext_resource type="Texture2D" uid="uid://bhdcc3n047d7u" path="res://assets/ufo/ufo.png" id="6_pyrp7"]
 [ext_resource type="Texture2D" uid="uid://d4ky317csseqt" path="res://assets/temporary/generic_laser_spritesheet.png" id="7_1ij0g"]
+[ext_resource type="Texture2D" uid="uid://bhdcc3n047d7u" path="res://assets/ufo/ufo_boss.png" id="7_l2s4h"]
 
 [sub_resource type="Animation" id="Animation_lprig"]
 resource_name = "laser_beam"
@@ -101,19 +101,19 @@ shader_parameter/Enabled = true
 shader_parameter/Tint = Color(1, 1, 1, 0.501961)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4himc"]
-atlas = ExtResource("6_pyrp7")
+atlas = ExtResource("7_l2s4h")
 region = Rect2(0, 0, 1920, 1080)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kb80a"]
-atlas = ExtResource("6_pyrp7")
+atlas = ExtResource("7_l2s4h")
 region = Rect2(1920, 0, 1920, 1080)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lq6ne"]
-atlas = ExtResource("6_pyrp7")
+atlas = ExtResource("7_l2s4h")
 region = Rect2(3840, 0, 1920, 1080)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jhyx1"]
-atlas = ExtResource("6_pyrp7")
+atlas = ExtResource("7_l2s4h")
 region = Rect2(5760, 0, 1920, 1080)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jl0mi"]

@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://nwnqvqtwjrxf"]
+
+[ext_resource type="PackedScene" uid="uid://dkwdv7atcmdc6" path="res://scenes/obstacles/obstacle_destroyable.tscn" id="1_n61j8"]
+[ext_resource type="Script" path="res://scenes/obstacles/minion_ufo.gd" id="2_685bf"]
+[ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="2_tyuuk"]
+[ext_resource type="Texture2D" uid="uid://dcodu3lfa0dc4" path="res://assets/ufo/ufo_minion.png" id="4_e3d2k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n0yn2"]
+radius = 39.0
+height = 156.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ikw4"]
+resource_local_to_scene = true
+shader = ExtResource("2_tyuuk")
+shader_parameter/Enabled = true
+shader_parameter/Tint = Color(1, 1, 1, 0.501961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnowi"]
+atlas = ExtResource("4_e3d2k")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwh2c"]
+atlas = ExtResource("4_e3d2k")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0x6y"]
+atlas = ExtResource("4_e3d2k")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ovi8"]
+atlas = ExtResource("4_e3d2k")
+region = Rect2(5760, 0, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w56hn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnowi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwh2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0x6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ovi8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y7318"]
+radius = 45.0
+height = 176.0
+
+[node name="MinionUFO" instance=ExtResource("1_n61j8")]
+script = ExtResource("2_685bf")
+SPEED = 250.0
+FREQUENCY = 2.0
+AMPLITUDE = 333.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n0yn2")
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+material = SubResource("ShaderMaterial_3ikw4")
+position = Vector2(5, -9)
+scale = Vector2(0.125, 0.125)
+sprite_frames = SubResource("SpriteFrames_w56hn")
+animation = &"idle"
+
+[node name="HealthComponent" parent="." index="3"]
+HEALTH = 10
+
+[node name="CollisionShape2D" parent="HurtBoxComponent" index="0"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_y7318")
+debug_color = Color(0.635294, 0.470588, 0.643137, 0.419608)
+
+[editable path="HurtBoxComponent"]

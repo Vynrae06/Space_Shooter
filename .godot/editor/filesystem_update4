@@ -18,3 +18,8 @@ res://scenes/bosses/boss.tscn
 res://scenes/parallax/parallax.tscn
 res://scenes/player/player.gd
 res://scenes/bosses/boss.gd
+res://scenes/obstacles/obstacle_spawner.gd
+res://scenes/obstacles/minion_ufo.tscn
+res://scenes/obstacles/minion_ufo.gd
+res://scenes/obstacles/asteroid.tscn
+res://scenes/obstacles/obstacle_destroyable.tscn

@@ -1,7 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1707210124
+::res://::1707213690
 export_presets.cfg::TextFile::-1::1706711743::0::1::::<><>::
-::res://assets/::1707207474
+::res://assets/::1707213690
 ::res://assets/asteroids/::1707207474
 asteroid_1.png::CompressedTexture2D::6305519742976026328::1707207474::1707207474::1::::<><>::
 ::res://assets/background/::1707207474
@@ -18,6 +18,9 @@ over 2.png::CompressedTexture2D::3713277655701176845::1707119920::1707119920::1:
 progress.png::CompressedTexture2D::8864877184945258664::1707119920::1707119920::1::::<><>::
 under 1.png::CompressedTexture2D::5596005366922387967::1707119920::1707119920::1::::<><>::
 under 2.png::CompressedTexture2D::1023606660773549334::1707119920::1707119920::1::::<><>::
+::res://assets/overlays/::1707222606
+go.png::CompressedTexture2D::8157175148154933249::1707222606::1707222607::1::::<><>::
+ready.png::CompressedTexture2D::1029734337093976309::1707213657::1707213691::1::::<><>::
 ::res://assets/player/::1707119920
 player_limer.png::CompressedTexture2D::5812064006221055251::1707119920::1707119920::1::::<><>::
 player_orangina.png::CompressedTexture2D::4799419655923394864::1707119920::1707119920::1::::<><>::
@@ -52,7 +55,7 @@ ufo_minion.png::CompressedTexture2D::7328760381643418005::1707207474::1707207474
 ::res://audio/::1707119920
 ::res://audio/music/::1707119920
 Space Jazz 1.mp3::AudioStreamMP3::3894337922669710877::1707119920::1707119920::1::::<><>::
-::res://audio/sfx/::1707212301
+::res://audio/sfx/::1707213671
 player_lazer_basic.wav::AudioStreamWAV::1226934357098180066::1707212301::1707212301::1::::<><>::
 player_lazer_special.wav::AudioStreamWAV::553740750962600981::1707212301::1707212301::1::::<><>::
 ufo_horizontal_attack.wav::AudioStreamWAV::4787096648088907871::1707119920::1707119920::1::::<><>::
@@ -60,11 +63,11 @@ ufo_horizontal_attack_2.wav::AudioStreamWAV::6087322539150416498::1707119920::17
 ufo_vertical_attack.wav::AudioStreamWAV::1006249645912870351::1707119920::1707119920::1::::<><>::
 ::res://scenes/::1707210524
 global.gd::GDScript::-1::1707210524::0::1::::<>Node<>::
-::res://scenes/bosses/::1707211302
+::res://scenes/bosses/::1707222586
 boss.gd::GDScript::-1::1707210280::0::1::::Boss<>CharacterBody2D<>::
 boss.tscn::PackedScene::7495583182108045954::1707207474::0::1::::<><>::res://scenes/bosses/boss.gd<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://bxwm5t8mu8mdx::::res://scenes/components/health_component.tscn<>uid://dugn6ue3cwdsv::::res://scenes/components/hurt_box_component.tscn<>uid://dkc3l14co1pqv::::res://scenes/components/Animation/hit_flash_animation_player.tscn
 boss_ufo.gd::GDScript::-1::1707210500::0::1::::BossUFO<>Boss<>::
-boss_ufo.tscn::PackedScene::8340953463987234098::1707211302::0::1::::<><>::res://scenes/bosses/boss_ufo.gd<>uid://de16fo3l8lx0m::::res://scenes/bosses/boss.tscn<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://rs7gxdja0xhe::::res://assets/ufo/ufo_horizontal_attack.png<>uid://2grtpdddiryx::::res://scenes/components/boss_attack.tscn<>uid://yc6drrh5nx08::::res://scenes/components/oscillation_movement_component.tscn<>uid://d4ky317csseqt::::res://assets/temporary/generic_laser_spritesheet.png<>uid://bhdcc3n047d7u::::res://assets/ufo/ufo_boss.png
+boss_ufo.tscn::PackedScene::8340953463987234098::1707222586::0::1::::<><>::res://scenes/bosses/boss_ufo.gd<>uid://de16fo3l8lx0m::::res://scenes/bosses/boss.tscn<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://rs7gxdja0xhe::::res://assets/ufo/ufo_horizontal_attack.png<>uid://2grtpdddiryx::::res://scenes/components/boss_attack.tscn<>uid://yc6drrh5nx08::::res://scenes/components/oscillation_movement_component.tscn<>uid://bhdcc3n047d7u::::res://assets/ufo/ufo_boss.png
 ::res://scenes/components/::1707209207
 boss_attack.gd::GDScript::-1::1707209207::0::1::::BossAttack<>Node2D<>::
 boss_attack.tscn::PackedScene::1908551956337771547::1707207474::0::1::::<><>::res://scenes/components/boss_attack.gd
@@ -78,26 +81,26 @@ oscillation_movement_component.gd::GDScript::-1::1707207474::0::1::::<>Node<>::
 oscillation_movement_component.tscn::PackedScene::1690549506495675831::1707207474::0::1::::<><>::res://scenes/components/oscillation_movement_component.gd
 ::res://scenes/components/Animation/::1707207474
 hit_flash_animation_player.tscn::PackedScene::7867000373015212577::1707207474::0::1::::<><>::
-::res://scenes/levels/::1707211301
-level.gd::GDScript::-1::1707211126::0::1::::Level<>Node2D<>::
-level.tscn::PackedScene::656550359907006560::1707211301::0::1::::<><>::res://scenes/levels/level.gd<>uid://dvc0nldgfwv4l::::res://scenes/parallax/parallax.tscn<>uid://oj0pcpf8wyyl::::res://scenes/player/player.tscn<>uid://co2n3y4bby78b::::res://assets/player/player_limer.png<>uid://cam40gb0wlctk::::res://assets/player/player_orangina.png<>uid://d4djecahvews7::::res://scenes/obstacles/obstacles_spawner.tscn<>uid://n3tlv7fswfx2::::res://scenes/obstacles/asteroid.tscn<>uid://nwnqvqtwjrxf::::res://scenes/obstacles/minion_ufo.tscn<>uid://bvqpgafy7uwoj::::res://audio/music/Space Jazz 1.mp3
-::res://scenes/obstacles/::1707211302
+::res://scenes/levels/::1707222586
+level.gd::GDScript::-1::1707215481::0::1::::Level<>Node2D<>::
+level.tscn::PackedScene::656550359907006560::1707222586::0::1::::<><>::res://scenes/levels/level.gd<>uid://dvc0nldgfwv4l::::res://scenes/parallax/parallax.tscn<>uid://oj0pcpf8wyyl::::res://scenes/player/player.tscn<>uid://co2n3y4bby78b::::res://assets/player/player_limer.png<>uid://cam40gb0wlctk::::res://assets/player/player_orangina.png<>uid://d4djecahvews7::::res://scenes/obstacles/obstacles_spawner.tscn<>uid://n3tlv7fswfx2::::res://scenes/obstacles/asteroid.tscn<>uid://nwnqvqtwjrxf::::res://scenes/obstacles/minion_ufo.tscn<>uid://ow2trv4u3r22::::res://assets/overlays/ready.png<>uid://bvqpgafy7uwoj::::res://audio/music/Space Jazz 1.mp3
+::res://scenes/obstacles/::1707222586
 asteroid.gd::GDScript::-1::1707207474::0::1::::Asteroid<>ObstacleDestroyable<>::
-asteroid.tscn::PackedScene::971431963679808173::1707211302::0::1::::<><>::res://scenes/obstacles/asteroid.gd<>uid://cv3o8vgp4kr5y::::res://assets/asteroids/asteroid_1.png<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://dkwdv7atcmdc6::::res://scenes/obstacles/obstacle_destroyable.tscn<>uid://cc2x5j5hsah37::::res://scenes/components/local_rotation_component.tscn
+asteroid.tscn::PackedScene::971431963679808173::1707222586::0::1::::<><>::res://scenes/obstacles/asteroid.gd<>uid://cv3o8vgp4kr5y::::res://assets/asteroids/asteroid_1.png<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://dkwdv7atcmdc6::::res://scenes/obstacles/obstacle_destroyable.tscn<>uid://cc2x5j5hsah37::::res://scenes/components/local_rotation_component.tscn
 minion_ufo.gd::GDScript::-1::1707207474::0::1::::MinionUFO<>ObstacleDestroyable<>::
 minion_ufo.tscn::PackedScene::958690300092448735::1707207474::0::1::::<><>::uid://dkwdv7atcmdc6::::res://scenes/obstacles/obstacle_destroyable.tscn<>res://scenes/obstacles/minion_ufo.gd<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://dcodu3lfa0dc4::::res://assets/ufo/ufo_minion.png
 obstacles_spawner.tscn::PackedScene::9201485351347933996::1707207474::0::1::::<><>::res://scenes/obstacles/obstacle_spawner.gd
 obstacle_destroyable.gd::GDScript::-1::1707207474::0::1::::ObstacleDestroyable<>Area2D<>::
 obstacle_destroyable.tscn::PackedScene::7906788132312869839::1707207474::0::1::::<><>::res://scenes/obstacles/obstacle_destroyable.gd<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://bxwm5t8mu8mdx::::res://scenes/components/health_component.tscn<>uid://dugn6ue3cwdsv::::res://scenes/components/hurt_box_component.tscn<>uid://dkc3l14co1pqv::::res://scenes/components/Animation/hit_flash_animation_player.tscn
 obstacle_spawner.gd::GDScript::-1::1707210572::0::1::::<>Node2D<>::
-::res://scenes/parallax/::1707211302
+::res://scenes/parallax/::1707222586
 parallax.gd::GDScript::-1::1707207474::0::1::::<>ParallaxBackground<>::
-parallax.tscn::PackedScene::8638898245797477049::1707211302::0::1::::<><>::res://scenes/parallax/parallax.gd<>uid://diey4b1q3xpa::::res://assets/background/background_space.png<>uid://r3nfee3tl76k::::res://assets/background/stars_1.png<>uid://b8rvigndpjllo::::res://assets/background/stars_2.png<>uid://ch3hi8fvta84q::::res://assets/background/stars_3.png<>uid://dsdkcit3w8vv4::::res://assets/background/dust_front.png<>uid://ds0n2ton0fvt8::::res://assets/background/dust_back.png
-::res://scenes/player/::1707212243
-player.gd::GDScript::-1::1707211183::0::1::::Player<>CharacterBody2D<>::
-player.tscn::PackedScene::1002768050937662395::1707212243::0::1::::<><>::res://scenes/player/player.gd<>uid://cly0nj1i6mtgx::::res://assets/charge_bar/under 1.png<>uid://ot3wf5gm17yw::::res://assets/charge_bar/under 2.png<>uid://dykhh5i631dmu::::res://assets/charge_bar/progress.png<>uid://cjkxey2jyxt8l::::res://assets/charge_bar/over 1.png<>uid://bs50e1ne1wfkv::::res://assets/charge_bar/over 2.png<>uid://bboekewk3vval::::res://assets/charge_bar/light_texture.png
-player_projectile_basic.tscn::PackedScene::2756164605024422612::1707211302::0::1::::<><>::uid://cmh84x2mocib0::::res://scenes/player/projectile.tscn
-player_projectile_special.tscn::PackedScene::7560098701721465313::1707211302::0::1::::<><>::uid://cmh84x2mocib0::::res://scenes/player/projectile.tscn
+parallax.tscn::PackedScene::8638898245797477049::1707222586::0::1::::<><>::res://scenes/parallax/parallax.gd<>uid://diey4b1q3xpa::::res://assets/background/background_space.png<>uid://r3nfee3tl76k::::res://assets/background/stars_1.png<>uid://b8rvigndpjllo::::res://assets/background/stars_2.png<>uid://ch3hi8fvta84q::::res://assets/background/stars_3.png<>uid://dsdkcit3w8vv4::::res://assets/background/dust_front.png<>uid://ds0n2ton0fvt8::::res://assets/background/dust_back.png
+::res://scenes/player/::1707222586
+player.gd::GDScript::-1::1707213015::0::1::::Player<>CharacterBody2D<>::
+player.tscn::PackedScene::1002768050937662395::1707222586::0::1::::<><>::res://scenes/player/player.gd<>uid://cly0nj1i6mtgx::::res://assets/charge_bar/under 1.png<>uid://ot3wf5gm17yw::::res://assets/charge_bar/under 2.png<>uid://dykhh5i631dmu::::res://assets/charge_bar/progress.png<>uid://cjkxey2jyxt8l::::res://assets/charge_bar/over 1.png<>uid://bs50e1ne1wfkv::::res://assets/charge_bar/over 2.png<>uid://bboekewk3vval::::res://assets/charge_bar/light_texture.png<>uid://rqlouvfml283::::res://audio/sfx/player_lazer_basic.wav<>uid://h5ia83i73u8d::::res://audio/sfx/player_lazer_special.wav
+player_projectile_basic.tscn::PackedScene::2756164605024422612::1707222586::0::1::::<><>::uid://cmh84x2mocib0::::res://scenes/player/projectile.tscn
+player_projectile_special.tscn::PackedScene::7560098701721465313::1707222586::0::1::::<><>::uid://cmh84x2mocib0::::res://scenes/player/projectile.tscn
 projectile.gd::GDScript::-1::1707207474::0::1::::Projectile<>Area2D<>::
 projectile.tscn::PackedScene::5631614834416338699::1707207474::0::1::::<><>::res://scenes/player/projectile.gd
 projectile_spawn_animation_player.tscn::PackedScene::8414195612814941546::1707207474::0::1::::<><>::

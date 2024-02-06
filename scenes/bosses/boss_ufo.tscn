@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dq3ojxmvj0ebi"]
+[gd_scene load_steps=23 format=3 uid="uid://dq3ojxmvj0ebi"]
 
 [ext_resource type="Script" path="res://scenes/bosses/boss_ufo.gd" id="1_6c0ru"]
 [ext_resource type="PackedScene" uid="uid://de16fo3l8lx0m" path="res://scenes/bosses/boss.tscn" id="2_re1sr"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://rs7gxdja0xhe" path="res://assets/ufo/ufo_horizontal_attack.png" id="4_5hosa"]
 [ext_resource type="PackedScene" uid="uid://2grtpdddiryx" path="res://scenes/components/boss_attack.tscn" id="5_kv5d4"]
 [ext_resource type="PackedScene" uid="uid://yc6drrh5nx08" path="res://scenes/components/oscillation_movement_component.tscn" id="5_sdbey"]
-[ext_resource type="Texture2D" uid="uid://d4ky317csseqt" path="res://assets/temporary/generic_laser_spritesheet.png" id="7_1ij0g"]
 [ext_resource type="Texture2D" uid="uid://bhdcc3n047d7u" path="res://assets/ufo/ufo_boss.png" id="7_l2s4h"]
 
 [sub_resource type="Animation" id="Animation_lprig"]
@@ -59,7 +58,7 @@ size = Vector2(1376, 478)
 
 [sub_resource type="Animation" id="Animation_pqggb"]
 resource_name = "laser_beam_vertical"
-length = 0.5
+length = 3.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -68,10 +67,10 @@ tracks/0/path = NodePath("BossAttackSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 3, 1]
+"values": [8, 0, 1, 2, 3, 4, 5, 6, 7, 4, 5, 6, 7, 3, 2, 1]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -80,10 +79,22 @@ tracks/1/path = NodePath("HitBox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 0.2),
+"times": PackedFloat32Array(2.4, 3.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BossAttackSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rop3w"]
@@ -92,7 +103,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6844w"]
-size = Vector2(581, 998)
+size = Vector2(516, 998)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wk7ru"]
 resource_local_to_scene = true
@@ -145,7 +156,7 @@ radius = 113.0
 height = 378.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5b3a"]
-size = Vector2(579, 1000)
+size = Vector2(519, 1000)
 
 [node name="BossUFO" instance=ExtResource("2_re1sr")]
 script = ExtResource("1_6c0ru")
@@ -153,6 +164,8 @@ script = ExtResource("1_6c0ru")
 [node name="BossAttackHorizontal" parent="." index="0" instance=ExtResource("5_kv5d4")]
 position = Vector2(-780, 0)
 ANIMATION_NAME = "laser_beam_horizontal"
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="BossAttackDuration" parent="BossAttackHorizontal" index="0"]
 wait_time = 1.8
@@ -162,7 +175,6 @@ texture_filter = 1
 position = Vector2(-139, -3)
 texture = ExtResource("4_5hosa")
 hframes = 9
-frame = 8
 
 [node name="AnimationPlayer" parent="BossAttackHorizontal" index="2"]
 libraries = {
@@ -176,24 +188,27 @@ shape = SubResource("RectangleShape2D_obquk")
 
 [node name="BossAttackVertical" parent="." index="1" instance=ExtResource("5_kv5d4")]
 ANIMATION_NAME = "laser_beam_vertical"
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="BossAttackDuration" parent="BossAttackVertical" index="0"]
+wait_time = 1.8
 
 [node name="BossAttackSprite" parent="BossAttackVertical" index="1"]
-modulate = Color(0.121569, 0.831373, 0.423529, 1)
-position = Vector2(-424.5, -32.8965)
-rotation = 1.5708
-scale = Vector2(3.27586, 8.66207)
-texture = ExtResource("7_1ij0g")
-hframes = 5
-vframes = 3
-frame = 3
+position = Vector2(-492, 185)
+rotation = -1.5708
+texture = ExtResource("4_5hosa")
+hframes = 9
+frame = 1
 
 [node name="AnimationPlayer" parent="BossAttackVertical" index="2"]
 libraries = {
 "": SubResource("AnimationLibrary_rop3w")
 }
+speed_scale = 2.0
 
 [node name="CollisionShape2D" parent="BossAttackVertical/HitBox" index="0"]
-position = Vector2(-426.5, 0)
+position = Vector2(-497, 0)
 shape = SubResource("RectangleShape2D_6844w")
 
 [node name="AnimatedSprite2D" parent="." index="2"]
@@ -217,9 +232,11 @@ debug_color = Color(0.611765, 0.482353, 0.627451, 0.419608)
 
 [node name="PlayerProximityDetector" parent="." index="7"]
 collision_layer = 128
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" parent="PlayerProximityDetector" index="0"]
-position = Vector2(-427.5, 0)
+position = Vector2(-494.5, 0)
 shape = SubResource("RectangleShape2D_m5b3a")
 
 [node name="AttackCooldown" parent="." index="8"]

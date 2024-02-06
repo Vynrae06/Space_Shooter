@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://jmbj2rm5qml1"]
+[gd_scene load_steps=25 format=3 uid="uid://jmbj2rm5qml1"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_7uvhw"]
 [ext_resource type="PackedScene" uid="uid://dvc0nldgfwv4l" path="res://scenes/parallax/parallax.tscn" id="2_munxv"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://d4djecahvews7" path="res://scenes/obstacles/obstacles_spawner.tscn" id="6_kp30j"]
 [ext_resource type="PackedScene" uid="uid://n3tlv7fswfx2" path="res://scenes/obstacles/asteroid.tscn" id="7_kbb0w"]
 [ext_resource type="PackedScene" uid="uid://nwnqvqtwjrxf" path="res://scenes/obstacles/minion_ufo.tscn" id="9_kemsp"]
+[ext_resource type="Texture2D" uid="uid://ow2trv4u3r22" path="res://assets/overlays/ready.png" id="10_5a0pv"]
 [ext_resource type="AudioStream" uid="uid://bvqpgafy7uwoj" path="res://audio/music/Space Jazz 1.mp3" id="10_kbd6n"]
+[ext_resource type="Texture2D" uid="uid://dohnqoimtjidd" path="res://assets/overlays/go.png" id="11_hyeyx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ikewv"]
 atlas = ExtResource("4_c3vi6")
@@ -74,15 +76,90 @@ size = Vector2(1919, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ssc0"]
 size = Vector2(19, 1041)
 
+[sub_resource type="Animation" id="Animation_8qwvm"]
+resource_name = "ready"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReadySprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ReadySprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 4, 4]
+}
+
+[sub_resource type="Animation" id="Animation_420sn"]
+resource_name = "go"
+length = 3.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GoSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GoSprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.5, 0.65, 0.8, 0.95, 1.1, 1.25, 1.4, 1.55, 1.7, 1.85, 2, 2.15, 2.3, 2.35, 2.5, 2.65, 2.8, 2.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lovym"]
+_data = {
+"go": SubResource("Animation_420sn"),
+"ready": SubResource("Animation_8qwvm")
+}
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_7uvhw")
-COUNTDOWN = 3.0
+COUNTDOWN = 2.0
 
 [node name="Parallax" parent="." instance=ExtResource("2_munxv")]
 STARS_SPEED = 25.0
 
 [node name="Player1" parent="." instance=ExtResource("3_cbgt6")]
-position = Vector2(-729, 9)
+position = Vector2(-721, -251)
 collision_mask = 124
 projectile_sprite_path_basic = "res://assets/player/projectiles/projectile_basic_lime.png"
 projectile_sprite_path_special = "res://assets/player/projectiles/projectile_special_lime.png"
@@ -96,7 +173,7 @@ frame = 1
 frame_progress = 0.785525
 
 [node name="Player2" parent="." instance=ExtResource("3_cbgt6")]
-position = Vector2(-732, 266)
+position = Vector2(-721, 257)
 collision_mask = 124
 PLAYER_INDEX = 1
 projectile_sprite_path_basic = "res://assets/player/projectiles/projectile_basic_orangina.png"
@@ -129,13 +206,12 @@ one_shot = true
 
 [node name="AsteroidMarkers" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
 
 [node name="MarkerTop" type="Marker2D" parent="AsteroidMarkers"]
-position = Vector2(950, -640)
+position = Vector2(1080, -500)
 
 [node name="MarkerBottom" type="Marker2D" parent="AsteroidMarkers"]
-position = Vector2(950, 640)
+position = Vector2(1080, 500)
 
 [node name="AsteroidSpawner" parent="." node_paths=PackedStringArray("MARKERS") instance=ExtResource("6_kp30j")]
 MARKERS = [NodePath("../AsteroidMarkers/MarkerTop"), NodePath("../AsteroidMarkers/MarkerBottom")]
@@ -187,9 +263,31 @@ one_shot = true
 autostart = true
 
 [node name="BeginBossFightTimer" type="Timer" parent="."]
-wait_time = 45.0
+wait_time = 30.0
 one_shot = true
 autostart = true
+
+[node name="OverlayAnimations" type="Node2D" parent="."]
+
+[node name="ReadyAnimationPlayer" type="AnimationPlayer" parent="OverlayAnimations"]
+libraries = {
+"": SubResource("AnimationLibrary_lovym")
+}
+speed_scale = 2.0
+
+[node name="ReadySprite2D" type="Sprite2D" parent="OverlayAnimations"]
+visible = false
+texture = ExtResource("10_5a0pv")
+hframes = 5
+frame = 4
+
+[node name="GoSprite2D" type="Sprite2D" parent="OverlayAnimations"]
+visible = false
+position = Vector2(-31, -33)
+texture = ExtResource("11_hyeyx")
+hframes = 7
+
+[node name="VictorySprite2D" type="Sprite2D" parent="OverlayAnimations"]
 
 [connection signal="timeout" from="SpawnUFOMinionsTimer" to="." method="_on_spawn_ufo_minions_timer_timeout"]
 [connection signal="timeout" from="BeginBossFightTimer" to="." method="_on_begin_boss_fight_timer_timeout"]

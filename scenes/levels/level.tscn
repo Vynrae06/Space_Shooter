@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://jmbj2rm5qml1"]
+[gd_scene load_steps=29 format=3 uid="uid://jmbj2rm5qml1"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_7uvhw"]
 [ext_resource type="PackedScene" uid="uid://dvc0nldgfwv4l" path="res://scenes/parallax/parallax.tscn" id="2_munxv"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dohnqoimtjidd" path="res://assets/overlays/go.png" id="11_hyeyx"]
 [ext_resource type="Texture2D" uid="uid://dymu10udn3r71" path="res://assets/overlays/victory.png" id="12_0wvt0"]
 [ext_resource type="AudioStream" uid="uid://bpxidmjs24p36" path="res://audio/sfx/fight_start_end.mp3" id="13_7ivnw"]
+[ext_resource type="PackedScene" uid="uid://drxcsx0j4x62g" path="res://assets/ui/game_over_menu.tscn" id="14_01crr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ikewv"]
 atlas = ExtResource("4_c3vi6")
@@ -78,34 +79,6 @@ size = Vector2(1919, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ssc0"]
 size = Vector2(19, 1041)
 
-[sub_resource type="Animation" id="Animation_8qwvm"]
-resource_name = "ready"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ReadySprite2D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ReadySprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 4, 4]
-}
-
 [sub_resource type="Animation" id="Animation_420sn"]
 resource_name = "go"
 length = 3.0
@@ -145,6 +118,34 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8qwvm"]
+resource_name = "ready"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReadySprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ReadySprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 4, 4]
 }
 
 [sub_resource type="Animation" id="Animation_35w2o"]
@@ -328,6 +329,8 @@ stream = ExtResource("13_7ivnw")
 volume_db = -8.0
 
 [node name="LossSFX" type="AudioStreamPlayer2D" parent="OverlayAnimations"]
+
+[node name="GameOverMenu" parent="." instance=ExtResource("14_01crr")]
 
 [connection signal="timeout" from="SpawnUFOMinionsTimer" to="." method="_on_spawn_ufo_minions_timer_timeout"]
 [connection signal="timeout" from="BeginBossFightTimer" to="." method="_on_begin_boss_fight_timer_timeout"]

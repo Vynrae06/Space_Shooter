@@ -44,7 +44,6 @@ texture = ExtResource("5_qnxp1")
 centered = false
 
 [node name="StartdustFront" type="ParallaxLayer" parent="."]
-visible = false
 motion_offset = Vector2(-960, -540)
 motion_mirroring = Vector2(1920, 0)
 
@@ -53,7 +52,6 @@ texture = ExtResource("6_mqke1")
 centered = false
 
 [node name="StartdustBack" type="ParallaxLayer" parent="."]
-visible = false
 motion_offset = Vector2(-960, -540)
 motion_mirroring = Vector2(1920, 0)
 

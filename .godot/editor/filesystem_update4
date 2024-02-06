@@ -9,3 +9,4 @@ res://scenes/bosses/boss_ufo.tscn
 res://assets/ui/game_over_menu.tscn
 res://scenes/levels/level.gd
 res://assets/ui/game_over_menu.gd
+res://scenes/levels/game_over.tscn

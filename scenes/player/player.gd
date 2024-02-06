@@ -74,6 +74,7 @@ func shoot_basic():
 		$"../ProjectilesHolder".add_child(spawned_projectile)
 		$ShotBasicTimer.start()
 		$ShotSpawnFlashAnimationPlayer.play("shot_spawn_flash")
+		$ShotBasicSFX.play()
 		SHOOT_BASIC_CD_FREE = false
 
 func shoot_special():
@@ -83,7 +84,8 @@ func shoot_special():
 		spawned_projectile.global_position = $ShotInstantiateMarker.global_position
 		$"../ProjectilesHolder".add_child(spawned_projectile)
 		$ShotSpecialTimer.start()
-		$ShotSpawnFlashAnimationPlayer.play("shot_spawn_flash")		
+		$ShotSpawnFlashAnimationPlayer.play("shot_spawn_flash")
+		$ShotSpecialSFX.play()
 		SHOOT_SPECIAL_CD_FREE = false
 		
 		SPECIAL_CHARGE -= SPECIAL_CHARGE_COST

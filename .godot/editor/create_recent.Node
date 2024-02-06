@@ -1,3 +1,4 @@
+GPUParticles2D
 ColorRect
 TextureRect
 CanvasLayer
@@ -12,4 +13,3 @@ Timer
 Marker2D
 AnimatedSprite2D
 PointLight2D
-TextureProgressBar

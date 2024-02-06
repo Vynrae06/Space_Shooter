@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://jmbj2rm5qml1"]
+[gd_scene load_steps=29 format=3 uid="uid://jmbj2rm5qml1"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_7uvhw"]
 [ext_resource type="PackedScene" uid="uid://dvc0nldgfwv4l" path="res://scenes/parallax/parallax.tscn" id="2_munxv"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dohnqoimtjidd" path="res://assets/overlays/go.png" id="11_hyeyx"]
 [ext_resource type="Texture2D" uid="uid://dymu10udn3r71" path="res://assets/overlays/victory.png" id="12_0wvt0"]
 [ext_resource type="AudioStream" uid="uid://bpxidmjs24p36" path="res://audio/sfx/fight_start_end.mp3" id="13_7ivnw"]
+[ext_resource type="PackedScene" uid="uid://hjwwuij4xyab" path="res://scenes/obstacles/obstacle_destroyed_particles.tscn" id="14_2ij32"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ikewv"]
 atlas = ExtResource("4_c3vi6")
@@ -328,6 +329,9 @@ stream = ExtResource("13_7ivnw")
 volume_db = -24.0
 
 [node name="LossSFX" type="AudioStreamPlayer2D" parent="OverlayAnimations"]
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("14_2ij32")]
+position = Vector2(-338, 192)
 
 [connection signal="timeout" from="SpawnUFOMinionsTimer" to="." method="_on_spawn_ufo_minions_timer_timeout"]
 [connection signal="timeout" from="BeginBossFightTimer" to="." method="_on_begin_boss_fight_timer_timeout"]

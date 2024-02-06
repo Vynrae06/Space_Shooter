@@ -18,3 +18,5 @@ collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 disabled = true
+
+[node name="BossAttackSFX" type="AudioStreamPlayer2D" parent="."]

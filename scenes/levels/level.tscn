@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://jmbj2rm5qml1"]
+[gd_scene load_steps=28 format=3 uid="uid://jmbj2rm5qml1"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_7uvhw"]
 [ext_resource type="PackedScene" uid="uid://dvc0nldgfwv4l" path="res://scenes/parallax/parallax.tscn" id="2_munxv"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://ow2trv4u3r22" path="res://assets/overlays/ready.png" id="10_5a0pv"]
 [ext_resource type="AudioStream" uid="uid://bvqpgafy7uwoj" path="res://audio/music/Space Jazz 1.mp3" id="10_kbd6n"]
 [ext_resource type="Texture2D" uid="uid://dohnqoimtjidd" path="res://assets/overlays/go.png" id="11_hyeyx"]
+[ext_resource type="Texture2D" uid="uid://dymu10udn3r71" path="res://assets/overlays/victory.png" id="12_0wvt0"]
+[ext_resource type="AudioStream" uid="uid://bpxidmjs24p36" path="res://audio/sfx/fight_start_end.mp3" id="13_7ivnw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ikewv"]
 atlas = ExtResource("4_c3vi6")
@@ -145,10 +147,38 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_35w2o"]
+resource_name = "victory"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VictorySprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VictorySprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lovym"]
 _data = {
 "go": SubResource("Animation_420sn"),
-"ready": SubResource("Animation_8qwvm")
+"ready": SubResource("Animation_8qwvm"),
+"victory": SubResource("Animation_35w2o")
 }
 
 [node name="Level" type="Node2D"]
@@ -251,7 +281,7 @@ shape = SubResource("RectangleShape2D_7ssc0")
 position = Vector2(950, 0.5)
 shape = SubResource("RectangleShape2D_7ssc0")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_kbd6n")
 autoplay = true
 metadata/_edit_lock_ = true
@@ -269,7 +299,7 @@ autostart = true
 
 [node name="OverlayAnimations" type="Node2D" parent="."]
 
-[node name="ReadyAnimationPlayer" type="AnimationPlayer" parent="OverlayAnimations"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OverlayAnimations"]
 libraries = {
 "": SubResource("AnimationLibrary_lovym")
 }
@@ -288,6 +318,16 @@ texture = ExtResource("11_hyeyx")
 hframes = 7
 
 [node name="VictorySprite2D" type="Sprite2D" parent="OverlayAnimations"]
+visible = false
+texture = ExtResource("12_0wvt0")
+hframes = 9
+frame = 8
+
+[node name="FightStartEndSFX" type="AudioStreamPlayer2D" parent="OverlayAnimations"]
+stream = ExtResource("13_7ivnw")
+volume_db = -8.0
+
+[node name="LossSFX" type="AudioStreamPlayer2D" parent="OverlayAnimations"]
 
 [connection signal="timeout" from="SpawnUFOMinionsTimer" to="." method="_on_spawn_ufo_minions_timer_timeout"]
 [connection signal="timeout" from="BeginBossFightTimer" to="." method="_on_begin_boss_fight_timer_timeout"]

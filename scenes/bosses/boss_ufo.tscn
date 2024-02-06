@@ -1,11 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://dq3ojxmvj0ebi"]
+[gd_scene load_steps=25 format=3 uid="uid://dq3ojxmvj0ebi"]
 
 [ext_resource type="Script" path="res://scenes/bosses/boss_ufo.gd" id="1_6c0ru"]
 [ext_resource type="PackedScene" uid="uid://de16fo3l8lx0m" path="res://scenes/bosses/boss.tscn" id="2_re1sr"]
 [ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="3_o8q8i"]
 [ext_resource type="Texture2D" uid="uid://rs7gxdja0xhe" path="res://assets/ufo/ufo_horizontal_attack.png" id="4_5hosa"]
+[ext_resource type="AudioStream" uid="uid://cag51upcr4ytb" path="res://audio/sfx/ufo_horizontal_attack.wav" id="5_k3vhm"]
 [ext_resource type="PackedScene" uid="uid://2grtpdddiryx" path="res://scenes/components/boss_attack.tscn" id="5_kv5d4"]
 [ext_resource type="PackedScene" uid="uid://yc6drrh5nx08" path="res://scenes/components/oscillation_movement_component.tscn" id="5_sdbey"]
+[ext_resource type="AudioStream" uid="uid://olo1xcaodlfb" path="res://audio/sfx/ufo_vertical_attack.wav" id="6_aw6g4"]
 [ext_resource type="Texture2D" uid="uid://bhdcc3n047d7u" path="res://assets/ufo/ufo_boss.png" id="7_l2s4h"]
 
 [sub_resource type="Animation" id="Animation_lprig"]
@@ -186,6 +188,9 @@ speed_scale = 2.0
 position = Vector2(-137, -2)
 shape = SubResource("RectangleShape2D_obquk")
 
+[node name="BossAttackSFX" parent="BossAttackHorizontal" index="4"]
+stream = ExtResource("5_k3vhm")
+
 [node name="BossAttackVertical" parent="." index="1" instance=ExtResource("5_kv5d4")]
 ANIMATION_NAME = "laser_beam_vertical"
 metadata/_edit_lock_ = true
@@ -210,6 +215,9 @@ speed_scale = 2.0
 [node name="CollisionShape2D" parent="BossAttackVertical/HitBox" index="0"]
 position = Vector2(-497, 0)
 shape = SubResource("RectangleShape2D_6844w")
+
+[node name="BossAttackSFX" parent="BossAttackVertical" index="4"]
+stream = ExtResource("6_aw6g4")
 
 [node name="AnimatedSprite2D" parent="." index="2"]
 material = SubResource("ShaderMaterial_wk7ru")

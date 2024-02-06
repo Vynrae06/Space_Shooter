@@ -20,8 +20,10 @@ func _process(delta):
 
 func scene_intro():
 	Global.FIGHT_ONGOING = false
-	$OverlayAnimations/ReadyAnimationPlayer.play("ready")
-	$OverlayAnimations/ReadyAnimationPlayer.queue("go")
+	$OverlayAnimations/AnimationPlayer.play("ready")
+	$OverlayAnimations/AnimationPlayer.queue("go")
+	await get_tree().create_timer(1.8).timeout
+	$OverlayAnimations/FightStartEndSFX.play()
 
 func start_fight():
 	Global.FIGHT_ONGOING = true
@@ -39,6 +41,8 @@ func get_win_time() -> String:
 	return fight_duration_formatted
 
 func _on_boss_ufo_boss_defeated():
+	$OverlayAnimations/AnimationPlayer.play("victory")
+	$OverlayAnimations/FightStartEndSFX.play()
 	print("Win Time:" + get_win_time())
 
 func _on_spawn_ufo_minions_timer_timeout():
@@ -46,8 +50,7 @@ func _on_spawn_ufo_minions_timer_timeout():
 		$UFOSpawner.ALLOWED_TO_SPAWN = true
 
 func _on_begin_boss_fight_timer_timeout():
-	#TODO: if Global.FIGHT_ONGOING:
-	BOSS_UFO = BOSS_UFO_SCENE.instantiate()
-	add_child(BOSS_UFO)
-	BOSS_UFO.connect("boss_defeated", _on_boss_ufo_boss_defeated)
-		
+	if Global.FIGHT_ONGOING:
+		BOSS_UFO = BOSS_UFO_SCENE.instantiate()
+		add_child(BOSS_UFO)
+		BOSS_UFO.connect("boss_defeated", _on_boss_ufo_boss_defeated)

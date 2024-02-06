@@ -166,10 +166,11 @@ speed_scale = 4.0
 
 [node name="ShotBasicSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_4x7gr")
-volume_db = -16.0
+volume_db = -24.0
 
 [node name="ShotSpecialSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_bwss2")
+volume_db = -12.0
 
 [connection signal="area_entered" from="DeathArea" to="." method="_on_death_area_entered"]
 [connection signal="timeout" from="ShotBasicTimer" to="." method="_on_shot_basic_timer_timeout"]

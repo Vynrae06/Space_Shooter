@@ -26,7 +26,6 @@ var CAN_MOVE: bool = true
 signal player_died
 
 func _ready():
-	get_parent().connect("fight_over", disable_player)
 	$ShotSpawnFlash.texture = ResourceLoader.load(shot_spawn_flash_sprite_path)
 	$ShotSpawnFlash.visible = false
 	$PlaneAnimatedSprite.play("straight")
@@ -37,6 +36,12 @@ func _process(_delta):
 	
 	$SpecialChargeBar.max_value = SPECIAL_CHARGE_MAX
 	update_special_charge_bar()
+	
+	if Global.FIGHT_ONGOING:
+		enable_player()
+	else:
+		disable_player()
+	
 
 func _physics_process(_delta):
 	if CAN_MOVE:
@@ -109,3 +114,9 @@ func disable_player():
 	CAN_SHOOT_BASIC = false
 	CAN_SHOOT_SPECIAL = false
 	get_node("DeathArea/DeathCollider").set_deferred("disabled", true)
+
+func enable_player():
+	CAN_MOVE = true
+	CAN_SHOOT_BASIC = true
+	CAN_SHOOT_SPECIAL = true
+	get_node("DeathArea/DeathCollider").set_deferred("disabled", false)

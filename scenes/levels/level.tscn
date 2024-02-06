@@ -76,6 +76,7 @@ size = Vector2(19, 1041)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_7uvhw")
+COUNTDOWN = 3.0
 
 [node name="Parallax" parent="." instance=ExtResource("2_munxv")]
 STARS_SPEED = 25.0
@@ -181,17 +182,15 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="SpawnUFOMinionsTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 15.0
 one_shot = true
 autostart = true
 
 [node name="BeginBossFightTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 45.0
 one_shot = true
 autostart = true
 
-[connection signal="fight_over" from="." to="UFOSpawner" method="_on_level_fight_over"]
-[connection signal="fight_over" from="." to="AsteroidSpawner" method="_on_level_fight_over"]
 [connection signal="timeout" from="SpawnUFOMinionsTimer" to="." method="_on_spawn_ufo_minions_timer_timeout"]
 [connection signal="timeout" from="BeginBossFightTimer" to="." method="_on_begin_boss_fight_timer_timeout"]
 

@@ -1,12 +1,15 @@
 res://scenes/levels/level.tscn
 res://shaders/hit_flash.tres
-res://scenes/levels/level.gd
 res://scenes/player/player.tscn
 res://scenes/player/player_projectile_basic.tscn
 res://scenes/player/player_projectile_special.tscn
 res://scenes/parallax/parallax.tscn
 res://scenes/obstacles/asteroid.tscn
 res://scenes/bosses/boss_ufo.tscn
-res://scenes/player/player.gd
 res://scenes/bosses/boss_ufo.gd
+res://scenes/levels/level.gd
+res://scenes/obstacles/obstacle_spawner.gd
+res://scenes/components/boss_attack.gd
+res://scenes/player/player.gd
+res://scenes/global.gd
 res://scenes/bosses/boss.gd

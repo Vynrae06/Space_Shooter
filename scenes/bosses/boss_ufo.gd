@@ -5,13 +5,15 @@ func _ready():
 	super._ready()
 	ATTACKS.append($BossAttackHorizontal)
 	ATTACKS.append($BossAttackVertical)
+	position.x = 705
 	
-	#TODO: Move this to start after the intro
-	$AttackCooldown.start()
-	$OscillationMovementComponent.set_process(false)
+	intro_start()
+	await get_tree().create_timer(3.0).timeout
+	intro_end()
+
 
 func _process(_delta):
-	if FIGHT_ONGOING:
+	if Global.FIGHT_ONGOING:
 		if CAN_ATTACK && !ATTACKS.is_empty():
 			if is_a_player_close():
 				CURRENT_ATTACK = $BossAttackVertical
@@ -20,7 +22,19 @@ func _process(_delta):
 			attack()
 	else:
 		$OscillationMovementComponent.set_process(false)
+		get_node("HurtBoxComponent/CollisionShape2D").set_deferred("disabled", true)
 		
+	fixate_vertical_attack_position()
+		
+func intro_start():
+	$OscillationMovementComponent.set_process(false)
+	get_node("HurtBoxComponent/CollisionShape2D").set_deferred("disabled", true)
+
+func intro_end():
+	$AttackCooldown.start()
+	$OscillationMovementComponent.set_process(true)
+	get_node("HurtBoxComponent/CollisionShape2D").set_deferred("disabled", false)
+	
 func attack():
 	super.attack()
 	CURRENT_ATTACK.get_node("BossAttackDuration").start()
@@ -37,7 +51,6 @@ func stop_attack():
 	$AttackCooldown.start()
 	$OscillationMovementComponent.set_process(true)
 	CURRENT_ATTACK.stop_attack()
-
-func _on_level_fight_over():
-	FIGHT_ONGOING = false
-	get_node("HurtBoxComponent/CollisionShape2D").set_deferred("disabled", true)
+	
+func fixate_vertical_attack_position():
+	$BossAttackVertical.global_position = Vector2(780, 0)

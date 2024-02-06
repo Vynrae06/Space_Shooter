@@ -39,7 +39,10 @@ ANIMATION_PLAYER = NodePath("../HitFlashAnimationPlayer")
 
 [node name="HitFlashAnimationPlayer" parent="." instance=ExtResource("4_rffyg")]
 
+[node name="DestroyedSFX" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="timeout" from="SelfDestructTimer" to="." method="_on_self_destruct_timer_timeout"]
 [connection signal="death_signal" from="HealthComponent" to="." method="_on_health_component_death_signal"]
+[connection signal="finished" from="DestroyedSFX" to="." method="_on_destroyed_sfx_finished"]
 
 [editable path="HurtBoxComponent"]

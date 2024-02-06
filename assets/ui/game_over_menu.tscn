@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://drxcsx0j4x62g"]
+
+[ext_resource type="Script" path="res://assets/ui/game_over_menu.gd" id="1_lv0bm"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="GameOverMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_right = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lv0bm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -33.0
+offset_right = 43.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RestartButton" type="Button" parent="GameOverMenu/VBoxContainer"]
+custom_minimum_size = Vector2(350, 120)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../ExitButton")
+theme_override_font_sizes/font_size = 48
+text = "Réessayer"
+
+[node name="ExitButton" type="Button" parent="GameOverMenu/VBoxContainer"]
+custom_minimum_size = Vector2(350, 120)
+layout_mode = 2
+focus_neighbor_top = NodePath("../RestartButton")
+focus_next = NodePath("../RestartButton")
+focus_previous = NodePath("../RestartButton")
+theme_override_font_sizes/font_size = 48
+text = "Quitter"
+
+[connection signal="pressed" from="GameOverMenu/VBoxContainer/RestartButton" to="GameOverMenu" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="GameOverMenu/VBoxContainer/ExitButton" to="GameOverMenu" method="_on_exit_button_pressed"]

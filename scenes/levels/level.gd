@@ -8,8 +8,9 @@ var FIGHT_TIMER: float
 var PLAYERS_ALIVE_COUNT: int
 var BOSS_UFO_SCENE = preload("res://scenes/bosses/boss_ufo.tscn")
 var BOSS_UFO: Boss
+var MENU = preload("res://assets/ui/game_over_menu.tscn")
 
-func _ready():	
+func _ready():
 	scene_intro()
 	await get_tree().create_timer(COUNTDOWN).timeout
 	start_fight()
@@ -31,6 +32,8 @@ func start_fight():
 func check_players_alive():
 	if get_tree().get_nodes_in_group("player").size() <= 0:
 		Global.FIGHT_ONGOING = false
+		var menu = MENU.instantiate()
+		add_child(menu)
 
 func get_win_time() -> String:
 	var fight_duration : float = FIGHT_TIMER - COUNTDOWN

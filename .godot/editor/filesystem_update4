@@ -14,3 +14,7 @@ res://scenes/player/player.gd
 res://scenes/global.gd
 res://scenes/bosses/boss.gd
 res://scenes/components/boss_attack.tscn
+res://scenes/obstacles/obstacle_destroyable.gd
+res://scenes/obstacles/obstacle_destroyable.tscn
+res://assets/ui/game_over_menu.tscn
+res://assets/ui/game_over_menu.gd

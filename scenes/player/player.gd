@@ -66,7 +66,7 @@ func move():
 		velocity = keyboard_input_direction * MOVEMENT_SPEED
 
 func shoot_basic():
-	if (Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_B) or Input.is_action_pressed("shoot_basic")) and CAN_SHOOT_BASIC and SHOOT_BASIC_CD_FREE: 
+	if (Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_B) or Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_A) or Input.is_action_pressed("shoot_basic")) and CAN_SHOOT_BASIC and SHOOT_BASIC_CD_FREE: 
 		var spawned_projectile = PROJECTILE_BASIC_SCENE.instantiate() as Projectile
 		spawned_projectile.set_sprite(projectile_sprite_path_basic)
 		spawned_projectile.global_position = $ShotInstantiateMarker.global_position

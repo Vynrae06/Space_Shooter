@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://hjwwuij4xyab"]
+[gd_scene load_steps=9 format=3 uid="uid://hjwwuij4xyab"]
 
 [ext_resource type="Texture2D" uid="uid://b5vw8ociecxni" path="res://assets/smoke_puffs/smoke_puffs.png" id="1_bx4ub"]
+[ext_resource type="Script" path="res://scenes/obstacles/obstacle_destroyed_particles.gd" id="2_6cly6"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pv7y8"]
 particles_animation = true
@@ -50,3 +51,6 @@ lifetime = 0.8
 one_shot = true
 explosiveness = 1.0
 randomness = 1.0
+script = ExtResource("2_6cly6")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

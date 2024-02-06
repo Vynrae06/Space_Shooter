@@ -13,3 +13,8 @@ res://scenes/levels/game_over.tscn
 res://scenes/obstacles/obstacle_destroyed_particles.tscn
 res://scenes/obstacles/obstacle_destroyable.gd
 res://scenes/obstacles/obstacle_destroyable.tscn
+res://scenes/player/lazer_impact_animation.tscn
+res://scenes/obstacles/obstacle_destroyed_particles.gd
+res://scenes/player/projectile.gd
+res://scenes/player/lazer_impact_animation.gd
+res://scenes/obstacles/asteroid.gd

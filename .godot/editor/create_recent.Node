@@ -1,3 +1,4 @@
+AnimatedSprite2D
 GPUParticles2D
 ColorRect
 TextureRect
@@ -11,5 +12,3 @@ AnimationPlayer
 Node2D
 Timer
 Marker2D
-AnimatedSprite2D
-PointLight2D

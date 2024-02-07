@@ -26,6 +26,7 @@ window/size/viewport_height=1080
 window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
+window/vsync/vsync_mode=0
 
 [input]
 
@@ -99,6 +100,7 @@ shoot_special={
 2d_physics/layer_6="Obstacles Undestroyable"
 2d_physics/layer_7="Borders"
 2d_physics/layer_8="Player Detector"
+2d_physics/layer_9="Player Revive Area"
 
 [rendering]
 

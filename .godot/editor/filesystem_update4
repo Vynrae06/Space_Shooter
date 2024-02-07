@@ -7,3 +7,7 @@ res://scenes/obstacles/asteroid.tscn
 res://scenes/obstacles/obstacle_destroyable.tscn
 res://scenes/player/lazer_impact_animation.tscn
 res://scenes/player/player.tscn
+res://scenes/player/player.gd
+res://scenes/global.gd
+res://scenes/levels/level.gd
+res://scenes/obstacles/obstacle_destroyable.gd

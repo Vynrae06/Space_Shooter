@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://oj0pcpf8wyyl"]
+[gd_scene load_steps=20 format=3 uid="uid://oj0pcpf8wyyl"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_th58a"]
 [ext_resource type="Texture2D" uid="uid://cly0nj1i6mtgx" path="res://assets/charge_bar/under 1.png" id="2_hq05b"]
@@ -13,6 +13,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pf2us"]
 radius = 57.0
 height = 230.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3q6o3"]
+radius = 70.0
+height = 260.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6laq"]
 radius = 47.0
@@ -82,8 +86,37 @@ tracks/1/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_hufgk"]
+resource_name = "invincibility"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlaneAnimatedSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false, true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpecialChargeBar:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false, true, false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_youp4"]
 _data = {
+"invincibility": SubResource("Animation_hufgk"),
 "shot_spawn_flash": SubResource("Animation_nppbl")
 }
 
@@ -93,6 +126,7 @@ collision_mask = 64
 script = ExtResource("1_th58a")
 SPECIAL_CHARGE_MAX = 20
 SPECIAL_CHARGE_COST = 20
+INVINCIBILITY_TIME = 1.5
 metadata/_edit_lock_ = true
 
 [node name="BorderCollider" type="CollisionShape2D" parent="."]
@@ -104,6 +138,15 @@ metadata/_edit_lock_ = true
 position = Vector2(-10, 4)
 scale = Vector2(0.5, 0.5)
 metadata/_edit_lock_ = true
+
+[node name="ReviveArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReviveArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3q6o3")
+debug_color = Color(0.211765, 0.639216, 0, 0.419608)
 
 [node name="DeathArea" type="Area2D" parent="."]
 collision_mask = 60
@@ -158,7 +201,7 @@ hframes = 4
 [node name="ShotInstantiateMarker" type="Marker2D" parent="."]
 position = Vector2(69, 41)
 
-[node name="ShotSpawnFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_youp4")
 }
@@ -172,6 +215,7 @@ volume_db = -24.0
 stream = ExtResource("9_bwss2")
 volume_db = -12.0
 
+[connection signal="area_entered" from="ReviveArea" to="." method="_on_revive_area_area_entered"]
 [connection signal="area_entered" from="DeathArea" to="." method="_on_death_area_entered"]
 [connection signal="timeout" from="ShotBasicTimer" to="." method="_on_shot_basic_timer_timeout"]
 [connection signal="timeout" from="ShotSpecialTimer" to="." method="_on_shot_special_timer_timeout"]

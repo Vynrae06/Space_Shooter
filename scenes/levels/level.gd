@@ -8,8 +8,11 @@ var FIGHT_TIMER: float
 var PLAYERS_ALIVE_COUNT: int
 var BOSS_UFO_SCENE = preload("res://scenes/bosses/boss_ufo.tscn")
 var BOSS_UFO: Boss
+var PLAYERS
 
 func _ready():
+	PLAYERS = get_tree().get_nodes_in_group("player")
+	Global.PLAYERS_ALIVE = PLAYERS.size()
 	scene_intro()
 	await get_tree().create_timer(COUNTDOWN).timeout
 	start_fight()
@@ -24,12 +27,15 @@ func scene_intro():
 	$OverlayAnimations/AnimationPlayer.queue("go")
 	await get_tree().create_timer(1.8).timeout
 	$OverlayAnimations/FightStartEndSFX.play()
+	
 
 func start_fight():
 	Global.FIGHT_ONGOING = true
+	for player in PLAYERS:
+		player.enable_player()
 	
 func check_players_alive():
-	if get_tree().get_nodes_in_group("player").size() <= 0:
+	if Global.PLAYERS_ALIVE <= 0:
 		Global.FIGHT_ONGOING = false
 		get_tree().change_scene_to_file("res://scenes/levels/game_over.tscn")
 

@@ -1,3 +1,5 @@
+CollisionShape2D
+Area2D
 AnimatedSprite2D
 GPUParticles2D
 ColorRect
@@ -11,4 +13,3 @@ Sprite2D
 AnimationPlayer
 Node2D
 Timer
-Marker2D

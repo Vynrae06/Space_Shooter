@@ -10,20 +10,20 @@ class_name Player
 @export var projectile_sprite_path_basic: String
 @export var projectile_sprite_path_special: String
 @export var shot_spawn_flash_sprite_path: String
+@export var INVINCIBILITY_TIME: float
 
 var PROJECTILE_BASIC_SCENE: PackedScene = preload("res://scenes/player/player_projectile_basic.tscn")
 var PROJECTILE_SPECIAL_SCENE: PackedScene = preload("res://scenes/player/player_projectile_special.tscn")
 
-var CAN_SHOOT_BASIC: bool = true
+var CAN_SHOOT_BASIC: bool = false
 var SHOOT_BASIC_CD_FREE: bool = true
 
-var CAN_SHOOT_SPECIAL: bool = true
+var CAN_SHOOT_SPECIAL: bool = false
 var SHOOT_SPECIAL_CD_FREE: bool = true
 var SPECIAL_CHARGE: int = 0
 
-var CAN_MOVE: bool = true
-
-signal player_died
+var CAN_MOVE: bool = false
+var IS_ALIVE: bool = true
 
 func _ready():
 	$ShotSpawnFlash.texture = ResourceLoader.load(shot_spawn_flash_sprite_path)
@@ -36,12 +36,6 @@ func _process(_delta):
 	
 	$SpecialChargeBar.max_value = SPECIAL_CHARGE_MAX
 	update_special_charge_bar()
-	
-	if Global.FIGHT_ONGOING:
-		enable_player()
-	else:
-		disable_player()
-	
 
 func _physics_process(_delta):
 	if CAN_MOVE:
@@ -73,7 +67,7 @@ func shoot_basic():
 		spawned_projectile.connect("damage_dealt_signal", damage_dealt_signal_received)
 		$"../ProjectilesHolder".add_child(spawned_projectile)
 		$ShotBasicTimer.start()
-		$ShotSpawnFlashAnimationPlayer.play("shot_spawn_flash")
+		$AnimationPlayer.play("shot_spawn_flash")
 		$ShotBasicSFX.play()
 		SHOOT_BASIC_CD_FREE = false
 
@@ -84,7 +78,7 @@ func shoot_special():
 		spawned_projectile.global_position = $ShotInstantiateMarker.global_position
 		$"../ProjectilesHolder".add_child(spawned_projectile)
 		$ShotSpecialTimer.start()
-		$ShotSpawnFlashAnimationPlayer.play("shot_spawn_flash")
+		$AnimationPlayer.play("shot_spawn_flash")
 		$ShotSpecialSFX.play()
 		SHOOT_SPECIAL_CD_FREE = false
 		
@@ -106,10 +100,13 @@ func _on_shot_basic_timer_timeout():
 func _on_shot_special_timer_timeout():
 	SHOOT_SPECIAL_CD_FREE = true
 
-func _on_death_area_entered(_area):
-	print("player died")
-	player_died.emit()
-	queue_free()
+func _on_death_area_entered(area):
+	if IS_ALIVE:
+		IS_ALIVE = false
+		Global.PLAYERS_ALIVE -= 1
+		disable_player()
+		if area.get_parent() is ObstacleDestroyable:
+			area.get_parent().destroy_self()
 
 func disable_player():
 	CAN_MOVE = false
@@ -117,8 +114,16 @@ func disable_player():
 	CAN_SHOOT_SPECIAL = false
 	get_node("DeathArea/DeathCollider").set_deferred("disabled", true)
 
+func _on_revive_area_area_entered(area):
+	if area != self and !IS_ALIVE :
+		IS_ALIVE = true
+		Global.PLAYERS_ALIVE += 1
+		enable_player()
+		$AnimationPlayer.play("invincibility")
+		await get_tree().create_timer(INVINCIBILITY_TIME).timeout
+		get_node("DeathArea/DeathCollider").set_deferred("disabled", false)
+
 func enable_player():
 	CAN_MOVE = true
 	CAN_SHOOT_BASIC = true
 	CAN_SHOOT_SPECIAL = true
-	get_node("DeathArea/DeathCollider").set_deferred("disabled", false)

@@ -28,6 +28,8 @@ func _process(_delta):
 func intro_start():
 	$OscillationMovementComponent.set_process(false)
 	get_node("HurtBoxComponent/CollisionShape2D").set_deferred("disabled", true)
+	$SpriteAnimationPlayer.play("flash_in")
+	$SpriteAnimationPlayer.queue("idle")
 
 func intro_end():
 	$AttackCooldown.start()

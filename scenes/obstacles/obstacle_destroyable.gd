@@ -18,6 +18,9 @@ func destroy_self():
 	get_parent().add_child(destroyed_particles_instance)
 	destroyed_particles_instance.global_position = position
 	destroyed_particles_instance.emitting = true
+	
+	await get_tree().create_timer(1.0).timeout
+	queue_free()
 
 func _on_self_destruct_timer_timeout():
 	queue_free()
@@ -26,4 +29,5 @@ func _on_health_component_death_signal():
 	destroy_self()
 
 func _on_destroyed_sfx_finished():
+	#TODO: Destroy here instead of in destroy_self
 	pass

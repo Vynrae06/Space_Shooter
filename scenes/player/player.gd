@@ -151,6 +151,8 @@ func hide_basic_attack_hud():
 
 func display_special_attack_hud():
 	$SpecialAttackHUD.visible = true
+	$SpecialAttackHUD.play("default")
 
 func hide_special_attack_hud():
 	$SpecialAttackHUD.visible = false
+	$SpecialAttackHUD.stop()

@@ -78,7 +78,7 @@ func shoot_basic():
 		SHOOT_BASIC_CD_FREE = false
 
 func shoot_special():
-	if (Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_RIGHT_SHOULDER) or Input.is_action_pressed("shoot_special")) and SPECIAL_CHARGE >= SPECIAL_CHARGE_COST and CAN_SHOOT_SPECIAL and SHOOT_SPECIAL_CD_FREE:
+	if (Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_RIGHT_SHOULDER) or Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_LEFT_SHOULDER) or Input.is_action_pressed("shoot_special")) and SPECIAL_CHARGE >= SPECIAL_CHARGE_COST and CAN_SHOOT_SPECIAL and SHOOT_SPECIAL_CD_FREE:
 		var spawned_projectile = PROJECTILE_SPECIAL_SCENE.instantiate() as Projectile
 		spawned_projectile.set_sprite(projectile_sprite_path_special)		
 		spawned_projectile.global_position = $ShotInstantiateMarker.global_position

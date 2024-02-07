@@ -9,7 +9,7 @@ var CLOSE_PLAYERS_COUNT: int
 signal boss_defeated
 
 func _ready():
-	$AnimatedSprite2D.play("idle")
+	$SpriteAnimationPlayer.play("idle")
 
 func attack():
 	CAN_ATTACK = false

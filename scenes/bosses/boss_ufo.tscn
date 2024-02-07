@@ -1,8 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://dq3ojxmvj0ebi"]
+[gd_scene load_steps=28 format=3 uid="uid://dq3ojxmvj0ebi"]
 
 [ext_resource type="Script" path="res://scenes/bosses/boss_ufo.gd" id="1_6c0ru"]
 [ext_resource type="PackedScene" uid="uid://de16fo3l8lx0m" path="res://scenes/bosses/boss.tscn" id="2_re1sr"]
-[ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="3_o8q8i"]
 [ext_resource type="Texture2D" uid="uid://rs7gxdja0xhe" path="res://assets/ufo/ufo_horizontal_attack.png" id="4_5hosa"]
 [ext_resource type="AudioStream" uid="uid://cag51upcr4ytb" path="res://audio/sfx/ufo_horizontal_attack.wav" id="5_k3vhm"]
 [ext_resource type="PackedScene" uid="uid://2grtpdddiryx" path="res://scenes/components/boss_attack.tscn" id="5_kv5d4"]
@@ -107,55 +106,138 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6844w"]
 size = Vector2(516, 998)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wk7ru"]
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_6aj5p"]
+expanded_output_ports = [0]
+parameter_name = "Tint"
+default_value_enabled = true
+default_value = Color(1, 1, 1, 0.501961)
+
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_e7qhc"]
+parameter_name = "Enabled"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeIf" id="VisualShaderNodeIf_8uvay"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_qhtle"]
+input_name = "color"
+
+[sub_resource type="VisualShader" id="VisualShader_7r7of"]
 resource_local_to_scene = true
-shader = ExtResource("3_o8q8i")
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform bool Enabled = false;
+uniform vec4 Tint : source_color = vec4(1.000000, 1.000000, 1.000000, 0.501961);
+
+
+
+void fragment() {
+// BooleanParameter:3
+	bool n_out3p0 = Enabled;
+
+
+// ColorParameter:2
+	vec4 n_out2p0 = Tint;
+
+
+// Input:5
+	vec4 n_out5p0 = COLOR;
+
+
+	vec3 n_out4p0;
+// If:4
+	float n_in4p1 = 0.00000;
+	float n_in4p2 = 0.00001;
+	if(abs((n_out3p0 ? 1.0 : 0.0) - n_in4p1) < n_in4p2)
+	{
+		n_out4p0 = vec3(n_out2p0.xyz);
+	}
+	else if((n_out3p0 ? 1.0 : 0.0) < n_in4p1)
+	{
+		n_out4p0 = vec3(n_out5p0.xyz);
+	}
+	else
+	{
+		n_out4p0 = vec3(n_out5p0.xyz);
+	}
+
+
+// Output:0
+	COLOR.rgb = n_out4p0;
+
+
+}
+"
+graph_offset = Vector2(-450.161, -124.762)
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(600, 240)
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_6aj5p")
+nodes/fragment/2/position = Vector2(-1320, 520)
+nodes/fragment/3/node = SubResource("VisualShaderNodeBooleanParameter_e7qhc")
+nodes/fragment/3/position = Vector2(-960, 140)
+nodes/fragment/4/node = SubResource("VisualShaderNodeIf_8uvay")
+nodes/fragment/4/position = Vector2(-360, 120)
+nodes/fragment/5/node = SubResource("VisualShaderNodeInput_qhtle")
+nodes/fragment/5/position = Vector2(-700, 720)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 2, 0, 4, 3, 4, 0, 0, 0, 5, 0, 4, 4, 5, 0, 4, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5nwgi"]
+resource_local_to_scene = true
+shader = SubResource("VisualShader_7r7of")
 shader_parameter/Enabled = true
 shader_parameter/Tint = Color(1, 1, 1, 0.501961)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4himc"]
-atlas = ExtResource("7_l2s4h")
-region = Rect2(0, 0, 1920, 1080)
+[sub_resource type="Animation" id="Animation_nnjhs"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kb80a"]
-atlas = ExtResource("7_l2s4h")
-region = Rect2(1920, 0, 1920, 1080)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lq6ne"]
-atlas = ExtResource("7_l2s4h")
-region = Rect2(3840, 0, 1920, 1080)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jhyx1"]
-atlas = ExtResource("7_l2s4h")
-region = Rect2(5760, 0, 1920, 1080)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jl0mi"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4himc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kb80a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lq6ne")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jhyx1")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 12.0
-}]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0fv18"]
+_data = {
+"idle": SubResource("Animation_nnjhs")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uftpm"]
-radius = 112.0
-height = 378.0
+radius = 103.0
+height = 342.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bnb8n"]
-radius = 113.0
-height = 378.0
+radius = 103.0
+height = 354.0
+
+[sub_resource type="Animation" id="Animation_d2fgf"]
+resource_name = "hit_flash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v3fnc"]
+_data = {
+"hit_flash": SubResource("Animation_d2fgf")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5b3a"]
 size = Vector2(519, 1000)
@@ -219,18 +301,23 @@ shape = SubResource("RectangleShape2D_6844w")
 [node name="BossAttackSFX" parent="BossAttackVertical" index="4"]
 stream = ExtResource("6_aw6g4")
 
-[node name="AnimatedSprite2D" parent="." index="2"]
-material = SubResource("ShaderMaterial_wk7ru")
-position = Vector2(26, -22)
-scale = Vector2(0.315, 0.315)
-sprite_frames = SubResource("SpriteFrames_jl0mi")
-animation = &"idle"
+[node name="Sprite2D" parent="." index="2"]
+material = SubResource("ShaderMaterial_5nwgi")
+position = Vector2(16, -15)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_l2s4h")
+hframes = 4
 
-[node name="CollisionShape2D" parent="." index="3"]
+[node name="SpriteAnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_0fv18")
+}
+
+[node name="CollisionShape2D" parent="." index="4"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uftpm")
 
-[node name="HealthComponent" parent="." index="4"]
+[node name="HealthComponent" parent="." index="5"]
 HEALTH = 200
 
 [node name="CollisionShape2D" parent="HurtBoxComponent" index="0"]
@@ -238,7 +325,12 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_bnb8n")
 debug_color = Color(0.611765, 0.482353, 0.627451, 0.419608)
 
-[node name="PlayerProximityDetector" parent="." index="7"]
+[node name="HitFlashAnimationPlayer" parent="." index="7"]
+libraries = {
+"": SubResource("AnimationLibrary_v3fnc")
+}
+
+[node name="PlayerProximityDetector" parent="." index="8"]
 collision_layer = 128
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
@@ -247,13 +339,13 @@ metadata/_edit_group_ = true
 position = Vector2(-494.5, 0)
 shape = SubResource("RectangleShape2D_m5b3a")
 
-[node name="AttackCooldown" parent="." index="8"]
-wait_time = 5.0
-
 [node name="OscillationMovementComponent" parent="." index="9" node_paths=PackedStringArray("CHARACTER_BODY_2D") instance=ExtResource("5_sdbey")]
 FREQUENCY = 2.0
 AMPLITUDE = 666.0
 CHARACTER_BODY_2D = NodePath("..")
+
+[node name="AttackCooldown" parent="." index="10"]
+wait_time = 5.0
 
 [connection signal="timeout" from="BossAttackHorizontal/BossAttackDuration" to="." method="_on_horizontal_boss_attack_timeout"]
 [connection signal="timeout" from="BossAttackVertical/BossAttackDuration" to="." method="_on_boss_attack_duration_timeout"]

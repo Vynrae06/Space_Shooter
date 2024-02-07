@@ -56,8 +56,9 @@ nightmare_bg_space_stars_b.png::CompressedTexture2D::5096713997764104865::170711
 bg.png::CompressedTexture2D::3689069592141272994::1707119920::1707119920::1::::<><>::
 over.png::CompressedTexture2D::7528879344719835544::1707119920::1707119920::1::::<><>::
 progress.png::CompressedTexture2D::1805301432571023785::1707119920::1707119920::1::::<><>::
-::res://assets/ufo/::1707207474
+::res://assets/ufo/::1707314231
 ufo_boss.png::CompressedTexture2D::2884062219907012880::1707207474::1707207474::1::::<><>::
+ufo_boss_flash_in.png::CompressedTexture2D::7391143239165762681::1707314231::1707314232::1::::<><>::
 ufo_horizontal_attack.png::CompressedTexture2D::1232324013032977526::1707207474::1707207474::1::::<><>::
 ufo_minion.png::CompressedTexture2D::7328760381643418005::1707207474::1707207474::1::::<><>::
 ::res://assets/ui/::1707293596
@@ -96,31 +97,31 @@ oscillation_movement_component.gd::GDScript::-1::1707207474::0::1::::<>Node<>::
 oscillation_movement_component.tscn::PackedScene::1690549506495675831::1707207474::0::1::::<><>::res://scenes/components/oscillation_movement_component.gd
 ::res://scenes/components/Animation/::1707207474
 hit_flash_animation_player.tscn::PackedScene::7867000373015212577::1707207474::0::1::::<><>::
-::res://scenes/levels/::1707309896
+::res://scenes/levels/::1707313721
 game_over.tscn::PackedScene::5361294770684614642::1707293596::0::1::::<><>::uid://drxcsx0j4x62g::::res://assets/ui/game_over_menu.tscn
 level.gd::GDScript::-1::1707309896::0::1::::Level<>Node2D<>::
-level.tscn::PackedScene::656550359907006560::1707309896::0::1::::<><>::res://scenes/levels/level.gd<>uid://dvc0nldgfwv4l::::res://scenes/parallax/parallax.tscn<>uid://oj0pcpf8wyyl::::res://scenes/player/player.tscn<>uid://co2n3y4bby78b::::res://assets/player/player_limer.png<>uid://cam40gb0wlctk::::res://assets/player/player_orangina.png<>uid://d4djecahvews7::::res://scenes/obstacles/obstacles_spawner.tscn<>uid://n3tlv7fswfx2::::res://scenes/obstacles/asteroid.tscn<>uid://nwnqvqtwjrxf::::res://scenes/obstacles/minion_ufo.tscn<>uid://ow2trv4u3r22::::res://assets/overlays/ready.png<>uid://bvqpgafy7uwoj::::res://audio/music/Space Jazz 1.mp3<>uid://dohnqoimtjidd::::res://assets/overlays/go.png<>uid://dymu10udn3r71::::res://assets/overlays/victory.png<>uid://bpxidmjs24p36::::res://audio/sfx/fight_start_end.mp3<>uid://hjwwuij4xyab::::res://scenes/obstacles/obstacle_destroyed_particles.tscn
-::res://scenes/obstacles/::1707302790
+level.tscn::PackedScene::656550359907006560::1707313721::0::1::::<><>::res://scenes/levels/level.gd<>uid://dvc0nldgfwv4l::::res://scenes/parallax/parallax.tscn<>uid://oj0pcpf8wyyl::::res://scenes/player/player.tscn<>uid://co2n3y4bby78b::::res://assets/player/player_limer.png<>uid://cam40gb0wlctk::::res://assets/player/player_orangina.png<>uid://d4djecahvews7::::res://scenes/obstacles/obstacles_spawner.tscn<>uid://n3tlv7fswfx2::::res://scenes/obstacles/asteroid.tscn<>uid://nwnqvqtwjrxf::::res://scenes/obstacles/minion_ufo.tscn<>uid://ow2trv4u3r22::::res://assets/overlays/ready.png<>uid://bvqpgafy7uwoj::::res://audio/music/Space Jazz 1.mp3<>uid://dohnqoimtjidd::::res://assets/overlays/go.png<>uid://dymu10udn3r71::::res://assets/overlays/victory.png<>uid://bpxidmjs24p36::::res://audio/sfx/fight_start_end.mp3<>uid://hjwwuij4xyab::::res://scenes/obstacles/obstacle_destroyed_particles.tscn
+::res://scenes/obstacles/::1707313721
 asteroid.gd::GDScript::-1::1707293596::0::1::::Asteroid<>ObstacleDestroyable<>::
 asteroid.tscn::PackedScene::971431963679808173::1707297132::0::1::::<><>::res://scenes/obstacles/asteroid.gd<>uid://cv3o8vgp4kr5y::::res://assets/asteroids/asteroid_1.png<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://dkwdv7atcmdc6::::res://scenes/obstacles/obstacle_destroyable.tscn<>uid://cc2x5j5hsah37::::res://scenes/components/local_rotation_component.tscn
 minion_ufo.gd::GDScript::-1::1707207474::0::1::::MinionUFO<>ObstacleDestroyable<>::
 minion_ufo.tscn::PackedScene::958690300092448735::1707207474::0::1::::<><>::uid://dkwdv7atcmdc6::::res://scenes/obstacles/obstacle_destroyable.tscn<>res://scenes/obstacles/minion_ufo.gd<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://dcodu3lfa0dc4::::res://assets/ufo/ufo_minion.png
 obstacles_spawner.tscn::PackedScene::9201485351347933996::1707207474::0::1::::<><>::res://scenes/obstacles/obstacle_spawner.gd
 obstacle_destroyable.gd::GDScript::-1::1707301142::0::1::::ObstacleDestroyable<>Area2D<>::
-obstacle_destroyable.tscn::PackedScene::7906788132312869839::1707302790::0::1::::<><>::res://scenes/obstacles/obstacle_destroyable.gd<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://bxwm5t8mu8mdx::::res://scenes/components/health_component.tscn<>uid://dugn6ue3cwdsv::::res://scenes/components/hurt_box_component.tscn<>uid://dkc3l14co1pqv::::res://scenes/components/Animation/hit_flash_animation_player.tscn
+obstacle_destroyable.tscn::PackedScene::7906788132312869839::1707313721::0::1::::<><>::res://scenes/obstacles/obstacle_destroyable.gd<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://bxwm5t8mu8mdx::::res://scenes/components/health_component.tscn<>uid://dugn6ue3cwdsv::::res://scenes/components/hurt_box_component.tscn<>uid://dkc3l14co1pqv::::res://scenes/components/Animation/hit_flash_animation_player.tscn
 obstacle_destroyed_particles.gd::GDScript::-1::1707293596::0::1::::<>GPUParticles2D<>::
 obstacle_destroyed_particles.tscn::PackedScene::511277429833577097::1707293596::0::1::::<><>::uid://b5vw8ociecxni::::res://assets/smoke_puffs/smoke_puffs.png<>res://scenes/obstacles/obstacle_destroyed_particles.gd
 obstacle_spawner.gd::GDScript::-1::1707210572::0::1::::<>Node2D<>::
 ::res://scenes/parallax/::1707297132
 parallax.gd::GDScript::-1::1707207474::0::1::::<>ParallaxBackground<>::
 parallax.tscn::PackedScene::8638898245797477049::1707297132::0::1::::<><>::res://scenes/parallax/parallax.gd<>uid://diey4b1q3xpa::::res://assets/background/background_space.png<>uid://r3nfee3tl76k::::res://assets/background/stars_1.png<>uid://b8rvigndpjllo::::res://assets/background/stars_2.png<>uid://ch3hi8fvta84q::::res://assets/background/stars_3.png<>uid://dsdkcit3w8vv4::::res://assets/background/dust_front.png<>uid://ds0n2ton0fvt8::::res://assets/background/dust_back.png
-::res://scenes/player/::1707310338
+::res://scenes/player/::1707313765
 lazer_impact_animation.gd::GDScript::-1::1707293596::0::1::::<>Node2D<>::
 lazer_impact_animation.tscn::PackedScene::5295162800687454819::1707297132::0::1::::<><>::res://scenes/player/lazer_impact_animation.gd<>uid://dhf73dxb6gwm::::res://assets/player/projectiles/lazer_impact.png
-player.gd::GDScript::-1::1707310338::0::1::::Player<>CharacterBody2D<>::
-player.tscn::PackedScene::1002768050937662395::1707310338::0::1::::<><>::res://scenes/player/player.gd<>uid://cly0nj1i6mtgx::::res://assets/charge_bar/under 1.png<>uid://ot3wf5gm17yw::::res://assets/charge_bar/under 2.png<>uid://dykhh5i631dmu::::res://assets/charge_bar/progress.png<>uid://cjkxey2jyxt8l::::res://assets/charge_bar/over 1.png<>uid://bs50e1ne1wfkv::::res://assets/charge_bar/over 2.png<>uid://bboekewk3vval::::res://assets/charge_bar/light_texture.png<>uid://rqlouvfml283::::res://audio/sfx/player_lazer_basic.wav<>uid://h5ia83i73u8d::::res://audio/sfx/player_lazer_special.wav
-player_projectile_basic.tscn::PackedScene::2756164605024422612::1707302790::0::1::::<><>::uid://cmh84x2mocib0::::res://scenes/player/projectile.tscn
-player_projectile_special.tscn::PackedScene::7560098701721465313::1707302790::0::1::::<><>::uid://cmh84x2mocib0::::res://scenes/player/projectile.tscn
+player.gd::GDScript::-1::1707313697::0::1::::Player<>CharacterBody2D<>::
+player.tscn::PackedScene::1002768050937662395::1707313765::0::1::::<><>::res://scenes/player/player.gd<>uid://dpocqjl01i2vc::::res://assets/player/bubble.png<>uid://cly0nj1i6mtgx::::res://assets/charge_bar/under 1.png<>uid://ot3wf5gm17yw::::res://assets/charge_bar/under 2.png<>uid://dykhh5i631dmu::::res://assets/charge_bar/progress.png<>uid://cjkxey2jyxt8l::::res://assets/charge_bar/over 1.png<>uid://bs50e1ne1wfkv::::res://assets/charge_bar/over 2.png<>uid://bboekewk3vval::::res://assets/charge_bar/light_texture.png<>uid://rqlouvfml283::::res://audio/sfx/player_lazer_basic.wav<>uid://h5ia83i73u8d::::res://audio/sfx/player_lazer_special.wav
+player_projectile_basic.tscn::PackedScene::2756164605024422612::1707313721::0::1::::<><>::uid://cmh84x2mocib0::::res://scenes/player/projectile.tscn
+player_projectile_special.tscn::PackedScene::7560098701721465313::1707313721::0::1::::<><>::uid://cmh84x2mocib0::::res://scenes/player/projectile.tscn
 projectile.gd::GDScript::-1::1707293596::0::1::::Projectile<>Area2D<>::
 projectile.tscn::PackedScene::5631614834416338699::1707207474::0::1::::<><>::res://scenes/player/projectile.gd
 projectile_spawn_animation_player.tscn::PackedScene::8414195612814941546::1707207474::0::1::::<><>::

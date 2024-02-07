@@ -11,3 +11,7 @@ res://scenes/player/player.gd
 res://scenes/global.gd
 res://scenes/levels/level.gd
 res://scenes/obstacles/obstacle_destroyable.gd
+res://scenes/bosses/boss_ufo.tscn
+res://scenes/bosses/boss.tscn
+res://scenes/bosses/boss.gd
+res://scenes/bosses/boss_ufo.gd

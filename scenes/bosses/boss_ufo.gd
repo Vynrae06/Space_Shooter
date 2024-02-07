@@ -11,7 +11,6 @@ func _ready():
 	await get_tree().create_timer(3.0).timeout
 	intro_end()
 
-
 func _process(_delta):
 	if Global.FIGHT_ONGOING:
 		if CAN_ATTACK && !ATTACKS.is_empty():

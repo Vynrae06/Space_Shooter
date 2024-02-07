@@ -25,6 +25,8 @@ var SPECIAL_CHARGE: int = 0
 var CAN_MOVE: bool = false
 var IS_ALIVE: bool = true
 
+var SPECIAL_HUD_DISPLAYED_ONCE: bool = false
+
 func _ready():
 	$ShotSpawnFlash.texture = ResourceLoader.load(shot_spawn_flash_sprite_path)
 	$ShotSpawnFlash.visible = false
@@ -67,9 +69,12 @@ func shoot_basic():
 		spawned_projectile.connect("damage_dealt_signal", damage_dealt_signal_received)
 		$"../ProjectilesHolder".add_child(spawned_projectile)
 		$ShotBasicTimer.start()
-		$AnimationPlayer.play("shot_spawn_flash")
+		$ShotFlashAnimationPlayer.play("shot_spawn_flash")
 		$ShotBasicSFX.play()
 		SHOOT_BASIC_CD_FREE = false
+		
+		if $BasicAttackHUD.visible:
+			hide_basic_attack_hud()
 
 func shoot_special():
 	if (Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_RIGHT_SHOULDER) or Input.is_joy_button_pressed(PLAYER_INDEX, JOY_BUTTON_LEFT_SHOULDER) or Input.is_action_pressed("shoot_special")) and SPECIAL_CHARGE >= SPECIAL_CHARGE_COST and CAN_SHOOT_SPECIAL and SHOOT_SPECIAL_CD_FREE:
@@ -78,7 +83,7 @@ func shoot_special():
 		spawned_projectile.global_position = $ShotInstantiateMarker.global_position
 		$"../ProjectilesHolder".add_child(spawned_projectile)
 		$ShotSpecialTimer.start()
-		$AnimationPlayer.play("shot_spawn_flash")
+		$ShotFlashAnimationPlayer.play("shot_spawn_flash")
 		$ShotSpecialSFX.play()
 		SHOOT_SPECIAL_CD_FREE = false
 		
@@ -87,12 +92,19 @@ func shoot_special():
 		$SpecialChargeBar/BlinkingLightAnimationPlayer.stop()
 		$SpecialChargeBar/PointLight2D.energy = 0
 		
+		if $SpecialAttackHUD.visible:
+			hide_special_attack_hud()
+		
 func damage_dealt_signal_received():
 	if SPECIAL_CHARGE < SPECIAL_CHARGE_MAX:
 		SPECIAL_CHARGE += SPECIAL_CHARGE_RATE
 		update_special_charge_bar()
 		if SPECIAL_CHARGE == SPECIAL_CHARGE_MAX:
 			$SpecialChargeBar/BlinkingLightAnimationPlayer.play("blinking_light")
+			
+			if !SPECIAL_HUD_DISPLAYED_ONCE:
+				SPECIAL_HUD_DISPLAYED_ONCE = true
+				display_special_attack_hud()
 
 func _on_shot_basic_timer_timeout():
 	SHOOT_BASIC_CD_FREE = true
@@ -113,6 +125,7 @@ func disable_player():
 	CAN_SHOOT_BASIC = false
 	CAN_SHOOT_SPECIAL = false
 	get_node("DeathArea/DeathCollider").set_deferred("disabled", true)
+	$AnimationPlayer.play("bubble_help")
 
 func _on_revive_area_area_entered(area):
 	if area != self and !IS_ALIVE :
@@ -127,3 +140,15 @@ func enable_player():
 	CAN_MOVE = true
 	CAN_SHOOT_BASIC = true
 	CAN_SHOOT_SPECIAL = true
+
+func display_basic_attack_hud():
+	$BasicAttackHUD.visible = true
+	
+func hide_basic_attack_hud():
+	$BasicAttackHUD.visible = false
+
+func display_special_attack_hud():
+	$SpecialAttackHUD.visible = true
+
+func hide_special_attack_hud():
+	$SpecialAttackHUD.visible = false

@@ -33,6 +33,7 @@ func start_fight():
 	Global.FIGHT_ONGOING = true
 	for player in PLAYERS:
 		player.enable_player()
+		player.display_basic_attack_hud()
 	
 func check_players_alive():
 	if Global.PLAYERS_ALIVE <= 0:

@@ -143,9 +143,11 @@ func enable_player():
 
 func display_basic_attack_hud():
 	$BasicAttackHUD.visible = true
+	$BasicAttackHUD.play("default")
 	
 func hide_basic_attack_hud():
 	$BasicAttackHUD.visible = false
+	$BasicAttackHUD.stop()
 
 func display_special_attack_hud():
 	$SpecialAttackHUD.visible = true

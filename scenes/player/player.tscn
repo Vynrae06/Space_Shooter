@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://oj0pcpf8wyyl"]
+[gd_scene load_steps=30 format=3 uid="uid://oj0pcpf8wyyl"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_th58a"]
 [ext_resource type="Texture2D" uid="uid://dpocqjl01i2vc" path="res://assets/player/bubble.png" id="2_bte4f"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bboekewk3vval" path="res://assets/charge_bar/light_texture.png" id="7_hmqby"]
 [ext_resource type="AudioStream" uid="uid://rqlouvfml283" path="res://audio/sfx/player_lazer_basic.wav" id="8_4x7gr"]
 [ext_resource type="AudioStream" uid="uid://h5ia83i73u8d" path="res://audio/sfx/player_lazer_special.wav" id="9_bwss2"]
+[ext_resource type="Texture2D" uid="uid://yhab52atufnk" path="res://assets/player/projectiles/basic_shot_hud.png" id="11_urq12"]
+[ext_resource type="Texture2D" uid="uid://d14tul11fpf56" path="res://assets/player/projectiles/special_shot_hud.png" id="12_gldhg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pf2us"]
 radius = 57.0
@@ -175,6 +177,50 @@ _data = {
 "shot_spawn_flash": SubResource("Animation_nppbl")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s468r"]
+atlas = ExtResource("11_urq12")
+region = Rect2(0, 0, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3wns"]
+atlas = ExtResource("11_urq12")
+region = Rect2(350, 0, 350, 350)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2lpxh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s468r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3wns")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e8a5"]
+atlas = ExtResource("12_gldhg")
+region = Rect2(0, 0, 350, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lphtp"]
+atlas = ExtResource("12_gldhg")
+region = Rect2(350, 0, 350, 350)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1nut"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e8a5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lphtp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(-1, 0)
 collision_mask = 64
@@ -287,9 +333,13 @@ volume_db = -12.0
 
 [node name="BasicAttackHUD" type="AnimatedSprite2D" parent="."]
 visible = false
+position = Vector2(248, 9)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_2lpxh")
 
 [node name="SpecialAttackHUD" type="AnimatedSprite2D" parent="."]
 visible = false
+sprite_frames = SubResource("SpriteFrames_h1nut")
 
 [connection signal="area_entered" from="ReviveArea" to="." method="_on_revive_area_area_entered"]
 [connection signal="area_entered" from="DeathArea" to="." method="_on_death_area_entered"]

@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cam40gb0wlctk" path="res://assets/player/player_orangina.png" id="5_4sgeg"]
 [ext_resource type="PackedScene" uid="uid://d4djecahvews7" path="res://scenes/obstacles/obstacles_spawner.tscn" id="6_kp30j"]
 [ext_resource type="PackedScene" uid="uid://n3tlv7fswfx2" path="res://scenes/obstacles/asteroid.tscn" id="7_kbb0w"]
+[ext_resource type="AudioStream" uid="uid://cco4phu11gnya" path="res://audio/music/Cowboy Bebop OST 1 - Tank!.mp3" id="9_ahlpb"]
 [ext_resource type="PackedScene" uid="uid://nwnqvqtwjrxf" path="res://scenes/obstacles/minion_ufo.tscn" id="9_kemsp"]
-[ext_resource type="AudioStream" uid="uid://bp6c1gvm2qpxk" path="res://audio/music/Space Jazz 2.mp3" id="9_vpqmj"]
 [ext_resource type="Texture2D" uid="uid://ow2trv4u3r22" path="res://assets/overlays/ready.png" id="10_5a0pv"]
 [ext_resource type="Texture2D" uid="uid://dohnqoimtjidd" path="res://assets/overlays/go.png" id="11_hyeyx"]
 [ext_resource type="Texture2D" uid="uid://dymu10udn3r71" path="res://assets/overlays/victory.png" id="12_0wvt0"]
@@ -286,7 +286,9 @@ position = Vector2(950, 0.5)
 shape = SubResource("RectangleShape2D_7ssc0")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_vpqmj")
+stream = ExtResource("9_ahlpb")
+volume_db = -12.0
+autoplay = true
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 

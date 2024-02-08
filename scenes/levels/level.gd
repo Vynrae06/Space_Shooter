@@ -11,6 +11,7 @@ var BOSS_UFO: Boss
 var PLAYERS
 
 func _ready():
+	$FightStartSFX.play()
 	PLAYERS = get_tree().get_nodes_in_group("player")
 	Global.PLAYERS_ALIVE = PLAYERS.size()
 	scene_intro()
@@ -23,7 +24,6 @@ func _process(delta):
 
 func scene_intro():
 	Global.FIGHT_ONGOING = false
-	$FightStartSFX.play()
 	$OverlayAnimations/AnimationPlayer.play("ready")
 	$OverlayAnimations/AnimationPlayer.queue("go")
 	await get_tree().create_timer(1.8).timeout
@@ -50,6 +50,7 @@ func get_win_time() -> String:
 	return fight_duration_formatted
 
 func _on_boss_ufo_boss_defeated():
+	$BackgroundMusic.stop()
 	$OverlayAnimations/AnimationPlayer.play("victory")
 	$FightWonBellSFX.play()
 	$FightWonBravoSFX.play()

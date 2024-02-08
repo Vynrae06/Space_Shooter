@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dq3ojxmvj0ebi"]
+[gd_scene load_steps=31 format=3 uid="uid://dq3ojxmvj0ebi"]
 
 [ext_resource type="Script" path="res://scenes/bosses/boss_ufo.gd" id="1_6c0ru"]
 [ext_resource type="PackedScene" uid="uid://de16fo3l8lx0m" path="res://scenes/bosses/boss.tscn" id="2_re1sr"]
@@ -259,8 +259,12 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_kg3wn"]
+resource_name = "death"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0fv18"]
 _data = {
+"death": SubResource("Animation_kg3wn"),
 "flash_in": SubResource("Animation_dkbb8"),
 "idle": SubResource("Animation_nnjhs")
 }
@@ -365,7 +369,6 @@ texture = ExtResource("7_l2s4h")
 hframes = 4
 
 [node name="BossFlashInSprite" type="Sprite2D" parent="." index="3"]
-visible = false
 texture = ExtResource("8_kxesw")
 hframes = 3
 

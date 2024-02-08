@@ -14,3 +14,8 @@ res://scenes/obstacles/obstacle_destroyable.gd
 res://scenes/obstacles/minion_ufo.tscn
 res://scenes/levels/game_over.tscn
 res://scenes/levels/level.gd
+res://globals/transition_layer.tscn
+res://globals/transition_layer.gd
+res://assets/ui/game_over_menu.tscn
+res://assets/ui/game_over_menu.gd
+res://scenes/levels/victory_screen.tscn

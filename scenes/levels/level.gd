@@ -39,8 +39,7 @@ func check_players_alive():
 	if Global.PLAYERS_ALIVE <= 0 and Global.FIGHT_ONGOING:
 		Global.FIGHT_ONGOING = false
 		$FightLostSFX.play()
-		await get_tree().create_timer(1.8).timeout
-		get_tree().change_scene_to_file("res://scenes/levels/game_over.tscn")
+		TransitionLayer.change_scene("res://scenes/levels/game_over.tscn")
 
 func get_win_time() -> String:
 	var fight_duration : float = FIGHT_TIMER - COUNTDOWN
@@ -55,6 +54,8 @@ func _on_boss_ufo_boss_defeated():
 	$OverlayAnimations/AnimationPlayer.play("victory")
 	$FightWonBellSFX.play()
 	$FightWonBravoSFX.play()
+	for player in PLAYERS:
+		player.disable_player()
 	print("Win Time:" + get_win_time())
 
 func _on_spawn_ufo_minions_timer_timeout():

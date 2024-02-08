@@ -1,10 +1,11 @@
+res://scenes/levels
+res://globals
 res://assets/player/projectiles
 res://shaders
 res://assets/ufo
 D:/Game Development/Godot/Space_Shooter/exports
 res://scenes/player
 res://scenes/obstacles
-res://scenes/levels
 res://assets/ui
 res://scenes
 res://assets

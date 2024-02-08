@@ -117,15 +117,16 @@ func _on_death_area_entered(area):
 		IS_ALIVE = false
 		Global.PLAYERS_ALIVE -= 1
 		disable_player()
+		$AnimationPlayer.play("bubble_help")
 		if area.get_parent() is ObstacleDestroyable:
 			area.get_parent().destroy_self()
+		
 
 func disable_player():
 	CAN_MOVE = false
 	CAN_SHOOT_BASIC = false
 	CAN_SHOOT_SPECIAL = false
 	get_node("DeathArea/DeathCollider").set_deferred("disabled", true)
-	$AnimationPlayer.play("bubble_help")
 
 func _on_revive_area_area_entered(area):
 	if area != self and !IS_ALIVE :

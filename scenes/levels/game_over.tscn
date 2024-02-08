@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cinb0hi8wip43"]
+[gd_scene load_steps=3 format=3 uid="uid://cinb0hi8wip43"]
 
 [ext_resource type="PackedScene" uid="uid://drxcsx0j4x62g" path="res://assets/ui/game_over_menu.tscn" id="1_aw7tx"]
+[ext_resource type="AudioStream" uid="uid://87xa0a50opmt" path="res://audio/music/game_over.wav" id="2_y8i6y"]
 
 [node name="GameOver" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameOverMenu" parent="CanvasLayer" instance=ExtResource("1_aw7tx")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_y8i6y")
+autoplay = true

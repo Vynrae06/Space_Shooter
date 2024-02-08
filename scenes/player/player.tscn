@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://oj0pcpf8wyyl"]
+[gd_scene load_steps=39 format=3 uid="uid://oj0pcpf8wyyl"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_th58a"]
 [ext_resource type="Texture2D" uid="uid://dpocqjl01i2vc" path="res://assets/player/bubble.png" id="2_bte4f"]
@@ -8,10 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://cjkxey2jyxt8l" path="res://assets/charge_bar/over 1.png" id="4_yc41i"]
 [ext_resource type="Texture2D" uid="uid://bs50e1ne1wfkv" path="res://assets/charge_bar/over 2.png" id="5_6oo0c"]
 [ext_resource type="Texture2D" uid="uid://bboekewk3vval" path="res://assets/charge_bar/light_texture.png" id="7_hmqby"]
-[ext_resource type="AudioStream" uid="uid://rqlouvfml283" path="res://audio/sfx/player_lazer_basic.wav" id="8_4x7gr"]
-[ext_resource type="AudioStream" uid="uid://h5ia83i73u8d" path="res://audio/sfx/player_lazer_special.wav" id="9_bwss2"]
+[ext_resource type="AudioStream" uid="uid://bkwhwwqpcyrhg" path="res://audio/sfx/player/shot/basic/player_shot_basic_001.wav" id="9_0ykf2"]
+[ext_resource type="AudioStream" uid="uid://b22smxhmqj65h" path="res://audio/sfx/player/shot/basic/player_shot_basic_002.wav" id="10_ryx4r"]
+[ext_resource type="AudioStream" uid="uid://c45tckguj5ymb" path="res://audio/sfx/player/shot/basic/player_shot_basic_003.wav" id="11_dtjtj"]
 [ext_resource type="Texture2D" uid="uid://yhab52atufnk" path="res://assets/player/projectiles/basic_shot_hud.png" id="11_urq12"]
+[ext_resource type="AudioStream" uid="uid://b7yi6byumva3x" path="res://audio/sfx/player/shot/basic/player_shot_basic_004.wav" id="12_0iqur"]
 [ext_resource type="Texture2D" uid="uid://d14tul11fpf56" path="res://assets/player/projectiles/special_shot_hud.png" id="12_gldhg"]
+[ext_resource type="AudioStream" uid="uid://cqq7yflqvw3x0" path="res://audio/sfx/player/shot/basic/player_shot_basic_005.wav" id="13_rtqvg"]
+[ext_resource type="AudioStream" uid="uid://ku676hryub5h" path="res://audio/sfx/player/shot/special/player_shot_special_001.wav" id="14_hhxef"]
+[ext_resource type="AudioStream" uid="uid://c45xvu0pxmqdd" path="res://audio/sfx/player/shot/special/player_shot_special_002.wav" id="15_kb558"]
+[ext_resource type="AudioStream" uid="uid://bitxaor4535qt" path="res://audio/sfx/player/shot/special/player_shot_special_003.wav" id="16_u48aa"]
+[ext_resource type="AudioStream" uid="uid://crxnqi34m7s44" path="res://audio/sfx/player/player_revived.mp3" id="17_hjt05"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pf2us"]
 radius = 57.0
@@ -177,6 +184,28 @@ _data = {
 "shot_spawn_flash": SubResource("Animation_nppbl")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bnvy2"]
+streams_count = 5
+stream_0/stream = ExtResource("9_0ykf2")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("10_ryx4r")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("11_dtjtj")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("12_0iqur")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("13_rtqvg")
+stream_4/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_q4mij"]
+streams_count = 3
+stream_0/stream = ExtResource("14_hhxef")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("15_kb558")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("16_u48aa")
+stream_2/weight = 1.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_s468r"]
 atlas = ExtResource("11_urq12")
 region = Rect2(0, 0, 350, 350)
@@ -324,12 +353,13 @@ libraries = {
 speed_scale = 4.0
 
 [node name="ShotBasicSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_4x7gr")
-volume_db = -24.0
+stream = SubResource("AudioStreamRandomizer_bnvy2")
 
 [node name="ShotSpecialSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_bwss2")
-volume_db = -12.0
+stream = SubResource("AudioStreamRandomizer_q4mij")
+
+[node name="RevivedSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_hjt05")
 
 [node name="BasicAttackHUD" type="AnimatedSprite2D" parent="."]
 visible = false

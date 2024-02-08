@@ -1,9 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://nwnqvqtwjrxf"]
+[gd_scene load_steps=18 format=3 uid="uid://nwnqvqtwjrxf"]
 
 [ext_resource type="PackedScene" uid="uid://dkwdv7atcmdc6" path="res://scenes/obstacles/obstacle_destroyable.tscn" id="1_n61j8"]
 [ext_resource type="Script" path="res://scenes/obstacles/minion_ufo.gd" id="2_685bf"]
 [ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="2_tyuuk"]
 [ext_resource type="Texture2D" uid="uid://dcodu3lfa0dc4" path="res://assets/ufo/ufo_minion.png" id="4_e3d2k"]
+[ext_resource type="AudioStream" uid="uid://bhj8ttykmktha" path="res://audio/sfx/obstacles/ufo_minion/ufo_minion_death_01.wav" id="5_jf6ls"]
+[ext_resource type="AudioStream" uid="uid://fptrgq8cuo35" path="res://audio/sfx/obstacles/ufo_minion/ufo_minion_death_02.wav" id="6_6o0rk"]
+[ext_resource type="AudioStream" uid="uid://c2uqmqqmkpwqg" path="res://audio/sfx/obstacles/ufo_minion/ufo_minion_death_03.wav" id="7_bflja"]
+[ext_resource type="AudioStream" uid="uid://cl2wlaejnhxwf" path="res://audio/sfx/obstacles/ufo_minion/ufo_minion_death_04.wav" id="8_0y8d6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n0yn2"]
 radius = 39.0
@@ -55,6 +59,17 @@ animations = [{
 radius = 45.0
 height = 176.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f5sug"]
+streams_count = 4
+stream_0/stream = ExtResource("5_jf6ls")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_6o0rk")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_bflja")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("8_0y8d6")
+stream_3/weight = 1.0
+
 [node name="MinionUFO" instance=ExtResource("1_n61j8")]
 script = ExtResource("2_685bf")
 SPEED = 250.0
@@ -79,5 +94,9 @@ HEALTH = 10
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_y7318")
 debug_color = Color(0.635294, 0.470588, 0.643137, 0.419608)
+
+[node name="DestroyedSFX" parent="." index="6"]
+stream = SubResource("AudioStreamRandomizer_f5sug")
+volume_db = -4.0
 
 [editable path="HurtBoxComponent"]

@@ -1,3 +1,4 @@
+AudioStreamPlayer2D
 Sprite2D
 AnimationPlayer
 AnimatedSprite2D
@@ -10,5 +11,4 @@ CanvasLayer
 Control
 Button
 VBoxContainer
-AudioStreamPlayer2D
 Node2D

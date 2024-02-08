@@ -132,6 +132,7 @@ func _on_revive_area_area_entered(area):
 		IS_ALIVE = true
 		Global.PLAYERS_ALIVE += 1
 		enable_player()
+		$RevivedSFX.play()
 		$AnimationPlayer.play("invincibility")
 		await get_tree().create_timer(INVINCIBILITY_TIME).timeout
 		get_node("DeathArea/DeathCollider").set_deferred("disabled", false)

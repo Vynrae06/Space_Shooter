@@ -23,11 +23,10 @@ func _process(delta):
 
 func scene_intro():
 	Global.FIGHT_ONGOING = false
+	$FightStartSFX.play()
 	$OverlayAnimations/AnimationPlayer.play("ready")
 	$OverlayAnimations/AnimationPlayer.queue("go")
 	await get_tree().create_timer(1.8).timeout
-	$OverlayAnimations/FightStartEndSFX.play()
-	
 
 func start_fight():
 	Global.FIGHT_ONGOING = true
@@ -38,6 +37,7 @@ func start_fight():
 func check_players_alive():
 	if Global.PLAYERS_ALIVE <= 0:
 		Global.FIGHT_ONGOING = false
+		await get_tree().create_timer(1.0).timeout
 		get_tree().change_scene_to_file("res://scenes/levels/game_over.tscn")
 
 func get_win_time() -> String:
@@ -50,7 +50,8 @@ func get_win_time() -> String:
 
 func _on_boss_ufo_boss_defeated():
 	$OverlayAnimations/AnimationPlayer.play("victory")
-	$OverlayAnimations/FightStartEndSFX.play()
+	$FightWonBellSFX.play()
+	$FightWonBravoSFX.play()
 	print("Win Time:" + get_win_time())
 
 func _on_spawn_ufo_minions_timer_timeout():

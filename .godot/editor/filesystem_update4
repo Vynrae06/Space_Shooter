@@ -9,3 +9,8 @@ res://scenes/bosses/boss.tscn
 res://scenes/player/projectile.tscn
 res://scenes/obstacles/asteroid.tscn
 res://scenes/player/lazer_impact_animation.tscn
+res://scenes/player/player.gd
+res://scenes/obstacles/obstacle_destroyable.gd
+res://scenes/obstacles/minion_ufo.tscn
+res://scenes/levels/game_over.tscn
+res://scenes/levels/level.gd

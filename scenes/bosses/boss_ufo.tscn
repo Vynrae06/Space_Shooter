@@ -203,7 +203,7 @@ nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 2, 0, 4, 3, 4, 0, 0, 0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5nwgi"]
 resource_local_to_scene = true
 shader = SubResource("VisualShader_7r7of")
-shader_parameter/Enabled = true
+shader_parameter/Enabled = false
 shader_parameter/Tint = Color(1, 1, 1, 0.501961)
 
 [sub_resource type="Animation" id="Animation_dkbb8"]
@@ -399,7 +399,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uftpm")
 
 [node name="HealthComponent" parent="." index="6"]
-HEALTH = 1
+HEALTH = 125
 
 [node name="CollisionShape2D" parent="HurtBoxComponent" index="0"]
 rotation = 1.5708

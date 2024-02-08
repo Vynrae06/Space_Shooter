@@ -21,6 +21,7 @@ func _ready():
 func _process(delta):
 	FIGHT_TIMER+= delta
 	check_players_alive()
+	reset_game()
 
 func scene_intro():
 	Global.FIGHT_ONGOING = false
@@ -65,3 +66,8 @@ func _on_begin_boss_fight_timer_timeout():
 		BOSS_UFO = BOSS_UFO_SCENE.instantiate()
 		add_child(BOSS_UFO)
 		BOSS_UFO.connect("boss_defeated", _on_boss_ufo_boss_defeated)
+
+func reset_game():
+	if Input.is_action_just_pressed("reset"):
+		print("reset")
+		get_tree().reload_current_scene()

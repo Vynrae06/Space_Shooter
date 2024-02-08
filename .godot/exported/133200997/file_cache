@@ -1,6 +1,6 @@
-res://assets/ui/game_over_menu.tscn::92f621c461bd4afb4c86c124b4568ab8::1707403339::res://.godot/exported/133200997/export-211f503990f0db25c55b66916ae05fd4-game_over_menu.scn
-res://scenes/bosses/boss.tscn::1855207dfa5c67c4162e086c18132543::1707403339::res://.godot/exported/133200997/export-0abc8bf11035e2abab7f9a0d510da8c6-boss.scn
-res://scenes/bosses/boss_ufo.tscn::543febb8d95570478135bffa77f0830d::1707403339::res://.godot/exported/133200997/export-d0f8195959cc5961d5bd1a055de668c2-boss_ufo.scn
+res://assets/ui/game_over_menu.tscn::92f621c461bd4afb4c86c124b4568ab8::1707404352::res://.godot/exported/133200997/export-211f503990f0db25c55b66916ae05fd4-game_over_menu.scn
+res://scenes/bosses/boss.tscn::1855207dfa5c67c4162e086c18132543::1707404352::res://.godot/exported/133200997/export-0abc8bf11035e2abab7f9a0d510da8c6-boss.scn
+res://scenes/bosses/boss_ufo.tscn::08cb6daff218d2d08f0fd16b427d9138::1707404453::res://.godot/exported/133200997/export-d0f8195959cc5961d5bd1a055de668c2-boss_ufo.scn
 res://scenes/components/Animation/hit_flash_animation_player.tscn::d4c12851c08146ebd124fa1a2e809bbe::1707207474::res://.godot/exported/133200997/export-1b0fbad57ac6749db536dafac3d996f5-hit_flash_animation_player.scn
 res://scenes/components/boss_attack.tscn::800ee2efac2786d8c70c13182c69e278::1707229182::res://.godot/exported/133200997/export-993e6ce3c2adc312127c1207b01ee093-boss_attack.scn
 res://scenes/components/health_component.tscn::3b79c8dab6d4ad27d34aeee5104d45ee::1707207474::res://.godot/exported/133200997/export-51e5d3d9162881c249829f2036599d4f-health_component.scn
@@ -8,7 +8,7 @@ res://scenes/components/hurt_box_component.tscn::d6bba0f4e11c80ce2c53e7d5edf6d9a
 res://scenes/components/local_rotation_component.tscn::f10cbc4ed3fbbd0e49484a1ecbb70e1f::1707207474::res://.godot/exported/133200997/export-2274a91297a64a22d23819ad13e0a1e1-local_rotation_component.scn
 res://scenes/components/oscillation_movement_component.tscn::c484ac554d69346f73cf88430e3ca7ad::1707207474::res://.godot/exported/133200997/export-84d239d2d6851c2126205e69bf085a87-oscillation_movement_component.scn
 res://scenes/levels/game_over.tscn::5d7f52b6675b7d5ecac1c359d144dc89::1707386972::res://.godot/exported/133200997/export-8966130b107f1e0327d73737db4b4772-game_over.scn
-res://scenes/levels/level.tscn::f1ccfa3fd42360555f89be18a5fa4a46::1707403577::res://.godot/exported/133200997/export-d2f84246acaf0198009608664807e4e4-level.scn
+res://scenes/levels/level.tscn::3ca2e71805a1ddf75fac610148834bdd::1707404351::res://.godot/exported/133200997/export-d2f84246acaf0198009608664807e4e4-level.scn
 res://scenes/obstacles/asteroid.tscn::f72425164fa9cdb916e01f3382f25bee::1707386939::res://.godot/exported/133200997/export-3cca5b4716f6e2effd01bc1e0c13fd1b-asteroid.scn
 res://scenes/obstacles/minion_ufo.tscn::97e38869f665c372b3ac3941fe07e781::1707386939::res://.godot/exported/133200997/export-ce0a4db7e84f1872e93f71f39b554c1e-minion_ufo.scn
 res://scenes/obstacles/obstacles_spawner.tscn::51c42c2532b21b739db40c2aacfce5fc::1707207474::res://.godot/exported/133200997/export-529a6372a907f28110a6f64f117f3504-obstacles_spawner.scn
@@ -16,11 +16,11 @@ res://scenes/obstacles/obstacle_destroyable.tscn::94b2e74850bf57531b7e6493ae7bf1
 res://scenes/obstacles/obstacle_destroyed_particles.tscn::570ed8848b16e5831e41d66e7c724f89::1707293596::res://.godot/exported/133200997/export-9644c20af4edcb1b383f5eb67b97e5dc-obstacle_destroyed_particles.scn
 res://scenes/parallax/parallax.tscn::94d866725e74cac07b770b9d8bd68066::1707297132::res://.godot/exported/133200997/export-aa59074e8c7c3ea748f2bd7c4050e91b-parallax.scn
 res://scenes/player/lazer_impact_animation.tscn::1afc5d82619416b17de81df93e78e15c::1707386260::res://.godot/exported/133200997/export-dfb316e884db4d15e238be88f5f6a089-lazer_impact_animation.scn
-res://scenes/player/player.tscn::c77b3a71114341c577e7f4fdaa5e805c::1707403339::res://.godot/exported/133200997/export-c2c62cb8c73458cd122faf659769dc80-player.scn
+res://scenes/player/player.tscn::c77b3a71114341c577e7f4fdaa5e805c::1707404351::res://.godot/exported/133200997/export-c2c62cb8c73458cd122faf659769dc80-player.scn
 res://scenes/player/player_projectile_basic.tscn::ce97c8547351a08b27fa47e597aa961f::1707386939::res://.godot/exported/133200997/export-4c9e5a8f5e340bf84a40bdbf80a387e5-player_projectile_basic.scn
 res://scenes/player/player_projectile_special.tscn::aa47652f1c4987544f8248babe9f0285::1707386939::res://.godot/exported/133200997/export-0d923fe28b57a0e513d2225191bf5ba9-player_projectile_special.scn
 res://scenes/player/projectile.tscn::6c50a91ee5802cbac1232ff476fa324d::1707386939::res://.godot/exported/133200997/export-6674e3843d928ec770b5b2497eb18c84-projectile.scn
 res://scenes/player/projectile_spawn_animation_player.tscn::ca08b0113fbfb14d41539cf52558733f::1707207474::res://.godot/exported/133200997/export-8e1a1b69d672c7e043444689580d3a00-projectile_spawn_animation_player.scn
 res://shaders/hit_flash.tres::95627119afa737e2060b7640bd575142::1707381282::res://.godot/exported/133200997/export-681da9630c4d5b3afefc9c88c87dabd9-hit_flash.res
-res://globals/transition_layer.tscn::4bdf23ef412fcb9eeff25c26fb0b7c3e::1707403339::res://.godot/exported/133200997/export-c92c1d1c720997ae32de7c016731d320-transition_layer.scn
-res://scenes/levels/victory_screen.tscn::8f16c509ee2bd4a910f19e71415b8771::1707403339::res://.godot/exported/133200997/export-cc10c5dd046b5aedeb28a3df7d8bbba6-victory_screen.scn
+res://globals/transition_layer.tscn::4bdf23ef412fcb9eeff25c26fb0b7c3e::1707404351::res://.godot/exported/133200997/export-c92c1d1c720997ae32de7c016731d320-transition_layer.scn
+res://scenes/levels/victory_screen.tscn::8f16c509ee2bd4a910f19e71415b8771::1707404352::res://.godot/exported/133200997/export-cc10c5dd046b5aedeb28a3df7d8bbba6-victory_screen.scn

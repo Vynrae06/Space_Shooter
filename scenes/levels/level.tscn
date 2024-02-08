@@ -1,10 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://jmbj2rm5qml1"]
+[gd_scene load_steps=26 format=3 uid="uid://jmbj2rm5qml1"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_7uvhw"]
 [ext_resource type="PackedScene" uid="uid://dvc0nldgfwv4l" path="res://scenes/parallax/parallax.tscn" id="2_munxv"]
 [ext_resource type="PackedScene" uid="uid://oj0pcpf8wyyl" path="res://scenes/player/player.tscn" id="3_cbgt6"]
 [ext_resource type="Texture2D" uid="uid://co2n3y4bby78b" path="res://assets/player/player_limer.png" id="4_c3vi6"]
-[ext_resource type="Texture2D" uid="uid://cam40gb0wlctk" path="res://assets/player/player_orangina.png" id="5_4sgeg"]
 [ext_resource type="PackedScene" uid="uid://d4djecahvews7" path="res://scenes/obstacles/obstacles_spawner.tscn" id="6_kp30j"]
 [ext_resource type="PackedScene" uid="uid://n3tlv7fswfx2" path="res://scenes/obstacles/asteroid.tscn" id="7_kbb0w"]
 [ext_resource type="AudioStream" uid="uid://cco4phu11gnya" path="res://audio/music/Cowboy Bebop OST 1 - Tank!.mp3" id="9_ahlpb"]
@@ -13,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dohnqoimtjidd" path="res://assets/overlays/go.png" id="11_hyeyx"]
 [ext_resource type="Texture2D" uid="uid://dymu10udn3r71" path="res://assets/overlays/victory.png" id="12_0wvt0"]
 [ext_resource type="AudioStream" uid="uid://5i8qavf32xgw" path="res://audio/sfx/fight/fight_start.wav" id="13_ogs4j"]
-[ext_resource type="PackedScene" uid="uid://hjwwuij4xyab" path="res://scenes/obstacles/obstacle_destroyed_particles.tscn" id="14_2ij32"]
 [ext_resource type="AudioStream" uid="uid://cyq5nnj1jybra" path="res://audio/sfx/fight/fight_lost.wav" id="14_prwmc"]
 [ext_resource type="AudioStream" uid="uid://pqy4b8upr1pf" path="res://audio/sfx/fight/fight_won_bell.wav" id="15_e8jhr"]
 [ext_resource type="AudioStream" uid="uid://bmda3tpfholrh" path="res://audio/sfx/fight/fight_won_bravo.mp3" id="16_fou4r"]
@@ -41,35 +39,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m434g")
-}],
-"loop": true,
-"name": &"straight",
-"speed": 12.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f3jpc"]
-atlas = ExtResource("5_4sgeg")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x3vxr"]
-atlas = ExtResource("5_4sgeg")
-region = Rect2(512, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_us7nu"]
-atlas = ExtResource("5_4sgeg")
-region = Rect2(1024, 0, 512, 512)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_iqc30"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f3jpc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x3vxr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_us7nu")
 }],
 "loop": true,
 "name": &"straight",
@@ -193,7 +162,7 @@ COUNTDOWN = 2.0
 STARS_SPEED = 25.0
 
 [node name="Player1" parent="." instance=ExtResource("3_cbgt6")]
-position = Vector2(-721, -251)
+position = Vector2(-673, -12)
 collision_mask = 124
 projectile_sprite_path_basic = "res://assets/player/projectiles/projectile_basic_lime.png"
 projectile_sprite_path_special = "res://assets/player/projectiles/projectile_special_lime.png"
@@ -205,19 +174,6 @@ sprite_frames = SubResource("SpriteFrames_8x7la")
 animation = &"straight"
 frame = 1
 frame_progress = 0.785525
-
-[node name="Player2" parent="." instance=ExtResource("3_cbgt6")]
-position = Vector2(-721, 257)
-collision_mask = 124
-PLAYER_INDEX = 1
-projectile_sprite_path_basic = "res://assets/player/projectiles/projectile_basic_orangina.png"
-projectile_sprite_path_special = "res://assets/player/projectiles/projectile_special_orangina.png"
-shot_spawn_flash_sprite_path = "res://assets/player/projectiles/projectile_spawn_orangina.png"
-metadata/_edit_group_ = true
-
-[node name="PlaneAnimatedSprite" parent="Player2" index="1"]
-sprite_frames = SubResource("SpriteFrames_iqc30")
-animation = &"straight"
 
 [node name="UFOMarkers" type="Node2D" parent="."]
 
@@ -340,13 +296,9 @@ texture = ExtResource("12_0wvt0")
 hframes = 9
 frame = 8
 
-[node name="GPUParticles2D" parent="." instance=ExtResource("14_2ij32")]
-position = Vector2(-338, 192)
-
 [connection signal="timeout" from="SpawnUFOMinionsTimer" to="." method="_on_spawn_ufo_minions_timer_timeout"]
 [connection signal="timeout" from="BeginBossFightTimer" to="." method="_on_begin_boss_fight_timer_timeout"]
 
 [editable path="Player1"]
-[editable path="Player2"]
 [editable path="UFOSpawner"]
 [editable path="AsteroidSpawner"]

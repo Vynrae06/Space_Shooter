@@ -29,4 +29,6 @@ func is_a_player_close() -> bool:
 func _on_health_component_death_signal():
 	Global.FIGHT_ONGOING = false
 	boss_defeated.emit()
+	$DeathSFX.play()
+	await $DeathSFX.finished
 	queue_free()

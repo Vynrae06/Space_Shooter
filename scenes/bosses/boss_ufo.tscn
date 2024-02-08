@@ -1,14 +1,17 @@
-[gd_scene load_steps=31 format=3 uid="uid://dq3ojxmvj0ebi"]
+[gd_scene load_steps=36 format=3 uid="uid://dq3ojxmvj0ebi"]
 
 [ext_resource type="Script" path="res://scenes/bosses/boss_ufo.gd" id="1_6c0ru"]
 [ext_resource type="PackedScene" uid="uid://de16fo3l8lx0m" path="res://scenes/bosses/boss.tscn" id="2_re1sr"]
 [ext_resource type="Texture2D" uid="uid://rs7gxdja0xhe" path="res://assets/ufo/ufo_horizontal_attack.png" id="4_5hosa"]
-[ext_resource type="AudioStream" uid="uid://cag51upcr4ytb" path="res://audio/sfx/temporary/ufo_horizontal_attack.wav" id="5_7bt2t"]
+[ext_resource type="AudioStream" uid="uid://dlwgrubuorv4r" path="res://audio/sfx/boss_ufo/ufo_boss_fire_03.wav" id="5_der1u"]
+[ext_resource type="AudioStream" uid="uid://gj2lmsvjrpc7" path="res://audio/sfx/boss_ufo/ufo_boss_fire_01.wav" id="5_ecbe6"]
 [ext_resource type="PackedScene" uid="uid://2grtpdddiryx" path="res://scenes/components/boss_attack.tscn" id="5_kv5d4"]
 [ext_resource type="PackedScene" uid="uid://yc6drrh5nx08" path="res://scenes/components/oscillation_movement_component.tscn" id="5_sdbey"]
-[ext_resource type="AudioStream" uid="uid://olo1xcaodlfb" path="res://audio/sfx/temporary/ufo_vertical_attack.wav" id="6_fp1fs"]
+[ext_resource type="AudioStream" uid="uid://c7r1w44m3xbqq" path="res://audio/sfx/boss_ufo/ufo_boss_fire_04.wav" id="6_20pld"]
+[ext_resource type="AudioStream" uid="uid://bqvqi7gi56jgb" path="res://audio/sfx/boss_ufo/ufo_boss_fire_02.wav" id="6_j0bki"]
 [ext_resource type="Texture2D" uid="uid://bhdcc3n047d7u" path="res://assets/ufo/ufo_boss.png" id="7_l2s4h"]
 [ext_resource type="Texture2D" uid="uid://ddklbw8jmfyrp" path="res://assets/ufo/ufo_boss_flash_in.png" id="8_kxesw"]
+[ext_resource type="AudioStream" uid="uid://dkbyqgejjqyly" path="res://audio/sfx/boss_ufo/boss_ufo_intro.wav" id="12_qpcmv"]
 
 [sub_resource type="Animation" id="Animation_lprig"]
 resource_name = "laser_beam"
@@ -58,6 +61,13 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obquk"]
 size = Vector2(1376, 478)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bmduf"]
+streams_count = 2
+stream_0/stream = ExtResource("5_ecbe6")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_j0bki")
+stream_1/weight = 1.0
+
 [sub_resource type="Animation" id="Animation_pqggb"]
 resource_name = "laser_beam_vertical"
 length = 3.6
@@ -106,6 +116,13 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6844w"]
 size = Vector2(516, 998)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m70bn"]
+streams_count = 2
+stream_0/stream = ExtResource("5_der1u")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_20pld")
+stream_1/weight = 1.0
 
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_6aj5p"]
 expanded_output_ports = [0]
@@ -330,7 +347,7 @@ position = Vector2(-137, -2)
 shape = SubResource("RectangleShape2D_obquk")
 
 [node name="BossAttackSFX" parent="BossAttackHorizontal" index="4"]
-stream = ExtResource("5_7bt2t")
+stream = SubResource("AudioStreamRandomizer_bmduf")
 
 [node name="BossAttackVertical" parent="." index="1" instance=ExtResource("5_kv5d4")]
 ANIMATION_NAME = "laser_beam_vertical"
@@ -358,7 +375,7 @@ position = Vector2(-497, 0)
 shape = SubResource("RectangleShape2D_6844w")
 
 [node name="BossAttackSFX" parent="BossAttackVertical" index="4"]
-stream = ExtResource("6_fp1fs")
+stream = SubResource("AudioStreamRandomizer_m70bn")
 
 [node name="Sprite2D" parent="." index="2"]
 visible = false
@@ -410,6 +427,9 @@ CHARACTER_BODY_2D = NodePath("..")
 
 [node name="AttackCooldown" parent="." index="11"]
 wait_time = 5.0
+
+[node name="IntroSFX" type="AudioStreamPlayer2D" parent="." index="12"]
+stream = ExtResource("12_qpcmv")
 
 [connection signal="timeout" from="BossAttackHorizontal/BossAttackDuration" to="." method="_on_horizontal_boss_attack_timeout"]
 [connection signal="timeout" from="BossAttackVertical/BossAttackDuration" to="." method="_on_boss_attack_duration_timeout"]

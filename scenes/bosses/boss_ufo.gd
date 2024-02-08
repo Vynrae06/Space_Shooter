@@ -26,6 +26,7 @@ func _process(_delta):
 	fixate_vertical_attack_position()
 		
 func intro_start():
+	$IntroSFX.play()
 	$OscillationMovementComponent.set_process(false)
 	get_node("HurtBoxComponent/CollisionShape2D").set_deferred("disabled", true)
 	$SpriteAnimationPlayer.play("flash_in")

@@ -19,3 +19,9 @@ res://globals/transition_layer.gd
 res://assets/ui/game_over_menu.tscn
 res://assets/ui/game_over_menu.gd
 res://scenes/levels/victory_screen.tscn
+res://scenes/bosses/boss_ufo.gd
+res://scenes/bosses/boss.gd
+res://scenes/levels/victory_screen.gd
+res://scenes/global.gd
+res://scripts/high_scores_resource.gd
+res://scores.json

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://de16fo3l8lx0m"]
+[gd_scene load_steps=8 format=3 uid="uid://de16fo3l8lx0m"]
 
 [ext_resource type="Script" path="res://scenes/bosses/boss.gd" id="1_4ivqb"]
 [ext_resource type="Shader" uid="uid://dugtrp8ej1uvx" path="res://shaders/hit_flash.tres" id="2_fidl2"]
 [ext_resource type="PackedScene" uid="uid://bxwm5t8mu8mdx" path="res://scenes/components/health_component.tscn" id="3_5njm4"]
 [ext_resource type="PackedScene" uid="uid://dugn6ue3cwdsv" path="res://scenes/components/hurt_box_component.tscn" id="4_6l00q"]
 [ext_resource type="PackedScene" uid="uid://dkc3l14co1pqv" path="res://scenes/components/Animation/hit_flash_animation_player.tscn" id="5_3ixl1"]
+[ext_resource type="AudioStream" uid="uid://8pdembg7jao7" path="res://audio/sfx/boss_ufo/boss_ufo_death.wav" id="6_hrtdb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qtn6w"]
 resource_local_to_scene = true
@@ -42,6 +43,9 @@ libraries = {}
 
 [node name="AttackCooldown" type="Timer" parent="."]
 one_shot = true
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_hrtdb")
 
 [connection signal="death_signal" from="HealthComponent" to="." method="_on_health_component_death_signal"]
 [connection signal="area_entered" from="PlayerProximityDetector" to="." method="_on_player_proximity_detector_area_entered"]

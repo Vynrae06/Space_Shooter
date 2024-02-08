@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://drxcsx0j4x62g"]
+[gd_scene load_steps=4 format=3 uid="uid://drxcsx0j4x62g"]
 
 [ext_resource type="Script" path="res://assets/ui/game_over_menu.gd" id="1_lv0bm"]
 [ext_resource type="Texture2D" uid="uid://bun2joak1ialk" path="res://assets/background/game_over_screen.png" id="2_t8bnp"]
+[ext_resource type="FontFile" uid="uid://d38wrryeob3vy" path="res://fonts/wicked_mouse.ttf" id="3_rdm5y"]
 
 [node name="GameOverMenu" type="Control"]
 layout_mode = 3
@@ -50,8 +51,9 @@ layout_mode = 2
 focus_neighbor_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../ExitButton")
-theme_override_font_sizes/font_size = 48
-text = "Réessayer"
+theme_override_fonts/font = ExtResource("3_rdm5y")
+theme_override_font_sizes/font_size = 36
+text = "Retenter"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(350, 120)
@@ -59,7 +61,8 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../RestartButton")
 focus_next = NodePath("../RestartButton")
 focus_previous = NodePath("../RestartButton")
-theme_override_font_sizes/font_size = 48
+theme_override_fonts/font = ExtResource("3_rdm5y")
+theme_override_font_sizes/font_size = 36
 text = "Quitter"
 
 [connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]

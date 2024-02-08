@@ -203,7 +203,7 @@ nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 2, 0, 4, 3, 4, 0, 0, 0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5nwgi"]
 resource_local_to_scene = true
 shader = SubResource("VisualShader_7r7of")
-shader_parameter/Enabled = false
+shader_parameter/Enabled = true
 shader_parameter/Tint = Color(1, 1, 1, 0.501961)
 
 [sub_resource type="Animation" id="Animation_dkbb8"]
@@ -378,7 +378,6 @@ shape = SubResource("RectangleShape2D_6844w")
 stream = SubResource("AudioStreamRandomizer_m70bn")
 
 [node name="Sprite2D" parent="." index="2"]
-visible = false
 material = SubResource("ShaderMaterial_5nwgi")
 position = Vector2(16, -15)
 scale = Vector2(0.25, 0.25)
@@ -386,6 +385,7 @@ texture = ExtResource("7_l2s4h")
 hframes = 4
 
 [node name="BossFlashInSprite" type="Sprite2D" parent="." index="3"]
+visible = false
 texture = ExtResource("8_kxesw")
 hframes = 3
 

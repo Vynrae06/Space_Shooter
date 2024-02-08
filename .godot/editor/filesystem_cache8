@@ -118,8 +118,9 @@ ufo_horizontal_attack.wav::AudioStreamWAV::4787096648088907871::1707119920::1707
 ufo_horizontal_attack_2.wav::AudioStreamWAV::6087322539150416498::1707119920::1707384575::1::::<><>::
 ufo_vertical_attack.wav::AudioStreamWAV::1006249645912870351::1707119920::1707384575::1::::<><>::
 ::res://exports/::1707401934
-::res://fonts/::1707402250
+::res://fonts/::1707402451
 alegreya.ttf::FontFile::2179836297188317317::1707402250::1707402250::1::::<><>::
+wicked_mouse.ttf::FontFile::9194041201338209210::1707402451::1707402452::1::::<><>::
 ::res://globals/::1707401678
 transition_layer.gd::GDScript::-1::1707395796::0::1::::<>CanvasLayer<>::
 transition_layer.tscn::PackedScene::2919680550277737799::1707401678::0::1::::<><>::res://globals/transition_layer.gd
@@ -144,12 +145,12 @@ oscillation_movement_component.gd::GDScript::-1::1707207474::0::1::::<>Node<>::
 oscillation_movement_component.tscn::PackedScene::1690549506495675831::1707207474::0::1::::<><>::res://scenes/components/oscillation_movement_component.gd
 ::res://scenes/components/Animation/::1707207474
 hit_flash_animation_player.tscn::PackedScene::7867000373015212577::1707207474::0::1::::<><>::
-::res://scenes/levels/::1707402219
+::res://scenes/levels/::1707402373
 game_over.tscn::PackedScene::5361294770684614642::1707386972::0::1::::<><>::uid://drxcsx0j4x62g::::res://assets/ui/game_over_menu.tscn<>uid://87xa0a50opmt::::res://audio/music/game_over.wav
 level.gd::GDScript::-1::1707396774::0::1::::Level<>Node2D<>::
 level.tscn::PackedScene::656550359907006560::1707402219::0::1::::<><>::res://scenes/levels/level.gd<>uid://dvc0nldgfwv4l::::res://scenes/parallax/parallax.tscn<>uid://oj0pcpf8wyyl::::res://scenes/player/player.tscn<>uid://co2n3y4bby78b::::res://assets/player/player_limer.png<>uid://cam40gb0wlctk::::res://assets/player/player_orangina.png<>uid://d4djecahvews7::::res://scenes/obstacles/obstacles_spawner.tscn<>uid://n3tlv7fswfx2::::res://scenes/obstacles/asteroid.tscn<>uid://cco4phu11gnya::::res://audio/music/Cowboy Bebop OST 1 - Tank!.mp3<>uid://nwnqvqtwjrxf::::res://scenes/obstacles/minion_ufo.tscn<>uid://ow2trv4u3r22::::res://assets/overlays/ready.png<>uid://dohnqoimtjidd::::res://assets/overlays/go.png<>uid://dymu10udn3r71::::res://assets/overlays/victory.png<>uid://5i8qavf32xgw::::res://audio/sfx/fight/fight_start.wav<>uid://hjwwuij4xyab::::res://scenes/obstacles/obstacle_destroyed_particles.tscn<>uid://cyq5nnj1jybra::::res://audio/sfx/fight/fight_lost.wav<>uid://pqy4b8upr1pf::::res://audio/sfx/fight/fight_won_bell.wav<>uid://bmda3tpfholrh::::res://audio/sfx/fight/fight_won_bravo.mp3
 victory_screen.gd::GDScript::-1::1707401752::0::1::::<>Control<>::
-victory_screen.tscn::PackedScene::9171593014443356679::1707402175::0::1::::<><>::res://scenes/levels/victory_screen.gd
+victory_screen.tscn::PackedScene::9171593014443356679::1707402373::0::1::::<><>::res://scenes/levels/victory_screen.gd
 ::res://scenes/obstacles/::1707386939
 asteroid.gd::GDScript::-1::1707293596::0::1::::Asteroid<>ObstacleDestroyable<>::
 asteroid.tscn::PackedScene::971431963679808173::1707386939::0::1::::<><>::res://scenes/obstacles/asteroid.gd<>uid://cv3o8vgp4kr5y::::res://assets/asteroids/asteroid_1.png<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://dkwdv7atcmdc6::::res://scenes/obstacles/obstacle_destroyable.tscn<>uid://cc2x5j5hsah37::::res://scenes/components/local_rotation_component.tscn<>uid://dwcimow6kpnwn::::res://audio/sfx/obstacles/asteroid/asteroid_destroyed_01.wav<>uid://p036ll1x140h::::res://audio/sfx/obstacles/asteroid/asteroid_destroyed_02.wav<>uid://eewdj20c8ns1::::res://audio/sfx/obstacles/asteroid/asteroid_destroyed_03.wav<>uid://6rrgj8vnnl5p::::res://audio/sfx/obstacles/asteroid/asteroid_destroyed_04.wav

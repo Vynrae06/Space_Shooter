@@ -22,7 +22,7 @@ func save(time, player_name):
 		"time": time,
 		"name": player_name
 	}
-	
+
 	var scores: FileAccess
 	if FileAccess.file_exists(save_path):
 		scores = FileAccess.open(save_path, FileAccess.READ_WRITE)

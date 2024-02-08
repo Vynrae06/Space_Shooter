@@ -35,9 +35,10 @@ func start_fight():
 		player.display_basic_attack_hud()
 	
 func check_players_alive():
-	if Global.PLAYERS_ALIVE <= 0:
+	if Global.PLAYERS_ALIVE <= 0 and Global.FIGHT_ONGOING:
 		Global.FIGHT_ONGOING = false
-		await get_tree().create_timer(1.0).timeout
+		$FightLostSFX.play()
+		await get_tree().create_timer(1.8).timeout
 		get_tree().change_scene_to_file("res://scenes/levels/game_over.tscn")
 
 func get_win_time() -> String:

@@ -22,6 +22,7 @@ func _process(delta):
 	FIGHT_TIMER+= delta
 	check_players_alive()
 	reset_game()
+	exit_game()
 
 func reset_globals():
 	Global.FIGHT_ONGOING = false
@@ -79,3 +80,7 @@ func reset_game():
 	if Input.is_action_just_pressed("reset"):
 		print("reset")
 		get_tree().reload_current_scene()
+
+func exit_game():
+	if Input.is_action_just_pressed("exit_game"):
+		get_tree().quit()

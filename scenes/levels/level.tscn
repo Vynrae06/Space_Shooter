@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://jmbj2rm5qml1"]
+[gd_scene load_steps=31 format=3 uid="uid://jmbj2rm5qml1"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_7uvhw"]
 [ext_resource type="PackedScene" uid="uid://dvc0nldgfwv4l" path="res://scenes/parallax/parallax.tscn" id="2_munxv"]
 [ext_resource type="PackedScene" uid="uid://oj0pcpf8wyyl" path="res://scenes/player/player.tscn" id="3_cbgt6"]
 [ext_resource type="Texture2D" uid="uid://co2n3y4bby78b" path="res://assets/player/player_limer.png" id="4_c3vi6"]
+[ext_resource type="Texture2D" uid="uid://cam40gb0wlctk" path="res://assets/player/player_orangina.png" id="5_4sgeg"]
 [ext_resource type="PackedScene" uid="uid://d4djecahvews7" path="res://scenes/obstacles/obstacles_spawner.tscn" id="6_kp30j"]
 [ext_resource type="PackedScene" uid="uid://n3tlv7fswfx2" path="res://scenes/obstacles/asteroid.tscn" id="7_kbb0w"]
 [ext_resource type="AudioStream" uid="uid://cco4phu11gnya" path="res://audio/music/Cowboy Bebop OST 1 - Tank!.mp3" id="9_ahlpb"]
@@ -39,6 +40,35 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m434g")
+}],
+"loop": true,
+"name": &"straight",
+"speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt50r"]
+atlas = ExtResource("5_4sgeg")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gplp"]
+atlas = ExtResource("5_4sgeg")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlnt4"]
+atlas = ExtResource("5_4sgeg")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_glwaq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt50r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gplp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlnt4")
 }],
 "loop": true,
 "name": &"straight",
@@ -162,7 +192,7 @@ COUNTDOWN = 2.0
 STARS_SPEED = 25.0
 
 [node name="Player1" parent="." instance=ExtResource("3_cbgt6")]
-position = Vector2(-673, -12)
+position = Vector2(-673, -256)
 collision_mask = 124
 projectile_sprite_path_basic = "res://assets/player/projectiles/projectile_basic_lime.png"
 projectile_sprite_path_special = "res://assets/player/projectiles/projectile_special_lime.png"
@@ -172,10 +202,21 @@ metadata/_edit_group_ = true
 [node name="PlaneAnimatedSprite" parent="Player1" index="1"]
 sprite_frames = SubResource("SpriteFrames_8x7la")
 animation = &"straight"
-frame = 1
 frame_progress = 0.785525
 
+[node name="Player2" parent="." instance=ExtResource("3_cbgt6")]
+position = Vector2(-657, 262)
+projectile_sprite_path_basic = "res://assets/player/projectiles/projectile_basic_orangina.png"
+projectile_sprite_path_special = "res://assets/player/projectiles/projectile_special_orangina.png"
+shot_spawn_flash_sprite_path = "res://assets/player/projectiles/projectile_spawn_orangina.png"
+
+[node name="PlaneAnimatedSprite" parent="Player2" index="1"]
+sprite_frames = SubResource("SpriteFrames_glwaq")
+animation = &"straight"
+
 [node name="UFOMarkers" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="MarkerTop" type="Marker2D" parent="UFOMarkers"]
 position = Vector2(1080, 0)
@@ -190,6 +231,8 @@ position = Vector2(1080, 270)
 MARKERS = [NodePath("../UFOMarkers/MarkerTop"), NodePath("../UFOMarkers/MarkerMiddle"), NodePath("../UFOMarkers/MarkerBottom")]
 OBSTACLE_SCENE = ExtResource("9_kemsp")
 ALLOWED_TO_SPAWN = false
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="SpawnTimer" parent="UFOSpawner" index="1"]
 one_shot = true
@@ -250,15 +293,19 @@ metadata/_edit_group_ = true
 
 [node name="FightStartSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_ogs4j")
+metadata/_edit_lock_ = true
 
 [node name="FightLostSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_prwmc")
+metadata/_edit_lock_ = true
 
 [node name="FightWonBellSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_e8jhr")
+metadata/_edit_lock_ = true
 
 [node name="FightWonBravoSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_fou4r")
+metadata/_edit_lock_ = true
 
 [node name="SpawnUFOMinionsTimer" type="Timer" parent="."]
 wait_time = 15.0
@@ -271,6 +318,7 @@ one_shot = true
 autostart = true
 
 [node name="OverlayAnimations" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OverlayAnimations"]
 libraries = {
@@ -300,5 +348,6 @@ frame = 8
 [connection signal="timeout" from="BeginBossFightTimer" to="." method="_on_begin_boss_fight_timer_timeout"]
 
 [editable path="Player1"]
+[editable path="Player2"]
 [editable path="UFOSpawner"]
 [editable path="AsteroidSpawner"]

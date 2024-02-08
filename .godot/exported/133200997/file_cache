@@ -1,6 +1,6 @@
 res://assets/ui/game_over_menu.tscn::92f621c461bd4afb4c86c124b4568ab8::1707404352::res://.godot/exported/133200997/export-211f503990f0db25c55b66916ae05fd4-game_over_menu.scn
 res://scenes/bosses/boss.tscn::1855207dfa5c67c4162e086c18132543::1707404352::res://.godot/exported/133200997/export-0abc8bf11035e2abab7f9a0d510da8c6-boss.scn
-res://scenes/bosses/boss_ufo.tscn::08cb6daff218d2d08f0fd16b427d9138::1707404453::res://.godot/exported/133200997/export-d0f8195959cc5961d5bd1a055de668c2-boss_ufo.scn
+res://scenes/bosses/boss_ufo.tscn::08cb6daff218d2d08f0fd16b427d9138::1707409502::res://.godot/exported/133200997/export-d0f8195959cc5961d5bd1a055de668c2-boss_ufo.scn
 res://scenes/components/Animation/hit_flash_animation_player.tscn::d4c12851c08146ebd124fa1a2e809bbe::1707207474::res://.godot/exported/133200997/export-1b0fbad57ac6749db536dafac3d996f5-hit_flash_animation_player.scn
 res://scenes/components/boss_attack.tscn::800ee2efac2786d8c70c13182c69e278::1707229182::res://.godot/exported/133200997/export-993e6ce3c2adc312127c1207b01ee093-boss_attack.scn
 res://scenes/components/health_component.tscn::3b79c8dab6d4ad27d34aeee5104d45ee::1707207474::res://.godot/exported/133200997/export-51e5d3d9162881c249829f2036599d4f-health_component.scn

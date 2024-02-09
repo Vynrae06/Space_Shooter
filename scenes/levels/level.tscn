@@ -206,6 +206,7 @@ frame_progress = 0.785525
 
 [node name="Player2" parent="." instance=ExtResource("3_cbgt6")]
 position = Vector2(-657, 262)
+PLAYER_INDEX = 1
 projectile_sprite_path_basic = "res://assets/player/projectiles/projectile_basic_orangina.png"
 projectile_sprite_path_special = "res://assets/player/projectiles/projectile_special_orangina.png"
 shot_spawn_flash_sprite_path = "res://assets/player/projectiles/projectile_spawn_orangina.png"

@@ -206,6 +206,9 @@ shader = SubResource("VisualShader_7r7of")
 shader_parameter/Enabled = true
 shader_parameter/Tint = Color(1, 1, 1, 0.501961)
 
+[sub_resource type="Animation" id="Animation_kg3wn"]
+resource_name = "death"
+
 [sub_resource type="Animation" id="Animation_dkbb8"]
 resource_name = "flash_in"
 length = 0.5
@@ -275,9 +278,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
-
-[sub_resource type="Animation" id="Animation_kg3wn"]
-resource_name = "death"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0fv18"]
 _data = {
@@ -399,7 +399,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uftpm")
 
 [node name="HealthComponent" parent="." index="6"]
-HEALTH = 60
+HEALTH = 125
 
 [node name="CollisionShape2D" parent="HurtBoxComponent" index="0"]
 rotation = 1.5708

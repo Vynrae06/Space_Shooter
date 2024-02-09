@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bun2joak1ialk" path="res://assets/background/game_over_screen.png" id="2_t8bnp"]
 [ext_resource type="FontFile" uid="uid://d38wrryeob3vy" path="res://fonts/wicked_mouse.ttf" id="3_rdm5y"]
 
-[node name="GameOverMenu" type="Control"]
+[node name="GameOverMenu" type="CanvasLayer"]
+
+[node name="ControlNode" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,13 +16,13 @@ grow_vertical = 2
 focus_mode = 2
 script = ExtResource("1_lv0bm")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="ControlNode"]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.0196078, 0.0117647, 0.0509804, 1)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="ControlNode"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,7 +33,7 @@ texture = ExtResource("2_t8bnp")
 expand_mode = 2
 stretch_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlNode"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -45,7 +47,7 @@ offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RestartButton" type="Button" parent="VBoxContainer"]
+[node name="RestartButton" type="Button" parent="ControlNode/VBoxContainer"]
 custom_minimum_size = Vector2(350, 120)
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../ExitButton")
@@ -55,7 +57,7 @@ theme_override_fonts/font = ExtResource("3_rdm5y")
 theme_override_font_sizes/font_size = 36
 text = "Retenter"
 
-[node name="ExitButton" type="Button" parent="VBoxContainer"]
+[node name="ExitButton" type="Button" parent="ControlNode/VBoxContainer"]
 custom_minimum_size = Vector2(350, 120)
 layout_mode = 2
 focus_neighbor_top = NodePath("../RestartButton")
@@ -65,5 +67,5 @@ theme_override_fonts/font = ExtResource("3_rdm5y")
 theme_override_font_sizes/font_size = 36
 text = "Quitter"
 
-[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="ControlNode/VBoxContainer/RestartButton" to="ControlNode" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="ControlNode/VBoxContainer/ExitButton" to="ControlNode" method="_on_exit_button_pressed"]

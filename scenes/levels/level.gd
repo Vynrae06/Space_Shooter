@@ -64,7 +64,7 @@ func _on_boss_ufo_boss_defeated():
 		player.disable_player()
 	
 	Global.WIN_TIME = get_win_time()
-	TransitionLayer.change_scene("res://scenes/levels/victory_screen.tscn")
+	TransitionLayer.change_scene("res://scenes/levels/victory_screen_highscores.tscn")
 
 func _on_spawn_ufo_minions_timer_timeout():
 	if Global.FIGHT_ONGOING:

@@ -1,8 +1,10 @@
-res://scenes/levels/level.tscn
+res://scenes/levels/victory_screen.tscn
 res://shaders/hit_flash.tres
+res://scenes/levels/victory_screen_highscores.tscn
+res://scenes/levels/level.gd
+res://scenes/levels/victory_screen_highscores.gd
+res://scenes/levels/level.tscn
 res://scenes/player/player.tscn
 res://scenes/bosses/boss.tscn
 res://scenes/bosses/boss_ufo.tscn
-res://scenes/levels/victory_screen.tscn
-res://scenes/levels/victory_screen.gd
 res://assets/ui/game_over_menu.tscn

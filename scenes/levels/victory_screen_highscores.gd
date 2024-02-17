@@ -16,9 +16,9 @@ func _ready():
 func _on_name_text_edit_text_submitted(player_name):
 	if !score_saved:
 		score_saved = true
-		#save(Global.WIN_TIME, player_name)
-		$NameTextEdit.text = ""
-		# TODO: Say that the score was saved
+		save(Global.WIN_TIME, player_name)
+		$NameTextEdit.editable = false
+		$MessageLabel.visible = true
 
 func save(time, player_name):
 	var save_data = {

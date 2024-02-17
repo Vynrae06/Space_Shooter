@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://d3w12dj1f48rj"]
 
-[ext_resource type="Script" path="res://scenes/levels/victory_screen.gd" id="1_rys2i"]
-[ext_resource type="FontFile" uid="uid://d38wrryeob3vy" path="res://fonts/wicked_mouse.ttf" id="2_upbqc"]
+[ext_resource type="Script" path="res://scenes/levels/victory_screen_highscores.gd" id="1_s4kt4"]
+[ext_resource type="FontFile" uid="uid://d38wrryeob3vy" path="res://fonts/wicked_mouse.ttf" id="2_334ag"]
 
-[node name="VictoryScreen" type="CanvasLayer"]
+[node name="HighScoreVictoryScreen" type="CanvasLayer"]
 
 [node name="Control Node" type="Control" parent="."]
 layout_mode = 3
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rys2i")
+script = ExtResource("1_s4kt4")
 
 [node name="ColorRect" type="ColorRect" parent="Control Node"]
 layout_mode = 1
@@ -31,12 +31,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -445.0
-offset_top = -64.0
+offset_top = -145.0
 offset_right = 1.0
-offset_bottom = -11.0
+offset_bottom = -92.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_upbqc")
+theme_override_fonts/font = ExtResource("2_334ag")
 theme_override_font_sizes/font_size = 28
 text = "Temps de Victoire : "
 horizontal_alignment = 2
@@ -50,9 +50,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 20.0
-offset_top = -60.0
+offset_top = -141.0
 offset_right = 368.0
-offset_bottom = -15.0
+offset_bottom = -96.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.831373, 1, 0.823529, 1)
@@ -67,16 +67,35 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -444.0
-offset_top = 6.0
+offset_top = -75.0
 offset_right = 4.0
-offset_bottom = 59.0
+offset_bottom = -22.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_upbqc")
+theme_override_fonts/font = ExtResource("2_334ag")
 theme_override_font_sizes/font_size = 28
 text = "Entrez votre nom : "
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="Control Node"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 21.0
+offset_top = -2.0
+offset_right = 311.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.980392, 0.117647, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Score sauvegardé !"
+horizontal_alignment = 1
 
 [node name="NameTextEdit" type="LineEdit" parent="Control Node"]
 layout_mode = 1
@@ -86,9 +105,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 20.0
-offset_top = 2.5
+offset_top = -78.5
 offset_right = 376.0
-offset_bottom = 63.5
+offset_bottom = -17.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.831373, 1, 0.823529, 1)
@@ -102,12 +121,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -343.0
-offset_top = 183.0
+offset_top = 113.0
 offset_right = 343.0
-offset_bottom = 263.0
+offset_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_upbqc")
+theme_override_fonts/font = ExtResource("2_334ag")
 theme_override_font_sizes/font_size = 32
 text = "Relancer le jeu"
 
@@ -119,12 +138,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -343.0
-offset_top = 274.0
+offset_top = 204.0
 offset_right = 343.0
-offset_bottom = 354.0
+offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_upbqc")
+theme_override_fonts/font = ExtResource("2_334ag")
 theme_override_font_sizes/font_size = 32
 text = "Quitter"
 

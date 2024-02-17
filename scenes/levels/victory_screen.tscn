@@ -1,0 +1,125 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmlah3fvis340"]
+
+[ext_resource type="Script" path="res://scenes/levels/victory_screen.gd" id="1_rys2i"]
+[ext_resource type="FontFile" uid="uid://d38wrryeob3vy" path="res://fonts/wicked_mouse.ttf" id="2_upbqc"]
+
+[node name="HighScoreVictoryScreen" type="CanvasLayer"]
+
+[node name="Control Node" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rys2i")
+
+[node name="ColorRect" type="ColorRect" parent="Control Node"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4, 0.160784, 0.576471, 1)
+
+[node name="WinLabel" type="Label" parent="Control Node"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -445.0
+offset_top = -268.0
+offset_right = 1.0
+offset_bottom = -215.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_upbqc")
+theme_override_font_sizes/font_size = 28
+text = "Temps de Victoire : "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="WinTimeLabel" type="Label" parent="Control Node"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -264.0
+offset_right = 368.0
+offset_bottom = -219.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.831373, 1, 0.823529, 1)
+theme_override_font_sizes/font_size = 32
+vertical_alignment = 1
+
+[node name="ResetButton" type="Button" parent="Control Node"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -343.0
+offset_top = -164.0
+offset_right = 343.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_upbqc")
+theme_override_font_sizes/font_size = 32
+text = "Relancer le jeu"
+
+[node name="ExitButton" type="Button" parent="Control Node"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -343.0
+offset_top = -73.0
+offset_right = 343.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_upbqc")
+theme_override_font_sizes/font_size = 32
+text = "Quitter"
+
+[node name="CreditsLeftLabel" type="Label" parent="Control Node"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 620.0
+offset_right = 1017.0
+offset_bottom = 911.0
+theme_override_font_sizes/font_size = 28
+text = "Jeu fait avec Godot, par :
+
+Ghaith EL GHADDAF
+Marine CATHERIN
+
+Musique
+Bruitage"
+
+[node name="CreditsRightLabel" type="Label" parent="Control Node"]
+layout_mode = 0
+offset_left = 916.0
+offset_top = 704.0
+offset_right = 1337.0
+offset_bottom = 911.0
+theme_override_font_sizes/font_size = 28
+text = "Développement/Game Design
+Art 2D
+
+Cowboy Bebop - Tank!
+Cuphead"
+
+[connection signal="pressed" from="Control Node/ResetButton" to="Control Node" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Control Node/ExitButton" to="Control Node" method="_on_exit_button_pressed"]

@@ -1,5 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1708166633
+::res://::1708189239
+export_presets.cfg::TextFile::-1::1708188620::0::1::::<><>::
 ::res://assets/::1707247429
 ::res://assets/asteroids/::1707157976
 asteroid_1.png::CompressedTexture2D::6305519742976026328::1706897331::1707157976::1::::<><>::
@@ -62,9 +63,9 @@ ufo_boss.png::CompressedTexture2D::2884062219907012880::1707151946::1707164963::
 ufo_boss_flash_in.png::CompressedTexture2D::7391143239165762681::1707325480::1707325480::1::::<><>::
 ufo_horizontal_attack.png::CompressedTexture2D::1232324013032977526::1707157910::1707157942::1::::<><>::
 ufo_minion.png::CompressedTexture2D::7328760381643418005::1707165153::1707165155::1::::<><>::
-::res://assets/ui/::1708168098
+::res://assets/ui/::1708189206
 game_over_menu.gd::GDScript::-1::1707578211::0::1::::<>Control<>::
-game_over_menu.tscn::PackedScene::8400107906650826624::1708168098::0::1::::<><>::res://assets/ui/game_over_menu.gd<>uid://bun2joak1ialk::::res://assets/background/game_over_screen.png<>uid://d38wrryeob3vy::::res://fonts/wicked_mouse.ttf
+game_over_menu.tscn::PackedScene::8400107906650826624::1708189206::0::1::::<><>::res://assets/ui/game_over_menu.gd<>uid://bun2joak1ialk::::res://assets/background/game_over_screen.png<>uid://d38wrryeob3vy::::res://fonts/wicked_mouse.ttf
 ::res://audio/::1707578211
 ::res://audio/music/::1707578211
 Cowboy Bebop OST 1 - Tank!.mp3::AudioStreamMP3::4943908322693761396::1707578211::1707578211::1::::<><>::
@@ -116,7 +117,13 @@ poof.mp3::AudioStreamMP3::8008239675937605997::1707578211::1707578211::1::::<><>
 ufo_horizontal_attack.wav::AudioStreamWAV::4787096648088907871::1707578211::1707578211::1::::<><>::
 ufo_horizontal_attack_2.wav::AudioStreamWAV::6087322539150416498::1707578211::1707578211::1::::<><>::
 ufo_vertical_attack.wav::AudioStreamWAV::1006249645912870351::1707578211::1707578211::1::::<><>::
-::res://exports/::1707578212
+::res://exports/::1708189259
+::res://exports/exe/::1708189259
+::res://exports/web/::1708189246
+::res://exports/web/Shoot'em_All/::1708189239
+index.apple-touch-icon.png::CompressedTexture2D::2081826628075269582::1708189239::1708189272::1::::<><>::
+index.icon.png::CompressedTexture2D::3582906808000393328::1708189239::1708189272::1::::<><>::
+index.png::CompressedTexture2D::8194047356624913585::1708189239::1708189272::1::::<><>::
 ::res://fonts/::1707578212
 alegreya.ttf::FontFile::2179836297188317317::1707578212::1707578212::1::::<><>::
 wicked_mouse.ttf::FontFile::9194041201338209210::1707578212::1707578212::1::::<><>::
@@ -125,11 +132,11 @@ transition_layer.gd::GDScript::-1::1707578212::0::1::::<>CanvasLayer<>::
 transition_layer.tscn::PackedScene::2919680550277737799::1707578212::0::1::::<><>::res://globals/transition_layer.gd
 ::res://scenes/::1707578212
 global.gd::GDScript::-1::1707578212::0::1::::<>Node<>::
-::res://scenes/bosses/::1708168098
+::res://scenes/bosses/::1708189206
 boss.gd::GDScript::-1::1707578212::0::1::::Boss<>CharacterBody2D<>::
-boss.tscn::PackedScene::7495583182108045954::1708168097::0::1::::<><>::res://scenes/bosses/boss.gd<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://bxwm5t8mu8mdx::::res://scenes/components/health_component.tscn<>uid://dugn6ue3cwdsv::::res://scenes/components/hurt_box_component.tscn<>uid://dkc3l14co1pqv::::res://scenes/components/Animation/hit_flash_animation_player.tscn<>uid://8pdembg7jao7::::res://audio/sfx/boss_ufo/boss_ufo_death.wav
+boss.tscn::PackedScene::7495583182108045954::1708189206::0::1::::<><>::res://scenes/bosses/boss.gd<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://bxwm5t8mu8mdx::::res://scenes/components/health_component.tscn<>uid://dugn6ue3cwdsv::::res://scenes/components/hurt_box_component.tscn<>uid://dkc3l14co1pqv::::res://scenes/components/Animation/hit_flash_animation_player.tscn<>uid://8pdembg7jao7::::res://audio/sfx/boss_ufo/boss_ufo_death.wav
 boss_ufo.gd::GDScript::-1::1707578212::0::1::::BossUFO<>Boss<>::
-boss_ufo.tscn::PackedScene::8340953463987234098::1708168097::0::1::::<><>::res://scenes/bosses/boss_ufo.gd<>uid://de16fo3l8lx0m::::res://scenes/bosses/boss.tscn<>uid://rs7gxdja0xhe::::res://assets/ufo/ufo_horizontal_attack.png<>uid://dlwgrubuorv4r::::res://audio/sfx/boss_ufo/ufo_boss_fire_03.wav<>uid://gj2lmsvjrpc7::::res://audio/sfx/boss_ufo/ufo_boss_fire_01.wav<>uid://2grtpdddiryx::::res://scenes/components/boss_attack.tscn<>uid://yc6drrh5nx08::::res://scenes/components/oscillation_movement_component.tscn<>uid://c7r1w44m3xbqq::::res://audio/sfx/boss_ufo/ufo_boss_fire_04.wav<>uid://bqvqi7gi56jgb::::res://audio/sfx/boss_ufo/ufo_boss_fire_02.wav<>uid://bhdcc3n047d7u::::res://assets/ufo/ufo_boss.png<>uid://ddklbw8jmfyrp::::res://assets/ufo/ufo_boss_flash_in.png<>uid://dkbyqgejjqyly::::res://audio/sfx/boss_ufo/boss_ufo_intro.wav
+boss_ufo.tscn::PackedScene::8340953463987234098::1708189206::0::1::::<><>::res://scenes/bosses/boss_ufo.gd<>uid://de16fo3l8lx0m::::res://scenes/bosses/boss.tscn<>uid://rs7gxdja0xhe::::res://assets/ufo/ufo_horizontal_attack.png<>uid://dlwgrubuorv4r::::res://audio/sfx/boss_ufo/ufo_boss_fire_03.wav<>uid://gj2lmsvjrpc7::::res://audio/sfx/boss_ufo/ufo_boss_fire_01.wav<>uid://2grtpdddiryx::::res://scenes/components/boss_attack.tscn<>uid://yc6drrh5nx08::::res://scenes/components/oscillation_movement_component.tscn<>uid://c7r1w44m3xbqq::::res://audio/sfx/boss_ufo/ufo_boss_fire_04.wav<>uid://bqvqi7gi56jgb::::res://audio/sfx/boss_ufo/ufo_boss_fire_02.wav<>uid://bhdcc3n047d7u::::res://assets/ufo/ufo_boss.png<>uid://ddklbw8jmfyrp::::res://assets/ufo/ufo_boss_flash_in.png<>uid://dkbyqgejjqyly::::res://audio/sfx/boss_ufo/boss_ufo_intro.wav
 ::res://scenes/components/::1707237459
 boss_attack.gd::GDScript::-1::1707237459::0::1::::BossAttack<>Node2D<>::
 boss_attack.tscn::PackedScene::1908551956337771547::1707237459::0::1::::<><>::res://scenes/components/boss_attack.gd
@@ -143,13 +150,14 @@ oscillation_movement_component.gd::GDScript::-1::1706814232::0::1::::<>Node<>::
 oscillation_movement_component.tscn::PackedScene::1690549506495675831::1707158087::0::1::::<><>::res://scenes/components/oscillation_movement_component.gd
 ::res://scenes/components/Animation/::1706814232
 hit_flash_animation_player.tscn::PackedScene::7867000373015212577::1706814232::0::1::::<><>::
-::res://scenes/levels/::1708169177
+::res://scenes/levels/::1708189206
 game_over.tscn::PackedScene::5361294770684614642::1707578212::0::1::::<><>::uid://drxcsx0j4x62g::::res://assets/ui/game_over_menu.tscn<>uid://87xa0a50opmt::::res://audio/music/game_over.wav
-level.gd::GDScript::-1::1708166668::0::1::::Level<>Node2D<>::
-level.tscn::PackedScene::656550359907006560::1708168097::0::1::::<><>::res://scenes/levels/level.gd<>uid://dvc0nldgfwv4l::::res://scenes/parallax/parallax.tscn<>uid://oj0pcpf8wyyl::::res://scenes/player/player.tscn<>uid://co2n3y4bby78b::::res://assets/player/player_limer.png<>uid://cam40gb0wlctk::::res://assets/player/player_orangina.png<>uid://d4djecahvews7::::res://scenes/obstacles/obstacles_spawner.tscn<>uid://n3tlv7fswfx2::::res://scenes/obstacles/asteroid.tscn<>uid://cco4phu11gnya::::res://audio/music/Cowboy Bebop OST 1 - Tank!.mp3<>uid://nwnqvqtwjrxf::::res://scenes/obstacles/minion_ufo.tscn<>uid://ow2trv4u3r22::::res://assets/overlays/ready.png<>uid://dohnqoimtjidd::::res://assets/overlays/go.png<>uid://dymu10udn3r71::::res://assets/overlays/victory.png<>uid://5i8qavf32xgw::::res://audio/sfx/fight/fight_start.wav<>uid://cyq5nnj1jybra::::res://audio/sfx/fight/fight_lost.wav<>uid://pqy4b8upr1pf::::res://audio/sfx/fight/fight_won_bell.wav<>uid://bmda3tpfholrh::::res://audio/sfx/fight/fight_won_bravo.mp3
-victory_screen.tscn::PackedScene::8024250309931085139::1708169296::0::1::::<><>::res://scenes/levels/victory_screen_highscores.gd<>uid://d38wrryeob3vy::::res://fonts/wicked_mouse.ttf
-victory_screen_highscores.gd::GDScript::-1::1708169177::0::1::::<>Control<>::
-victory_screen_highscores.tscn::PackedScene::9171593014443356679::1708169177::0::1::::<><>::res://scenes/levels/victory_screen_highscores.gd<>uid://d38wrryeob3vy::::res://fonts/wicked_mouse.ttf
+level.gd::GDScript::-1::1708187789::0::1::::Level<>Node2D<>::
+level.tscn::PackedScene::656550359907006560::1708189206::0::1::::<><>::res://scenes/levels/level.gd<>uid://dvc0nldgfwv4l::::res://scenes/parallax/parallax.tscn<>uid://oj0pcpf8wyyl::::res://scenes/player/player.tscn<>uid://cam40gb0wlctk::::res://assets/player/player_orangina.png<>uid://d4djecahvews7::::res://scenes/obstacles/obstacles_spawner.tscn<>uid://n3tlv7fswfx2::::res://scenes/obstacles/asteroid.tscn<>uid://cco4phu11gnya::::res://audio/music/Cowboy Bebop OST 1 - Tank!.mp3<>uid://nwnqvqtwjrxf::::res://scenes/obstacles/minion_ufo.tscn<>uid://ow2trv4u3r22::::res://assets/overlays/ready.png<>uid://dohnqoimtjidd::::res://assets/overlays/go.png<>uid://dymu10udn3r71::::res://assets/overlays/victory.png<>uid://5i8qavf32xgw::::res://audio/sfx/fight/fight_start.wav<>uid://cyq5nnj1jybra::::res://audio/sfx/fight/fight_lost.wav<>uid://pqy4b8upr1pf::::res://audio/sfx/fight/fight_won_bell.wav<>uid://bmda3tpfholrh::::res://audio/sfx/fight/fight_won_bravo.mp3
+victory_screen.gd::GDScript::-1::1708187789::0::1::::<>Control<>::
+victory_screen.tscn::PackedScene::8024250309931085139::1708189206::0::1::::<><>::res://scenes/levels/victory_screen.gd<>uid://d38wrryeob3vy::::res://fonts/wicked_mouse.ttf
+victory_screen_highscores.gd::GDScript::-1::1708185498::0::1::::<>Control<>::
+victory_screen_highscores.tscn::PackedScene::9171593014443356679::1708169354::0::1::::<><>::res://scenes/levels/victory_screen_highscores.gd<>uid://d38wrryeob3vy::::res://fonts/wicked_mouse.ttf
 ::res://scenes/obstacles/::1707578212
 asteroid.gd::GDScript::-1::1707253351::0::1::::Asteroid<>ObstacleDestroyable<>::
 asteroid.tscn::PackedScene::971431963679808173::1707578212::0::1::::<><>::res://scenes/obstacles/asteroid.gd<>uid://cv3o8vgp4kr5y::::res://assets/asteroids/asteroid_1.png<>uid://dugtrp8ej1uvx::::res://shaders/hit_flash.tres<>uid://dkwdv7atcmdc6::::res://scenes/obstacles/obstacle_destroyable.tscn<>uid://cc2x5j5hsah37::::res://scenes/components/local_rotation_component.tscn<>uid://dwcimow6kpnwn::::res://audio/sfx/obstacles/asteroid/asteroid_destroyed_01.wav<>uid://p036ll1x140h::::res://audio/sfx/obstacles/asteroid/asteroid_destroyed_02.wav<>uid://eewdj20c8ns1::::res://audio/sfx/obstacles/asteroid/asteroid_destroyed_03.wav<>uid://6rrgj8vnnl5p::::res://audio/sfx/obstacles/asteroid/asteroid_destroyed_04.wav
@@ -164,15 +172,15 @@ obstacle_spawner.gd::GDScript::-1::1707237459::0::1::::<>Node2D<>::
 ::res://scenes/parallax/::1707253521
 parallax.gd::GDScript::-1::1707151946::0::1::::<>ParallaxBackground<>::
 parallax.tscn::PackedScene::8638898245797477049::1707253521::0::1::::<><>::res://scenes/parallax/parallax.gd<>uid://diey4b1q3xpa::::res://assets/background/background_space.png<>uid://r3nfee3tl76k::::res://assets/background/stars_1.png<>uid://b8rvigndpjllo::::res://assets/background/stars_2.png<>uid://ch3hi8fvta84q::::res://assets/background/stars_3.png<>uid://dsdkcit3w8vv4::::res://assets/background/dust_front.png<>uid://ds0n2ton0fvt8::::res://assets/background/dust_back.png
-::res://scenes/player/::1708168097
+::res://scenes/player/::1708189206
 lazer_impact_animation.gd::GDScript::-1::1707338489::0::1::::<>Node2D<>::
 lazer_impact_animation.tscn::PackedScene::5295162800687454819::1707340164::0::1::::<><>::res://scenes/player/lazer_impact_animation.gd<>uid://dhf73dxb6gwm::::res://assets/player/projectiles/lazer_impact.png
 player.gd::GDScript::-1::1707578212::0::1::::Player<>CharacterBody2D<>::
-player.tscn::PackedScene::1002768050937662395::1708168097::0::1::::<><>::res://scenes/player/player.gd<>uid://dpocqjl01i2vc::::res://assets/player/bubble.png<>uid://cly0nj1i6mtgx::::res://assets/charge_bar/under 1.png<>uid://ot3wf5gm17yw::::res://assets/charge_bar/under 2.png<>uid://dykhh5i631dmu::::res://assets/charge_bar/progress.png<>uid://cjkxey2jyxt8l::::res://assets/charge_bar/over 1.png<>uid://bs50e1ne1wfkv::::res://assets/charge_bar/over 2.png<>uid://bboekewk3vval::::res://assets/charge_bar/light_texture.png<>uid://bkwhwwqpcyrhg::::res://audio/sfx/player/shot/basic/player_shot_basic_001.wav<>uid://b22smxhmqj65h::::res://audio/sfx/player/shot/basic/player_shot_basic_002.wav<>uid://c45tckguj5ymb::::res://audio/sfx/player/shot/basic/player_shot_basic_003.wav<>uid://yhab52atufnk::::res://assets/player/projectiles/basic_shot_hud.png<>uid://b7yi6byumva3x::::res://audio/sfx/player/shot/basic/player_shot_basic_004.wav<>uid://d14tul11fpf56::::res://assets/player/projectiles/special_shot_hud.png<>uid://cqq7yflqvw3x0::::res://audio/sfx/player/shot/basic/player_shot_basic_005.wav<>uid://ku676hryub5h::::res://audio/sfx/player/shot/special/player_shot_special_001.wav<>uid://c45xvu0pxmqdd::::res://audio/sfx/player/shot/special/player_shot_special_002.wav<>uid://bitxaor4535qt::::res://audio/sfx/player/shot/special/player_shot_special_003.wav<>uid://crxnqi34m7s44::::res://audio/sfx/player/player_revived.mp3
+player.tscn::PackedScene::1002768050937662395::1708189206::0::1::::<><>::res://scenes/player/player.gd<>uid://dpocqjl01i2vc::::res://assets/player/bubble.png<>uid://cly0nj1i6mtgx::::res://assets/charge_bar/under 1.png<>uid://ot3wf5gm17yw::::res://assets/charge_bar/under 2.png<>uid://dykhh5i631dmu::::res://assets/charge_bar/progress.png<>uid://cjkxey2jyxt8l::::res://assets/charge_bar/over 1.png<>uid://bs50e1ne1wfkv::::res://assets/charge_bar/over 2.png<>uid://bboekewk3vval::::res://assets/charge_bar/light_texture.png<>uid://bkwhwwqpcyrhg::::res://audio/sfx/player/shot/basic/player_shot_basic_001.wav<>uid://b22smxhmqj65h::::res://audio/sfx/player/shot/basic/player_shot_basic_002.wav<>uid://c45tckguj5ymb::::res://audio/sfx/player/shot/basic/player_shot_basic_003.wav<>uid://yhab52atufnk::::res://assets/player/projectiles/basic_shot_hud.png<>uid://b7yi6byumva3x::::res://audio/sfx/player/shot/basic/player_shot_basic_004.wav<>uid://d14tul11fpf56::::res://assets/player/projectiles/special_shot_hud.png<>uid://cqq7yflqvw3x0::::res://audio/sfx/player/shot/basic/player_shot_basic_005.wav<>uid://ku676hryub5h::::res://audio/sfx/player/shot/special/player_shot_special_001.wav<>uid://c45xvu0pxmqdd::::res://audio/sfx/player/shot/special/player_shot_special_002.wav<>uid://bitxaor4535qt::::res://audio/sfx/player/shot/special/player_shot_special_003.wav<>uid://crxnqi34m7s44::::res://audio/sfx/player/player_revived.mp3
 player_projectile_basic.tscn::PackedScene::2756164605024422612::1707340164::0::1::::<><>::uid://cmh84x2mocib0::::res://scenes/player/projectile.tscn
 player_projectile_special.tscn::PackedScene::7560098701721465313::1707340164::0::1::::<><>::uid://cmh84x2mocib0::::res://scenes/player/projectile.tscn
 projectile.gd::GDScript::-1::1707252035::0::1::::Projectile<>Area2D<>::
 projectile.tscn::PackedScene::5631614834416338699::1707340164::0::1::::<><>::res://scenes/player/projectile.gd
 projectile_spawn_animation_player.tscn::PackedScene::8414195612814941546::1707061477::0::1::::<><>::
-::res://shaders/::1708165924
-hit_flash.tres::VisualShader::8576610010746867921::1708165924::0::1::::<><>::
+::res://shaders/::1708189206
+hit_flash.tres::VisualShader::8576610010746867921::1708189206::0::1::::<><>::

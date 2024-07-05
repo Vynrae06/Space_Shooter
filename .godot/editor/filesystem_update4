@@ -3,5 +3,5 @@ res://shaders/hit_flash.tres
 res://scenes/player/player.tscn
 res://scenes/bosses/boss.tscn
 res://scenes/bosses/boss_ufo.tscn
+res://scenes/levels/victory_screen_highscores.tscn
 res://assets/ui/game_over_menu.tscn
-res://scenes/levels/victory_screen.tscn
